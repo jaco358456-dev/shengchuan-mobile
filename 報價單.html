@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>紅螞蟻磁磚 | 網站設計報價單</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background: #F8F6F2;
+            color: #1A1A1A;
+            padding: 60px 40px;
+        }
+        .invoice {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+            padding: 60px;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #E63946;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #1A1A1A;
+        }
+        .header p {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 8px;
+        }
+        .info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .info div p { margin-bottom: 4px; }
+        .info div strong { color: #1A1A1A; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+        }
+        table th {
+            background: #1A1A1A;
+            color: #fff;
+            padding: 12px 16px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+        table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #E0E0E0;
+            font-size: 0.9rem;
+            color: #333;
+        }
+        table tr:last-child td { border-bottom: none; }
+        table td:last-child { text-align: right; font-weight: 600; font-size: 1rem; }
+        .total-section {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 40px;
+        }
+        .total-box {
+            text-align: right;
+        }
+        .total-box p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .total-box .grand-total {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #E63946;
+        }
+        .notes {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.8;
+            border-top: 1px solid #E0E0E0;
+            padding-top: 24px;
+        }
+        .notes h3 {
+            font-size: 1rem;
+            color: #1A1A1A;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .notes p { margin-bottom: 8px; }
+        .footer-sign {
+            margin-top: 60px;
+            text-align: center;
+            color: #999;
+            font-size: 0.85rem;
+        }
+        .footer-sign p { margin-bottom: 4px; }
+    
+        /* =========================================
+           手機版響應式
+           ========================================= */
+        @media (max-width: 768px) {
+            /* 導覽列 */
+            header { padding: 15px 20px !important; }
+            .hamburger { display: flex !important; }
+            .nav-links { display: none !important; }
+            
+            /* Hero / 首圖 */
+            .hero { flex-direction: column !important; padding: 100px 20px 40px !important; min-height: auto !important; }
+            .hero-text { flex: 0 0 auto !important; width: 100% !important; padding-right: 0 !important; text-align: center !important; margin-bottom: 40px !important; }
+            .hero-text h1 { font-size: 2rem !important; }
+            .hero-text p { font-size: 0.9rem !important; margin-bottom: 24px !important; }
+            .hero-media { flex: 0 0 auto !important; width: 100% !important; height: 50vh !important; }
+            .hero-poster-card { width: 200px !important; bottom: -30px !important; right: 0 !important; left: 0 !important; margin: 0 auto !important; }
+            
+            /* 影片區 */
+            .video-section { padding: 60px 20px !important; }
+            .video-container { grid-template-columns: 1fr !important; gap: 40px !important; }
+            .video-frame { aspect-ratio: 16 / 9 !important; }
+            .video-text { text-align: center !important; }
+            .video-text h2 { font-size: 1.8rem !important; }
+            .video-text p { font-size: 0.95rem !important; }
+            
+            /* AI / 大使 / 品牌區 */
+            .ai-section, .ambassador-section, .campaign-section { flex-direction: column !important; gap: 30px !important; padding: 80px 20px !important; }
+            .ai-text, .ambassador-text, .campaign-text { flex: 0 0 auto !important; width: 100% !important; padding-right: 0 !important; text-align: center !important; }
+            .ai-text h2, .ambassador-text h2, .campaign-text h2 { font-size: 2rem !important; letter-spacing: 3px !important; }
+            .ai-text .tagline, .ambassador-text .role { font-size: 0.95rem !important; }
+            .ai-text p, .ambassador-text p, .campaign-text p { font-size: 0.95rem !important; }
+            .ai-image, .ambassador-image, .campaign-image { flex: 0 0 auto !important; width: 100% !important; height: 350px !important; }
+            
+            /* 產品區 */
+            .products-grid { grid-template-columns: 1fr !important; }
+            .products-grid .product-card { margin-bottom: 20px !important; }
+            
+            /* 聯絡頁 */
+            .contact-grid { grid-template-columns: 1fr !important; }
+            .contact-card, .contact-form { padding: 30px !important; }
+            .contact-item { flex-direction: column !important; gap: 4px !important; }
+            .contact-label { width: auto !important; }
+            
+            /* 經銷商 */
+            .dealer-grid { grid-template-columns: 1fr !important; }
+            
+            /* 頁尾 */
+            footer { padding: 40px 20px !important; flex-direction: column !important; gap: 20px !important; text-align: center !important; }
+            .footer-links a { margin: 0 10px !important; }
+            .designer-footer { padding: 30px 20px !important; font-size: 0.8rem !important; }
+        }
+
+        </style>
+</head>
+<body>
+    <div class="invoice">
+        <div class="header">
+            <h1>紅螞蟻磁磚 RED ANT TILES</h1>
+            <p>網站設計報價單</p>
+        </div>
+
+        <div class="info">
+            <div>
+                <p><strong>客戶名稱：</strong>昇銓建材有限公司</p>
+                <p><strong>品牌：</strong>紅螞蟻磁磚 RED ANT TILES</p>
+                <p><strong>聯繫人：</strong>陳永洋 負責人</p>
+            </div>
+            <div>
+                <p><strong>報價日期：</strong>2026 年 6 月 23 日</p>
+                <p><strong>報價效期：</strong>30 天</p>
+                <p><strong>開發方：</strong>刷個存在感</p>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width:50%">項目說明</th>
+                    <th>費用</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>網站整體設計</strong><br>
+                        風格規劃、配色定稿、排版設計、響應式布局（手機／平板／電腦）
+                    </td>
+                    <td>$20,000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>頁面開發</strong><br>
+                        9 個主要頁面（首頁、官方影片、風格總覽、產品目錄、經銷商、AI 虛擬代言人、品牌大使、聯絡我們、電子書目錄），含導覽列互通
+                    </td>
+                    <td>$25,000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>子頁面建置</strong><br>
+                        產品子頁面 35 個（1.html～35.html），含產品圖片、相對路徑、導覽列
+                    </td>
+                    <td>$15,000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>動畫與互動效果</strong><br>
+                        頁面切換動畫、捲軸滾動動畫、hover 互動、Intersection Observer
+                    </td>
+                    <td>$10,000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>靜態資源配置</strong><br>
+                        Logo 管理、圖片優化、PDF 型錄整合、字型載入
+                    </td>
+                    <td>$5,000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>全站統一定稿</strong><br>
+                        導覽列統一、CSS 變數管理、頁尾設計者區塊、Logo 路徑修正
+                    </td>
+                    <td>$5,000</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="total-section">
+            <div class="total-box">
+                <p>總計</p>
+                <p class="grand-total">$80,000</p>
+            </div>
+        </div>
+
+        <div class="notes">
+            <h3>說明事項</h3>
+            <p>1. 本報價為一次性設計開發費用，不含年度維運費。</p>
+            <p>2. 報價有效期間 30 天，自報價日起算。</p>
+            <p>3. 付款方式：簽約付 50%（$40,000），完工交付付 50%（$40,000）。</p>
+            <p>4. 預計工期：簽約後 3～4 週完成。</p>
+            <p>5. 交付內容：完整原始碼（HTML/CSS/JS）、圖片資源、PDF 型錄。</p>
+            <p>6. 免費修改次數：3 次（含於報價內），超過每次酌收 $3,000。</p>
+        </div>
+
+        <div class="footer-sign">
+            <p>刷個存在感 ｜ TikTok: @zz489320 ｜ 電話：0968 527 968</p>
+            <p style="margin-top: 12px;">───────────</p>
+            <p>客戶簽章：____________________ 日期：____年____月____日</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>紅螞蟻磁磚 | 產品目錄</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #F8F6F2;
+            --text-main: #1A1A1A;
+            --text-sub: #666666;
+            --brand-red: #E63946;
+            --border-color: #E0E0E0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: inherit; }
+
+        /* 導覽列 */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 20px 40px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(248, 246, 242, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .nav-logo { height: 36px; width: auto; }
+        .nav-links a {
+            margin-left: 30px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 300;
+            color: var(--text-sub);
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--brand-red); }
+        .nav-links a.active { color: #C45C64; font-weight: 500; }
+        .nav-links a.pdf-link {
+            background: var(--brand-red);
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+        }
+        .nav-links a.pdf-link:hover { background: #c12d38; }
+
+        /* 品牌介紹區 */
+        .brand-intro {
+            padding: 160px 40px 100px;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .brand-intro h1 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 300;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+        }
+        .brand-intro .subtitle {
+            font-size: 1rem;
+            color: var(--brand-red);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+        .brand-intro .description {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 2;
+            color: var(--text-sub);
+            font-size: 1.05rem;
+        }
+
+        /* 品牌價值 */
+        .brand-values {
+            padding: 80px 40px;
+            background: #fff;
+        }
+        .values-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+        .value-item {
+            padding: 40px 20px;
+        }
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--brand-red);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+        }
+        .value-title {
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .value-desc {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            line-height: 1.8;
+        }
+
+        /* 產品分類 */
+        .category-section {
+            padding: 100px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .category-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .category-header h2 {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 300;
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+        }
+        .category-header .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* 分類標籤 */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+        .category-tab {
+            padding: 12px 30px;
+            border: 1px solid var(--border-color);
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            cursor: pointer;
+            transition: all 0.3s;
+            background: transparent;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        .category-tab:hover {
+            border-color: var(--brand-red);
+            color: var(--brand-red);
+        }
+        .category-tab.active {
+            background: var(--brand-red);
+            border-color: var(--brand-red);
+            color: #fff;
+        }
+
+        /* 產品網格 */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        .product-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+        }
+        .product-image {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+        }
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+        .product-card:hover .product-image img {
+            transform: scale(1.08);
+        }
+        .product-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            padding: 6px 16px;
+            background: var(--brand-red);
+            color: #fff;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+        .product-info {
+            padding: 24px;
+        }
+        .product-series {
+            font-size: 0.75rem;
+            color: var(--brand-red);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+        .product-name {
+            font-size: 1.15rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .product-code {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-bottom: 12px;
+        }
+        .product-desc {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .product-action {
+            display: inline-block;
+            padding: 10px 24px;
+            border: 1px solid var(--brand-red);
+            color: var(--brand-red);
+            border-radius: 25px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        .product-action:hover {
+            background: var(--brand-red);
+            color: #fff;
+        }
+
+        /* 頁尾 */
+        footer {
+            padding: 60px 40px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+        }
+        .footer-links a { margin-left: 30px; font-size: 0.8rem; color: var(--text-sub); }
+        .designer-footer {
+            padding: 40px;
+            background: #1A1A1A;
+            color: #999;
+            text-align: center;
+            font-size: 0.85rem;
+            line-height: 2;
+        }
+        .designer-footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .designer-footer a:hover { color: var(--brand-red); }
+
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; }
+            .nav-links a { margin-left: 15px; font-size: 0.7rem; letter-spacing: 1px; }
+            .values-container { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .product-grid { grid-template-columns: 1fr; }
+            footer { flex-direction: column; gap: 20px; text-align: center; }
+            .footer-links a { margin-left: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="../logos/logo.png" alt="紅螞蟻磁磚 Logo" class="nav-logo">
+        <nav class="nav-links">
+            <a href="../第一頁(1).html">首頁</a>
+            <a href="../官方影片/index.html">官方影片</a>
+            <a href="../全系列產品/AI圖形製作(3).html">風格總覽</a>
+            <a href="index.html" class="active">產品目錄</a>
+            <a href="../經銷商/index.html">全台經銷商</a>
+            <a href="../第一頁(1).html#ai-section">AI 虛擬代言人</a>
+            <a href="../第一頁(1).html#ambassador">品牌大使</a>
+            <a href="../聯絡我們/index.html">聯絡我們</a>
+            <a href="../電子書目錄/電子書目錄.pdf" class="pdf-link">電子書目錄</a>
+        </nav>
+    </header>
+
+    <!-- 品牌介紹 -->
+    <section class="brand-intro">
+        <h1>產品目錄</h1>
+        <div class="subtitle">PRODUCT CATALOG</div>
+        <p class="description">
+            紅螞蟻磁磚，成立超過 50 年，專營全台灣瓷磚精品銷售。我們的產品涵蓋石材系列、奢石大板、木紋系列、現代極簡及設計款系列五大類別，共計 35 款精選產品。每一片磁磚，都經過嚴格的品質把關，為您打造兼具美感與耐用性的理想空間。
+        </p>
+    </section>
+
+    <!-- 品牌價值 -->
+    <section class="brand-values">
+        <div class="values-container">
+            <div class="value-item">
+                <div class="value-icon">◆</div>
+                <div class="value-title">專業品質</div>
+                <div class="value-desc">嚴選天然原料，經高溫燒製<br>確保每一片磁磚的極致品質</div>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">★</div>
+                <div class="value-title">創新設計</div>
+                <div class="value-desc">結合國際設計趨勢<br>打造前衛的空間美學</div>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">✓</div>
+                <div class="value-title">安心耐用</div>
+                <div class="value-desc">耐磨防水，低吸水率<br>持久如新的耐用性能</div>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">♡</div>
+                <div class="value-title">貼心服務</div>
+                <div class="value-desc">專業團隊全程輔導<br>從選磚到施工一站式服務</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 產品分類 -->
+    <section class="category-section">
+        <div class="category-header">
+            <h2>全系列產品</h2>
+            <div class="subtitle">SELECT YOUR STYLE</div>
+        </div>
+
+        <!-- 分類標籤 -->
+        <div class="category-tabs">
+            <button class="category-tab active" onclick="filterProducts('all')">全系列</button>
+            <button class="category-tab" onclick="filterProducts('stone')">石材系列</button>
+            <button class="category-tab" onclick="filterProducts('luxury')">奢石大板</button>
+            <button class="category-tab" onclick="filterProducts('wood')">木紋系列</button>
+            <button class="category-tab" onclick="filterProducts('minimal')">現代極簡</button>
+            <button class="category-tab" onclick="filterProducts('design')">設計款系列</button>
+        </div>
+
+        <!-- 產品網格 -->
+        <div class="product-grid" id="productGrid">
+            <!-- 石材系列 -->
+            <div class="product-card" data-category="stone">
+                <div class="product-image">
+                    <img src="1/product0832.jpg" alt="產品 0832">
+                    <div class="product-badge">石材系列</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">STONE COLLECTION</div>
+                    <div class="product-name">丹峰</div>
+                    <div class="product-code">型號：0832</div>
+                    <div class="product-desc">呈現天然石材的沉穩紋理，為空間注入高級穩重氛圍</div>
+                    <a href="1/1.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="stone">
+                <div class="product-image">
+                    <img src="2/product0720.jpg" alt="產品 0720">
+                    <div class="product-badge">石材系列</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">STONE COLLECTION</div>
+                    <div class="product-name">凱薩石</div>
+                    <div class="product-code">型號：0720</div>
+                    <div class="product-desc">古典石材紋理，展現歐洲宮殿級的奢華氣度</div>
+                    <a href="2/2.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="stone">
+                <div class="product-image">
+                    <img src="3/product0685.jpg" alt="產品 0685">
+                    <div class="product-badge">石材系列</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">STONE COLLECTION</div>
+                    <div class="product-name">帝諾石</div>
+                    <div class="product-code">型號：0685</div>
+                    <div class="product-desc">淺色石材質感，適合現代簡約空間設計</div>
+                    <a href="3/3.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <!-- 奢石大板 -->
+            <div class="product-card" data-category="luxury">
+                <div class="product-image">
+                    <img src="4/product0788.jpg" alt="產品 0788">
+                    <div class="product-badge">奢石大板</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">LUXURY SLAB</div>
+                    <div class="product-name">冰種</div>
+                    <div class="product-code">型號：0788</div>
+                    <div class="product-desc">60x120 大尺寸設計，減少接縫，放大空間視覺</div>
+                    <a href="4/4.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="luxury">
+                <div class="product-image">
+                    <img src="5/product0833.jpg" alt="產品 0833">
+                    <div class="product-badge">奢石大板</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">LUXURY SLAB</div>
+                    <div class="product-name">法蘭克石</div>
+                    <div class="product-code">型號：0833</div>
+                    <div class="product-desc">深色系奢石紋理，打造飯店級的開闊質感</div>
+                    <a href="5/5.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <!-- 木紋系列 -->
+            <div class="product-card" data-category="wood">
+                <div class="product-image">
+                    <img src="6/product0727.jpg" alt="產品 0727">
+                    <div class="product-badge">木紋系列</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">WOOD GRAIN</div>
+                    <div class="product-name">歐式原木</div>
+                    <div class="product-code">型號：0727</div>
+                    <div class="product-desc">重現木質紋理，兼具防水與耐用性</div>
+                    <a href="6/6.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="wood">
+                <div class="product-image">
+                    <img src="7/product0847.jpg" alt="產品 0847">
+                    <div class="product-badge">木紋系列</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">WOOD GRAIN</div>
+                    <div class="product-name">當代原木</div>
+                    <div class="product-code">型號：0847</div>
+                    <div class="product-desc">現代木紋設計，適合當代居家空間</div>
+                    <a href="7/7.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <!-- 現代極簡 -->
+            <div class="product-card" data-category="minimal">
+                <div class="product-image">
+                    <img src="8/product0647.jpg" alt="產品 0647">
+                    <div class="product-badge">現代極簡</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">MODERN MINIMAL</div>
+                    <div class="product-name">濱水岩</div>
+                    <div class="product-code">型號：0647</div>
+                    <div class="product-desc">低調灰階設計，為空間帶來純粹與寧靜</div>
+                    <a href="8/8.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="minimal">
+                <div class="product-image">
+                    <img src="9/product0688.jpg" alt="產品 0688">
+                    <div class="product-badge">現代極簡</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">MODERN MINIMAL</div>
+                    <div class="product-name">灰晶石</div>
+                    <div class="product-code">型號：0688</div>
+                    <div class="product-desc">簡約灰色調，營造靜謐的生活氛圍</div>
+                    <a href="9/9.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <!-- 設計款系列 -->
+            <div class="product-card" data-category="design">
+                <div class="product-image">
+                    <img src="10/product0649.jpg" alt="產品 0649">
+                    <div class="product-badge">設計款系列</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">DESIGNER SERIES</div>
+                    <div class="product-name">巴洛克礦石</div>
+                    <div class="product-code">型號：0649</div>
+                    <div class="product-desc">結合藝術與建材，創造獨特視覺焦點</div>
+                    <a href="10/10.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="design">
+                <div class="product-image">
+                    <img src="11/product0772.jpg" alt="產品 0772">
+                    <div class="product-badge">設計款系列</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">DESIGNER SERIES</div>
+                    <div class="product-name">米蘭石</div>
+                    <div class="product-code">型號：0772</div>
+                    <div class="product-desc">義大利設計靈感，展現品味態度</div>
+                    <a href="11/11.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <!-- 更多產品... -->
+            <div class="product-card" data-category="stone">
+                <div class="product-image">
+                    <img src="12/product0676.jpg" alt="產品 0676">
+                    <div class="product-badge">石材系列</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">STONE COLLECTION</div>
+                    <div class="product-name">雲石灰</div>
+                    <div class="product-code">型號：0676</div>
+                    <div class="product-desc">自然雲石紋理，展現天然石材之美</div>
+                    <a href="12/12.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="luxury">
+                <div class="product-image">
+                    <img src="13/product0736.jpg" alt="產品 0736">
+                    <div class="product-badge">奢石大板</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">LUXURY SLAB</div>
+                    <div class="product-name">大理石白</div>
+                    <div class="product-code">型號：0736</div>
+                    <div class="product-desc">純白大理石紋，打造簡約高雅空間</div>
+                    <a href="13/13.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="wood">
+                <div class="product-image">
+                    <img src="14/product0828.jpg" alt="產品 0828">
+                    <div class="product-badge">木紋系列</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">WOOD GRAIN</div>
+                    <div class="product-name">胡桃木紋</div>
+                    <div class="product-code">型號：0828</div>
+                    <div class="product-desc">深色木紋質感，營造溫馨居家氛圍</div>
+                    <a href="14/14.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="minimal">
+                <div class="product-image">
+                    <img src="15/product0694.jpg" alt="產品 0694">
+                    <div class="product-badge">現代極簡</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">MODERN MINIMAL</div>
+                    <div class="product-name">水泥灰</div>
+                    <div class="product-code">型號：0694</div>
+                    <div class="product-desc">工業風水泥紋理，展現現代都市質感</div>
+                    <a href="15/15.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="design">
+                <div class="product-image">
+                    <img src="16/product0746.jpg" alt="產品 0746">
+                    <div class="product-badge">設計款系列</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">DESIGNER SERIES</div>
+                    <div class="product-name">水墨丹青</div>
+                    <div class="product-code">型號：0746</div>
+                    <div class="product-desc">東方水墨意境，融合傳統與現代之美</div>
+                    <a href="16/16.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="stone">
+                <div class="product-image">
+                    <img src="17/product0666.jpg" alt="產品 0666">
+                    <div class="product-badge">石材系列</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">STONE COLLECTION</div>
+                    <div class="product-name">花崗岩</div>
+                    <div class="product-code">型號：0666</div>
+                    <div class="product-desc">堅硬耐用的花崗岩紋理，適合商業空間</div>
+                    <a href="17/17.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="luxury">
+                <div class="product-image">
+                    <img src="18/product0748.jpg" alt="產品 0748">
+                    <div class="product-badge">奢石大板</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">LUXURY SLAB</div>
+                    <div class="product-name">金沙石</div>
+                    <div class="product-code">型號：0748</div>
+                    <div class="product-desc">金色石材紋理，散發奢華高貴氣質</div>
+                    <a href="18/18.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="wood">
+                <div class="product-image">
+                    <img src="19/product0831.jpg" alt="產品 0831">
+                    <div class="product-badge">木紋系列</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">WOOD GRAIN</div>
+                    <div class="product-name">柚木紋</div>
+                    <div class="product-code">型號：0831</div>
+                    <div class="product-desc">高級柚木紋理，展現自然溫潤質感</div>
+                    <a href="19/19.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="minimal">
+                <div class="product-image">
+                    <img src="20/product0512.jpg" alt="產品 0512">
+                    <div class="product-badge">現代極簡</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">MODERN MINIMAL</div>
+                    <div class="product-name">純白系列</div>
+                    <div class="product-code">型號：0512</div>
+                    <div class="product-desc">純白極簡設計，打造明亮通透空間</div>
+                    <a href="20/20.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="design">
+                <div class="product-image">
+                    <img src="21/product0754.jpg" alt="產品 0754">
+                    <div class="product-badge">設計款系列</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">DESIGNER SERIES</div>
+                    <div class="product-name">幾何美學</div>
+                    <div class="product-code">型號：0754</div>
+                    <div class="product-desc">幾何圖案設計，展現現代藝術風範</div>
+                    <a href="21/21.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="stone">
+                <div class="product-image">
+                    <img src="22/product0704.jpg" alt="產品 0704">
+                    <div class="product-badge">石材系列</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">STONE COLLECTION</div>
+                    <div class="product-name">青石板</div>
+                    <div class="product-code">型號：0704</div>
+                    <div class="product-desc">古樸青石板紋理，適合中式風格設計</div>
+                    <a href="22/22.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="luxury">
+                <div class="product-image">
+                    <img src="23/product0709.jpg" alt="產品 0709">
+                    <div class="product-badge">奢石大板</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">LUXURY SLAB</div>
+                    <div class="product-name">翡翠綠</div>
+                    <div class="product-code">型號：0709</div>
+                    <div class="product-desc">珍貴翡翠綠色調，打造奢華空間焦點</div>
+                    <a href="23/23.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="wood">
+                <div class="product-image">
+                    <img src="24/product0638.jpg" alt="產品 0638">
+                    <div class="product-badge">木紋系列</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">WOOD GRAIN</div>
+                    <div class="product-name">橡木紋</div>
+                    <div class="product-code">型號：0638</div>
+                    <div class="product-desc">自然橡木紋理，營造溫暖舒適氛圍</div>
+                    <a href="24/24.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="minimal">
+                <div class="product-image">
+                    <img src="25/product0738.jpg" alt="產品 0738">
+                    <div class="product-badge">現代極簡</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">MODERN MINIMAL</div>
+                    <div class="product-name">霧灰</div>
+                    <div class="product-code">型號：0738</div>
+                    <div class="product-desc">柔和霧面灰色，適合現代簡約風格</div>
+                    <a href="25/25.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="design">
+                <div class="product-image">
+                    <img src="26/product0641.jpg" alt="產品 0641">
+                    <div class="product-badge">設計款系列</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">DESIGNER SERIES</div>
+                    <div class="product-name">流線造型</div>
+                    <div class="product-code">型號：0641</div>
+                    <div class="product-desc">流線型設計，展現動態空間美感</div>
+                    <a href="26/26.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="stone">
+                <div class="product-image">
+                    <img src="27/product0716.jpg" alt="產品 0716">
+                    <div class="product-badge">石材系列</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">STONE COLLECTION</div>
+                    <div class="product-name">石灰石</div>
+                    <div class="product-code">型號：0716</div>
+                    <div class="product-desc">天然石灰石材質，展現質樸自然之美</div>
+                    <a href="27/27.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="luxury">
+                <div class="product-image">
+                    <img src="28/product0830.jpg" alt="產品 0830">
+                    <div class="product-badge">奢石大板</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">LUXURY SLAB</div>
+                    <div class="product-name">寶石藍</div>
+                    <div class="product-code">型號：0830</div>
+                    <div class="product-desc">寶石藍色調，打造高貴典雅空間</div>
+                    <a href="28/28.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="wood">
+                <div class="product-image">
+                    <img src="29/product0826.jpg" alt="產品 0826">
+                    <div class="product-badge">木紋系列</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">WOOD GRAIN</div>
+                    <div class="product-name">松木紋</div>
+                    <div class="product-code">型號：0826</div>
+                    <div class="product-desc">輕盈松木紋理，適合北歐風格空間</div>
+                    <a href="29/29.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="minimal">
+                <div class="product-image">
+                    <img src="30/product0841.jpg" alt="產品 0841">
+                    <div class="product-badge">現代極簡</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">MODERN MINIMAL</div>
+                    <div class="product-name">岩板灰</div>
+                    <div class="product-code">型號：0841</div>
+                    <div class="product-desc">高級岩板灰色，展現都市現代質感</div>
+                    <a href="30/30.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="design">
+                <div class="product-image">
+                    <img src="31/product0851.jpg" alt="產品 0851">
+                    <div class="product-badge">設計款系列</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">DESIGNER SERIES</div>
+                    <div class="product-name">抽象藝術</div>
+                    <div class="product-code">型號：0851</div>
+                    <div class="product-desc">抽象藝術圖案，展現獨特視覺張力</div>
+                    <a href="31/31.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="stone">
+                <div class="product-image">
+                    <img src="32/product0858.jpg" alt="產品 0858">
+                    <div class="product-badge">石材系列</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">STONE COLLECTION</div>
+                    <div class="product-name">砂岩石</div>
+                    <div class="product-code">型號：0858</div>
+                    <div class="product-desc">砂岩質感，適合自然風格空間設計</div>
+                    <a href="32/32.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="luxury">
+                <div class="product-image">
+                    <img src="33/product0855.jpg" alt="產品 0855">
+                    <div class="product-badge">奢石大板</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">LUXURY SLAB</div>
+                    <div class="product-name">珍珠白</div>
+                    <div class="product-code">型號：0855</div>
+                    <div class="product-desc">珍珠般溫潤白色，打造高雅生活空間</div>
+                    <a href="33/33.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="wood">
+                <div class="product-image">
+                    <img src="34/product0860.jpg" alt="產品 0860">
+                    <div class="product-badge">木紋系列</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">WOOD GRAIN</div>
+                    <div class="product-name">桃花心木</div>
+                    <div class="product-code">型號：0860</div>
+                    <div class="product-desc">高貴桃花心木紋，展現奢華居家品味</div>
+                    <a href="34/34.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="design">
+                <div class="product-image">
+                    <img src="35/product0871.jpg" alt="產品 0871">
+                    <div class="product-badge">設計款系列</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-series">DESIGNER SERIES</div>
+                    <div class="product-name">星空大理石</div>
+                    <div class="product-code">型號：0871</div>
+                    <div class="product-desc">星空般獨特紋理，打造夢幻浪漫空間</div>
+                    <a href="35/35.html" class="product-action">查看更多</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <img src="../logos/logo.png" alt="紅螞蟻 Logo" style="height: 30px; opacity: 0.5;">
+        <div class="footer-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
+        </div>
+    </footer>
+    <div class="designer-footer">
+        <p>本網站由 <a href="https://www.tiktok.com/@zz489320" target="_blank">刷個存在感</a> 設計製作</p>
+        <p>TikTok：@zz489320｜電話：0968 527 968</p>
+    </div>
+
+    <script>
+        function filterProducts(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const tabs = document.querySelectorAll('.category-tab');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

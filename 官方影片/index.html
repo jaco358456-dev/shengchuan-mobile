@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>紅螞蟻磁磚 | 品牌宣傳影片</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #F8F6F2;
+            --text-main: #1A1A1A;
+            --text-sub: #666666;
+            --brand-red: #E63946;
+            --border-color: #E0E0E0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: inherit; }
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 20px 40px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(248, 246, 242, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .nav-logo { height: 36px; width: auto; }
+        .nav-links a {
+            margin-left: 30px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 300;
+            color: var(--text-sub);
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--brand-red); }
+        .nav-links a.active { color: #C45C64; font-weight: 500; }
+        .video-page {
+            padding: 140px 40px 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .video-page h1 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 300;
+            letter-spacing: 5px;
+            margin-bottom: 40px;
+        }
+        .video-frame {
+            width: 100%;
+            max-width: 1200px;
+            aspect-ratio: 16 / 9;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+        .video-frame video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #000;
+        }
+        footer {
+            padding: 60px 40px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+        }
+        .footer-links a { margin-left: 30px; font-size: 0.8rem; color: var(--text-sub); }
+    
+        .designer-footer {
+            padding: 40px;
+            background: #1A1A1A;
+            color: #999;
+            text-align: center;
+            font-size: 0.85rem;
+            line-height: 2;
+        }
+        .designer-footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .designer-footer a:hover { color: var(--brand-red); }
+    
+        /* =========================================
+           手機版響應式
+           ========================================= */
+        @media (max-width: 768px) {
+            /* 導覽列 */
+            header { padding: 15px 20px !important; }
+            .hamburger { display: flex !important; }
+            .nav-links { display: none !important; }
+            
+            /* Hero / 首圖 */
+            .hero { flex-direction: column !important; padding: 100px 20px 40px !important; min-height: auto !important; }
+            .hero-text { flex: 0 0 auto !important; width: 100% !important; padding-right: 0 !important; text-align: center !important; margin-bottom: 40px !important; }
+            .hero-text h1 { font-size: 2rem !important; }
+            .hero-text p { font-size: 0.9rem !important; margin-bottom: 24px !important; }
+            .hero-media { flex: 0 0 auto !important; width: 100% !important; height: 50vh !important; }
+            .hero-poster-card { width: 200px !important; bottom: -30px !important; right: 0 !important; left: 0 !important; margin: 0 auto !important; }
+            
+            /* 影片區 */
+            .video-section { padding: 60px 20px !important; }
+            .video-container { grid-template-columns: 1fr !important; gap: 40px !important; }
+            .video-frame { aspect-ratio: 16 / 9 !important; }
+            .video-text { text-align: center !important; }
+            .video-text h2 { font-size: 1.8rem !important; }
+            .video-text p { font-size: 0.95rem !important; }
+            
+            /* AI / 大使 / 品牌區 */
+            .ai-section, .ambassador-section, .campaign-section { flex-direction: column !important; gap: 30px !important; padding: 80px 20px !important; }
+            .ai-text, .ambassador-text, .campaign-text { flex: 0 0 auto !important; width: 100% !important; padding-right: 0 !important; text-align: center !important; }
+            .ai-text h2, .ambassador-text h2, .campaign-text h2 { font-size: 2rem !important; letter-spacing: 3px !important; }
+            .ai-text .tagline, .ambassador-text .role { font-size: 0.95rem !important; }
+            .ai-text p, .ambassador-text p, .campaign-text p { font-size: 0.95rem !important; }
+            .ai-image, .ambassador-image, .campaign-image { flex: 0 0 auto !important; width: 100% !important; height: 350px !important; }
+            
+            /* 產品區 */
+            .products-grid { grid-template-columns: 1fr !important; }
+            .products-grid .product-card { margin-bottom: 20px !important; }
+            
+            /* 聯絡頁 */
+            .contact-grid { grid-template-columns: 1fr !important; }
+            .contact-card, .contact-form { padding: 30px !important; }
+            .contact-item { flex-direction: column !important; gap: 4px !important; }
+            .contact-label { width: auto !important; }
+            
+            /* 經銷商 */
+            .dealer-grid { grid-template-columns: 1fr !important; }
+            
+            /* 頁尾 */
+            footer { padding: 40px 20px !important; flex-direction: column !important; gap: 20px !important; text-align: center !important; }
+            .footer-links a { margin: 0 10px !important; }
+            .designer-footer { padding: 30px 20px !important; font-size: 0.8rem !important; }
+        }
+
+        </style>
+</head>
+<body>
+            <header>
+        <img src="../logos/logo.png" alt="紅螞蟻磁磚 Logo" class="nav-logo">
+        <nav class="nav-links">
+            <a href="../第一頁(1).html">首頁</a>
+            <a href="../官方影片/index.html" class="active">官方影片</a>
+            <a href="../全系列產品/AI圖形製作(3).html">風格總覽</a>
+            <a href="../產品目錄/index.html">產品目錄</a>
+            <a href="../經銷商/index.html">全台經銷商</a>
+            <a href="../第一頁(1).html#ai-section">AI 虛擬代言人</a>
+            <a href="../第一頁(1).html#ambassador">品牌大使</a>
+            <a href="../聯絡我們/index.html">聯絡我們</a>
+            <a href="../電子書目錄/電子書目錄.pdf" class="pdf-link">電子書目錄</a>
+        </nav>
+    </header>
+    <div class="video-page">
+        <h1>品牌宣傳影片</h1>
+        <div class="video-frame">
+            <video controls autoplay muted loop playsinline>
+                <source src="昇銓建材有限公司官方宣傳影片.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <footer>
+        <img src="../logos/logo.png" alt="紅螞蟻 Logo" style="height: 30px; opacity: 0.5;">
+        <div class="footer-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
+        </div>
+    </footer>
+
+    <!-- 網站設計 -->
+    <div class="designer-footer">
+        <p>本網站由 <a href="https://www.tiktok.com/@zz489320" target="_blank">刷個存在感</a> 設計製作</p>
+        <p>TikTok：@zz489320｜電話：0968 527 968</p>
+    </div>
+</body>
+</html>
