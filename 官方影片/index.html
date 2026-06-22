@@ -103,9 +103,9 @@
            ========================================= */
         @media (max-width: 768px) {
             /* 導覽列 */
-            header { padding: 15px 20px !important; }
-            .hamburger { display: flex !important; }
-            .nav-links { display: none !important; }
+            header { padding: 15px 20px; }
+            .hamburger { display: flex; }
+            .nav-links { display: none; }
             
             /* Hero / 首圖 */
             .hero { flex-direction: column !important; padding: 100px 20px 40px !important; min-height: auto !important; }
@@ -155,6 +155,11 @@
 <body>
             <header>
         <img src="../logos/logo.png" alt="紅螞蟻磁磚 Logo" class="nav-logo">
+                <div class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <nav class="nav-links">
             <a href="../第一頁(1).html">首頁</a>
             <a href="../官方影片/index.html" class="active">官方影片</a>
@@ -166,6 +171,30 @@
             <a href="../聯絡我們/index.html">聯絡我們</a>
             <a href="../電子書目錄/電子書目錄.pdf" class="pdf-link">電子書目錄</a>
         </nav>
+        <!-- 手機版導覽列覆蓋層 -->
+        <div class="mobile-nav-overlay" id="mobileNav">
+            <div class="mobile-nav-header">
+                <div class="mobile-nav-close">
+                    <a href="第一頁(1).html" class="mobile-nav-back" onclick="toggleMobileNav()">← 回首頁</a>
+                    <button class="mobile-nav-close-btn" onclick="toggleMobileNav()">✕</button>
+                </div>
+                <div class="mobile-nav-title">導航選單</div>
+                <div class="mobile-nav-links">
+                    <a href="第一頁(1).html" onclick="toggleMobileNav()">首頁</a>
+                    <a href="官方影片/index.html" onclick="toggleMobileNav()">官方影片</a>
+                    <a href="全系列產品/AI圖形製作(3).html" onclick="toggleMobileNav()">風格總覽</a>
+                    <a href="產品目錄/index.html" onclick="toggleMobileNav()">產品目錄</a>
+                    <a href="經銷商/index.html" onclick="toggleMobileNav()">全台經銷商</a>
+                    <a href="第一頁(1).html#ai-section" onclick="toggleMobileNav()">AI 虛擬代言人</a>
+                    <a href="第一頁(1).html#ambassador" onclick="toggleMobileNav()">品牌大使</a>
+                    <a href="聯絡我們/index.html" onclick="toggleMobileNav()">聯絡我們</a>
+                </div>
+            </div>
+            <div class="mobile-nav-footer">
+                <a href="電子書目錄/電子書目錄.pdf" class="mobile-nav-pdf-link" onclick="toggleMobileNav()">電子書目錄</a>
+            </div>
+        </div>
+
     </header>
     <div class="video-page">
         <h1>品牌宣傳影片</h1>
