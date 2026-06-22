@@ -93,53 +93,109 @@
         .nav-links a.pdf-link:hover { background: #c12d38; }
 
          /* 手機版導覽列覆蓋層 */
-          .mobile-nav-overlay {
-              position: fixed;
-              top: 0; left: 0;
-              width: 100%; height: 100%;
-              background: rgba(248, 246, 242, 0.98);
-              backdrop-filter: blur(20px);
-              z-index: 1050;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: center;
-              padding: 80px 40px;
-              transform: translateY(-100%);
-              transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          }
-          .mobile-nav-overlay.open {
-              transform: translateY(0);
-          }
-          .mobile-nav-overlay a {
-              display: block;
-              font-size: 1.4rem;
-              font-weight: 400;
-              color: var(--text-main);
-              padding: 18px 0;
-              margin: 0 20px;
-              letter-spacing: 4px;
-              transition: all 0.3s ease;
-              text-align: center;
-          }
-          .mobile-nav-overlay a:hover {
-              color: var(--brand-red);
-              transform: translateX(5px);
-          }
-          .mobile-nav-overlay .pdf-link {
-              display: inline-block;
-              margin-top: 30px;
-              background: var(--brand-red);
-              color: #fff;
-              padding: 16px 48px;
-              border-radius: 30px;
-              font-size: 1rem;
-              letter-spacing: 3px;
-          }
-          .mobile-nav-overlay .pdf-link:hover {
-              background: #c12d38;
-              transform: translateX(0) !important;
-          }
+           .mobile-nav-overlay {
+               position: fixed;
+               top: 0; left: 0;
+               width: 100%; height: 100%;
+               background: rgba(248, 246, 242, 0.95);
+               backdrop-filter: blur(30px);
+               z-index: 1050;
+               display: flex;
+               flex-direction: column;
+               transform: translateY(-100%);
+               transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+           }
+           .mobile-nav-overlay.open {
+               transform: translateY(0);
+           }
+           .mobile-nav-header {
+               padding: 80px 30px 30px;
+               width: 100%;
+           }
+           .mobile-nav-close {
+               display: flex;
+               align-items: center;
+               justify-content: space-between;
+               margin-bottom: 40px;
+           }
+           .mobile-nav-back {
+               font-size: 1rem;
+               color: var(--text-main);
+               text-decoration: none;
+               padding: 12px 24px;
+               border: 1px solid var(--text-main);
+               border-radius: 30px;
+               font-weight: 500;
+               letter-spacing: 2px;
+               transition: all 0.3s ease;
+           }
+           .mobile-nav-back:hover {
+               background: var(--text-main);
+               color: #fff;
+           }
+           .mobile-nav-close-btn {
+               font-size: 1.5rem;
+               color: var(--text-main);
+               cursor: pointer;
+               padding: 10px;
+               border: none;
+               background: none;
+               transition: color 0.3s;
+           }
+           .mobile-nav-close-btn:hover {
+               color: var(--brand-red);
+           }
+           .mobile-nav-title {
+               font-size: 0.75rem;
+               letter-spacing: 4px;
+               color: var(--text-sub);
+               margin-bottom: 20px;
+               text-transform: uppercase;
+           }
+           .mobile-nav-links {
+               display: flex;
+               flex-direction: column;
+               gap: 0;
+               width: 100%;
+           }
+           .mobile-nav-links a {
+               display: block;
+               font-size: 1.5rem;
+               font-weight: 400;
+               color: var(--text-main);
+               padding: 22px 30px;
+               letter-spacing: 3px;
+               transition: all 0.3s ease;
+               border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+           }
+           .mobile-nav-links a:hover {
+               color: var(--brand-red);
+               padding-left: 40px;
+               background: rgba(230, 57, 70, 0.03);
+           }
+           .mobile-nav-links a:last-child {
+               border-bottom: none;
+           }
+           .mobile-nav-footer {
+               margin-top: auto;
+               padding: 30px;
+           }
+           .mobile-nav-pdf-link {
+               display: block;
+               text-align: center;
+               background: var(--brand-red);
+               color: #fff;
+               padding: 18px 40px;
+               border-radius: 30px;
+               font-size: 1.1rem;
+               font-weight: 500;
+               letter-spacing: 3px;
+               transition: background 0.3s ease;
+           }
+           .mobile-nav-pdf-link:hover {
+               background: #c12d38;
+               transform: translateY(-2px);
+           }
 
         /* =========================================
            Hero 區
@@ -580,17 +636,28 @@
         </header>
 
         <!-- 手機版導覽列覆蓋層 -->
-        <div class="mobile-nav-overlay" id="mobileNav">
-            <a href="第一頁(1).html">首頁</a>
-            <a href="官方影片/index.html">官方影片</a>
-            <a href="全系列產品/AI圖形製作(3).html">風格總覽</a>
-            <a href="產品目錄/index.html">產品目錄</a>
-            <a href="經銷商/index.html">全台經銷商</a>
-            <a href="第一頁(1).html#ai-section">AI 虛擬代言人</a>
-            <a href="第一頁(1).html#ambassador">品牌大使</a>
-            <a href="聯絡我們/index.html">聯絡我們</a>
-            <a href="電子書目錄/電子書目錄.pdf" class="pdf-link">電子書目錄</a>
-        </div>
+          <div class="mobile-nav-overlay" id="mobileNav">
+              <div class="mobile-nav-header">
+                  <div class="mobile-nav-close">
+                      <a href="第一頁(1).html" class="mobile-nav-back" onclick="toggleMobileNav()">← 回首頁</a>
+                      <button class="mobile-nav-close-btn" onclick="toggleMobileNav()">✕</button>
+                  </div>
+                  <div class="mobile-nav-title">導航選單</div>
+                  <div class="mobile-nav-links">
+                      <a href="第一頁(1).html" onclick="toggleMobileNav()">首頁</a>
+                      <a href="官方影片/index.html" onclick="toggleMobileNav()">官方影片</a>
+                      <a href="全系列產品/AI圖形製作(3).html" onclick="toggleMobileNav()">風格總覽</a>
+                      <a href="產品目錄/index.html" onclick="toggleMobileNav()">產品目錄</a>
+                      <a href="經銷商/index.html" onclick="toggleMobileNav()">全台經銷商</a>
+                      <a href="第一頁(1).html#ai-section" onclick="toggleMobileNav()">AI 虛擬代言人</a>
+                      <a href="第一頁(1).html#ambassador" onclick="toggleMobileNav()">品牌大使</a>
+                      <a href="聯絡我們/index.html" onclick="toggleMobileNav()">聯絡我們</a>
+                  </div>
+              </div>
+              <div class="mobile-nav-footer">
+                  <a href="電子書目錄/電子書目錄.pdf" class="mobile-nav-pdf-link" onclick="toggleMobileNav()">電子書目錄</a>
+              </div>
+          </div>
 
         <!-- 手機版導覽列 JavaScript -->
         <script>
