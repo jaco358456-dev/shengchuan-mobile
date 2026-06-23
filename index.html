@@ -6,7 +6,7 @@
     <title>紅螞蟻磁磚 | 品味選擇 · 質感代表</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -15,25 +15,74 @@
             --text-sub: #666666;
             --brand-red: #E63946;
             --border-color: #E0E0E0;
+            --card-bg: #FFFFFF;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
+            --radius: 12px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        img, video {
-            max-width: 100%;
+        
+        /* 全域圖片：100% 寬度自然撐開，手機可捲動 */
+        img {
+            width: 100%;
             height: auto;
             display: block;
         }
+        .img-box {
+            width: 100%;
+        }
+        .img-box img {
+            width: 100%;
+            height: auto;
+        }
+
         body {
             font-family: 'Noto Sans TC', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
             overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
         }
         a { text-decoration: none; color: inherit; }
 
+        /* =========================================
+           導覽列
+           ========================================= */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 15px 20px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(248, 246, 242, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .nav-logo { height: 32px; width: auto; }
+        .nav-links { display: flex; align-items: center; }
+        .nav-links a {
+            margin-left: 16px;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 300;
+            color: var(--text-sub);
+            white-space: nowrap;
+        }
+        .nav-links a.pdf-link {
+            background: var(--brand-red);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.65rem;
+        }
+
         /* 漢堡選單按鈕 */
         .hamburger {
-            display: none;
+            display: flex;
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
@@ -44,154 +93,71 @@
             width: 25px;
             height: 2px;
             background: var(--text-main);
-            transition: all 0.3s;
             border-radius: 2px;
         }
         .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
         .hamburger.active span:nth-child(2) { opacity: 0; }
         .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-        /* 導覽列 */
-        header {
-            position: fixed;
-            top: 0; left: 0; width: 100%;
-            padding: 20px 40px;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(248, 246, 242, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-        .nav-logo { height: 36px; width: auto; }
-        .nav-links {
-            display: flex;
-            align-items: center;
-        }
-        .nav-links a {
-            margin-left: 30px;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 300;
-            color: var(--text-sub);
-            transition: color 0.3s;
-        }
-        .nav-links a:hover { color: var(--brand-red); }
-        .nav-links a.active { color: #C45C64; font-weight: 500; }
-        .nav-links a.pdf-link {
-            background: var(--brand-red);
-            color: #fff;
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-        }
-        .nav-links a.pdf-link:hover { background: #c12d38; }
-
-        /* 手機版導覽列覆蓋層 */
+        /* 手機導覽列覆蓋層 */
         .mobile-nav-overlay {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(248, 246, 242, 0.95);
-            backdrop-filter: blur(30px);
+            background: rgba(248, 246, 242, 0.98);
             z-index: 1050;
             display: flex;
             flex-direction: column;
             transform: translateY(-100%);
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .mobile-nav-overlay.open {
-            transform: translateY(0);
-        }
+        .mobile-nav-overlay.open { transform: translateY(0); }
         .mobile-nav-header {
-            padding: 80px 30px 30px;
-            width: 100%;
+            padding: 60px 20px 20px;
+            flex: 1;
         }
         .mobile-nav-close {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
         .mobile-nav-back {
-            font-size: 1rem;
-            color: var(--text-main);
-            text-decoration: none;
-            padding: 12px 24px;
+            padding: 10px 20px;
             border: 1px solid var(--text-main);
-            border-radius: 30px;
-            font-weight: 500;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-        }
-        .mobile-nav-back:hover {
-            background: var(--text-main);
-            color: #fff;
+            border-radius: 25px;
+            font-size: 0.85rem;
         }
         .mobile-nav-close-btn {
             font-size: 1.5rem;
-            color: var(--text-main);
             cursor: pointer;
             padding: 10px;
             border: none;
             background: none;
-            transition: color 0.3s;
-        }
-        .mobile-nav-close-btn:hover {
-            color: var(--brand-red);
         }
         .mobile-nav-title {
-            font-size: 0.75rem;
-            letter-spacing: 4px;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
             color: var(--text-sub);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-transform: uppercase;
         }
-        .mobile-nav-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            width: 100%;
-        }
+        .mobile-nav-links { display: flex; flex-direction: column; }
         .mobile-nav-links a {
             display: block;
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: var(--text-main);
-            padding: 22px 30px;
-            letter-spacing: 3px;
-            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            padding: 16px 0;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
-        .mobile-nav-links a:hover {
-            color: var(--brand-red);
-            padding-left: 40px;
-            background: rgba(230, 57, 70, 0.03);
-        }
-        .mobile-nav-links a:last-child {
-            border-bottom: none;
-        }
-        .mobile-nav-footer {
-            margin-top: auto;
-            padding: 30px;
-        }
+        .mobile-nav-footer { padding: 20px; }
         .mobile-nav-pdf-link {
             display: block;
             text-align: center;
             background: var(--brand-red);
             color: #fff;
-            padding: 18px 40px;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: 500;
-            letter-spacing: 3px;
-            transition: background 0.3s ease;
-        }
-        .mobile-nav-pdf-link:hover {
-            background: #c12d38;
-            transform: translateY(-2px);
+            padding: 14px;
+            border-radius: 25px;
+            font-size: 0.9rem;
         }
 
         /* =========================================
@@ -199,584 +165,460 @@
            ========================================= */
         .hero {
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 120px 40px 60px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .hero-text {
-            flex: 0 0 35%;
-            padding-right: 60px;
-        }
-
-        .hero-text h1 {
-            font-size: clamp(2.5rem, 3.5vw, 4rem);
-            font-weight: 300;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            letter-spacing: 3px;
-        }
-
-        .hero-text p {
-            color: var(--text-sub);
-            font-size: 1rem;
-            margin-bottom: 40px;
-            line-height: 1.8;
-        }
-
-        .hero-cta {
-            display: inline-block;
-            padding: 14px 36px;
-            background: var(--text-main);
-            color: #fff;
-            border-radius: 30px;
-            font-weight: 400;
-            font-size: 0.95rem;
-            letter-spacing: 2px;
-            transition: background 0.3s;
-        }
-        .hero-cta:hover { background: var(--brand-red); }
-
-        .hero-media {
-            flex: 0 0 65%;
             position: relative;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            height: 75vh;
+            padding-bottom: 40px;
         }
-
-        .hero-lifestyle {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-        }
-
-        .hero-poster-card {
+         .hero-img-box {
             position: absolute;
-            bottom: -60px;
-            right: 40px;
-            width: 340px;
-            z-index: 2;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-            animation: float 4s ease-in-out infinite;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
         }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-
-        /* =========================================
-           影片區
-           ========================================= */
-        .video-section {
-            padding: 120px 40px;
-            background: #fff;
-        }
-        .video-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        .video-frame {
-            width: 100%;
-            aspect-ratio: 4 / 3;
-            background: #000;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
-        }
-        .video-frame video {
+        .hero-img-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        .video-text h2 {
-            font-size: 2.5rem;
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.1) 100%);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+        .hero-tag {
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 8px;
+        }
+        .hero h1 {
+            font-size: 1.8rem;
             font-weight: 300;
+            color: #fff;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .hero p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.85rem;
             margin-bottom: 20px;
-            letter-spacing: 3px;
+            line-height: 1.6;
         }
-        .video-text p {
-            color: var(--text-sub);
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        /* =========================================
-           AI 虛擬代言人詳細區
-           ========================================= */
-        .ai-section {
-            padding: 150px 40px;
-            display: flex;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .ai-text {
-            flex: 0 0 40%;
-            padding-right: 80px;
-        }
-
-        .ai-text h2 {
-            font-size: 3rem;
-            font-weight: 300;
-            margin-bottom: 15px;
-            letter-spacing: 5px;
-        }
-
-        .ai-text .tagline {
-            font-size: 1.1rem;
-            color: var(--brand-red);
-            font-weight: 700;
-            letter-spacing: 3px;
-            margin-bottom: 30px;
-        }
-
-        .ai-text p {
-            color: var(--text-sub);
-            line-height: 1.8;
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-        }
-
-        .ai-image {
-            flex: 0 0 60%;
-            width: 100%;
-            height: 600px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-        }
-
-        .ai-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s;
-        }
-        .ai-image:hover img { transform: scale(1.03); }
-
-        /* =========================================
-           品牌大使柯有倫區
-           ========================================= */
-        .ambassador-section {
-            padding: 150px 40px;
-            background: #fff;
-        }
-
-        .ambassador-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .ambassador-text {
-            order: 2;
-        }
-
-        .ambassador-text h2 {
-            font-size: 3rem;
-            font-weight: 300;
-            margin-bottom: 10px;
-            letter-spacing: 3px;
-        }
-
-        .ambassador-text .role {
-            font-size: 0.9rem;
-            color: var(--brand-red);
-            letter-spacing: 3px;
-            margin-bottom: 30px;
-            font-weight: 700;
-        }
-
-        .ambassador-text p {
-            color: var(--text-sub);
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .ambassador-sign {
-            font-family: 'Noto Serif TC', serif;
-            font-size: 2rem;
-            color: var(--text-main);
-            opacity: 0.7;
-            margin-top: 30px;
-        }
-
-        .ambassador-image {
-            order: 1;
-            width: 100%;
-            height: 650px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-        }
-
-        .ambassador-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* =========================================
-           Lunara x 柯有倫 品牌結合區
-           ========================================= */
-        .campaign-section {
-            padding: 120px 40px;
-            background: #fff;
-        }
-        .campaign-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-        .campaign-tags span {
-            font-size: 1.1rem;
-            font-weight: 300;
-            color: var(--brand-red);
-            letter-spacing: 2px;
-        }
-        .campaign-text h2 {
-            font-size: 3rem;
-            font-weight: 300;
-            margin-bottom: 20px;
-            letter-spacing: 3px;
-        }
-        .campaign-divider {
-            width: 40px;
-            height: 2px;
-            background: var(--brand-red);
-            margin-bottom: 30px;
-        }
-        .campaign-text p {
-            color: var(--text-sub);
-            line-height: 1.8;
-            margin-bottom: 15px;
-            font-size: 1rem;
-        }
-        .campaign-image {
-            width: 100%;
-            height: 700px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-        }
-        .campaign-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* =========================================
-           電子書目錄
-           ========================================= */
-        .ebook-section {
-            padding: 120px 40px;
-            background: var(--bg-color);
-        }
-        .ebook-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .ebook-container h2 {
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 15px;
-            letter-spacing: 4px;
-        }
-        .ebook-container .subtitle {
-            font-size: 0.95rem;
-            color: var(--text-sub);
-            letter-spacing: 3px;
-            margin-bottom: 40px;
-        }
-        .ebook-cover {
-            max-width: 300px;
-            margin: 0 auto 40px;
-            border-radius: 12px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
-        }
-        .ebook-download {
+        .hero-cta {
             display: inline-block;
-            padding: 14px 36px;
+            padding: 12px 28px;
             background: var(--brand-red);
             color: #fff;
-            border-radius: 30px;
-            font-weight: 400;
-            font-size: 0.95rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
             letter-spacing: 2px;
-            transition: background 0.3s;
         }
-        .ebook-download:hover { background: #c12d38; }
+
+        /* =========================================
+           快速導覽卡片
+           ========================================= */
+        .section-box {
+            padding: 30px 20px;
+        }
+        .section-title {
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+        .section-subtitle {
+            font-size: 0.65rem;
+            color: var(--text-sub);
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .nav-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 18px 14px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+        .nav-card-icon { font-size: 1.8rem; margin-bottom: 8px; }
+        .nav-card h3 {
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        .nav-card p {
+            font-size: 0.7rem;
+            color: var(--text-sub);
+        }
+
+        /* =========================================
+           官方影片
+           ========================================= */
+        .video-box {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        .video-box video {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .btn-outline {
+            display: block;
+            text-align: center;
+            margin-top: 16px;
+            padding: 12px 24px;
+            border: 1px solid var(--text-main);
+            border-radius: 25px;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* =========================================
+           AI 虛擬代言人
+           ========================================= */
+        .ai-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+           .ai-card .img-box { width: 100%; }
+        .ai-card-body { padding: 20px; }
+        .ai-tag {
+            font-size: 0.65rem;
+            color: var(--brand-red);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .ai-card h2 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+        .ai-card p {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        /* =========================================
+           品牌大使
+           ========================================= */
+        .amb-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+            .amb-card .img-box { width: 100%; }
+        .amb-card-body { padding: 20px; }
+        .amb-role {
+            font-size: 0.6rem;
+            color: var(--brand-red);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .amb-card h2 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+        .amb-card p {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        .amb-sign {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.2rem;
+            opacity: 0.6;
+            margin-top: 16px;
+        }
+
+        /* =========================================
+           品牌結合
+           ========================================= */
+        .camp-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+            .camp-card .img-box { width: 100%; }
+        .camp-card-body { padding: 20px; }
+        .camp-tags {
+            font-size: 0.8rem;
+            color: var(--brand-red);
+            margin-bottom: 8px;
+        }
+        .camp-card h2 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+        .camp-line {
+            width: 24px; height: 2px;
+            background: var(--brand-red);
+            margin-bottom: 12px;
+        }
+        .camp-card p {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        /* =========================================
+           電子書
+           ========================================= */
+        .ebook-box {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 24px 20px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+        .ebook-box p {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .ebook-btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--brand-red);
+            color: #fff;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+        }
 
         /* =========================================
            頁尾
            ========================================= */
-        footer {
-              padding: 60px 40px;
-              border-top: 1px solid var(--border-color);
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              background: #fff;
-          }
-          .footer-links a { margin-left: 30px; font-size: 0.8rem; color: var(--text-sub); }
+         .footer-bar {
+            padding: 30px 20px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--card-bg);
+        }
+        .footer-bar img {
+            height: 24px;
+            width: auto;
+            opacity: 0.4;
+        }
+         .footer-icons { display: flex; gap: 12px; align-items: center; }
+        .footer-icons img { height: 24px; width: auto; opacity: 0.6; }
 
-          .designer-footer {
-              padding: 40px;
-              background: #1A1A1A;
-              color: #999;
-              text-align: center;
-              font-size: 0.85rem;
-              line-height: 2;
-          }
-          .designer-footer a {
-              color: #fff;
-              text-decoration: none;
-          }
-          .designer-footer a:hover { color: var(--brand-red); }
-
-        @media (max-width: 768px) {
-              /* 導覽列 */
-              header { padding: 15px 20px; }
-              .hamburger { display: flex; }
-              .nav-links { display: none; }
-            
-              /* Hero */
-              .hero { flex-direction: column; padding: 100px 20px 40px; min-height: auto; }
-              .hero-text { flex: 0 0 auto; width: 100%; padding-right: 0; text-align: center; margin-bottom: 40px; }
-              .hero-text h1 { font-size: 2rem; }
-              .hero-text p { font-size: 0.9rem; margin-bottom: 24px; }
-              .hero-media { flex: 0 0 auto; width: 100%; height: 50vh; }
-              .hero-poster-card { width: 200px; bottom: -30px; right: 0; left: 0; margin: 0 auto; }
-            
-              /* 影片區 */
-              .video-section { padding: 60px 20px; }
-              .video-container { grid-template-columns: 1fr; gap: 40px; }
-              .video-frame { aspect-ratio: 16 / 9; }
-              .video-text { text-align: center; }
-              .video-text h2 { font-size: 1.8rem; }
-              .video-text p { font-size: 0.95rem; }
-            
-              /* AI 區 */
-              .ai-section { flex-direction: column; gap: 30px; padding: 80px 20px; }
-              .ai-text { flex: 0 0 auto; width: 100%; padding-right: 0; text-align: center; }
-              .ai-text h2 { font-size: 2rem; letter-spacing: 3px; }
-              .ai-text .tagline { font-size: 0.95rem; }
-              .ai-text p { font-size: 0.95rem; }
-              .ai-image { flex: 0 0 auto; width: 100%; height: 300px; }
-            
-              /* 品牌大使 */
-              .ambassador-section { padding: 80px 20px; }
-              .ambassador-container { grid-template-columns: 1fr; gap: 40px; }
-              .ambassador-text { order: 1; text-align: center; }
-              .ambassador-text h2 { font-size: 2rem; }
-              .ambassador-text .role { font-size: 0.85rem; }
-              .ambassador-image { order: 2; height: 350px; }
-            
-              /* 品牌結合區 */
-              .campaign-section { padding: 60px 20px; }
-              .campaign-container { grid-template-columns: 1fr; gap: 40px; }
-              .campaign-text { text-align: center; }
-              .campaign-tags { text-align: center; }
-              .campaign-text h2 { font-size: 2rem; }
-              .campaign-image { height: 350px; }
-            
-              /* 電子書 */
-              .ebook-section { padding: 60px 20px; }
-              .ebook-container h2 { font-size: 1.8rem; }
-            
-              /* 頁尾 */
-              footer { padding: 40px 20px; flex-direction: column; gap: 20px; text-align: center; }
-              .footer-links a { margin: 0 10px; }
-              .designer-footer { padding: 30px 20px; font-size: 0.8rem; }
-          }
+        .designer-box {
+            padding: 24px 20px;
+            background: #1A1A1A;
+            color: #999;
+            text-align: center;
+            font-size: 0.75rem;
+            line-height: 1.8;
+        }
+        .designer-box a { color: #fff; }
+        .designer-box a:hover { color: var(--brand-red); }
     </style>
 </head>
 <body>
 
     <!-- 導覽列 -->
-            <header>
+    <header>
         <img src="logos/logo.png" alt="紅螞蟻磁磚 Logo" class="nav-logo">
-         <div class="hamburger" id="hamburger" onclick="toggleMobileNav()">
-             <span></span>
-             <span></span>
-             <span></span>
-         </div>
-         <nav class="nav-links">
-            <a href="第一頁(1).html">首頁</a>
-            <a href="官方影片/index.html">官方影片</a>
-            <a href="全系列產品/AI圖形製作(3).html">風格總覽</a>
-            <a href="產品目錄/index.html">產品目錄</a>
-            <a href="經銷商/index.html">全台經銷商</a>
-            <a href="第一頁(1).html#ai-section">AI 虛擬代言人</a>
-            <a href="第一頁(1).html#ambassador">品牌大使</a>
-            <a href="聯絡我們/index.html">聯絡我們</a>
-            <a href="電子書目錄/電子書目錄.pdf" class="pdf-link">電子書目錄</a>
+        <div class="hamburger" id="hamburger" onclick="toggleNav()">
+            <span></span><span></span><span></span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">首頁</a>
+            <a href="官方影片/index.html">影片</a>
+            <a href="產品目錄/index.html">產品</a>
+            <a href="經銷商/index.html">經銷商</a>
+            <a href="電子書目錄/電子書目錄.pdf" class="pdf-link">型錄</a>
         </nav>
-        </header>
+    </header>
 
-        <!-- 手機版導覽列覆蓋層 -->
-          <div class="mobile-nav-overlay" id="mobileNav">
-              <div class="mobile-nav-header">
-                  <div class="mobile-nav-close">
-                      <a href="第一頁(1).html" class="mobile-nav-back" onclick="toggleMobileNav()">← 回首頁</a>
-                      <button class="mobile-nav-close-btn" onclick="toggleMobileNav()">✕</button>
-                  </div>
-                  <div class="mobile-nav-title">導航選單</div>
-                  <div class="mobile-nav-links">
-                      <a href="第一頁(1).html" onclick="toggleMobileNav()">首頁</a>
-                      <a href="官方影片/index.html" onclick="toggleMobileNav()">官方影片</a>
-                      <a href="全系列產品/AI圖形製作(3).html" onclick="toggleMobileNav()">風格總覽</a>
-                      <a href="產品目錄/index.html" onclick="toggleMobileNav()">產品目錄</a>
-                      <a href="經銷商/index.html" onclick="toggleMobileNav()">全台經銷商</a>
-                      <a href="第一頁(1).html#ai-section" onclick="toggleMobileNav()">AI 虛擬代言人</a>
-                      <a href="第一頁(1).html#ambassador" onclick="toggleMobileNav()">品牌大使</a>
-                      <a href="聯絡我們/index.html" onclick="toggleMobileNav()">聯絡我們</a>
-                  </div>
-              </div>
-              <div class="mobile-nav-footer">
-                  <a href="電子書目錄/電子書目錄.pdf" class="mobile-nav-pdf-link" onclick="toggleMobileNav()">電子書目錄</a>
-              </div>
-          </div>
-
-        <!-- 手機版導覽列 JavaScript -->
-        <script>
-            function toggleMobileNav() {
-                var overlay = document.getElementById('mobileNav');
-                var hamburger = document.getElementById('hamburger');
-                overlay.classList.toggle('open');
-                hamburger.classList.toggle('active');
-            }
-        </script>
-
-        <!-- 1. Hero 區 -->
-    <section id="hero" class="hero">
-        <div class="hero-text">
-            <h1>品味選擇 • 質感代表</h1>
-            <p>紅螞蟻磁磚 2026 品牌重塑計畫<br>昇銓建材有限公司</p>
-            <a href="全系列產品/AI圖形製作(3).html" class="hero-cta">全系列產品</a>
-        </div>
-        <div class="hero-media">
-            <img src="圖片區/刷個存在感製作素材區/b7a4c7fd-8d18-4194-9b65-b88073b6e67d.png" alt="Lunara 品牌場景" class="hero-lifestyle">
-            <img src="圖片區/刷個存在感製作素材區/346c2cb5-7586-45ce-9283-5bebd6f994ae.png" alt="AI 海報" class="hero-poster-card">
-        </div>
-    </section>
-
-      <!-- 2. 官方影片區 -->
-    <section class="video-section">
-        <div class="video-container">
-            <div class="video-frame">
-                <video autoplay muted loop playsinline>
-                    <source src="官方影片/昇銓建材有限公司官方宣傳影片.mp4" type="video/mp4">
-                </video>
+    <!-- 導覽列覆蓋 -->
+    <div class="mobile-nav-overlay" id="navOverlay">
+        <div class="mobile-nav-header">
+            <div class="mobile-nav-close">
+                <a href="index.html" class="mobile-nav-back" onclick="toggleNav()">← 回首頁</a>
+                <button class="mobile-nav-close-btn" onclick="toggleNav()">✕</button>
             </div>
-            <div class="video-text">
-                <h2>品牌宣傳影片</h2>
-                <p>紅螞蟻磁磚，以科技定義未來空間美學。從石材的沉穩到木紋的溫潤，打造兼具美感與耐用性的空間體驗。</p>
-                <a href="官方影片/index.html" class="hero-cta" style="margin-top: 20px;">觀看完整影片</a>
+            <div class="mobile-nav-title">導航選單</div>
+            <div class="mobile-nav-links">
+                <a href="index.html" onclick="toggleNav()">首頁</a>
+                <a href="官方影片/index.html" onclick="toggleNav()">官方影片</a>
+                <a href="產品目錄/index.html" onclick="toggleNav()">產品目錄</a>
+                <a href="經銷商/index.html" onclick="toggleNav()">全台經銷商</a>
+                <a href="聯絡我們/index.html" onclick="toggleNav()">聯絡我們</a>
             </div>
         </div>
+        <div class="mobile-nav-footer">
+            <a href="電子書目錄/電子書目錄.pdf" class="mobile-nav-pdf-link" onclick="toggleNav()">下載型錄</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleNav() {
+            document.getElementById('navOverlay').classList.toggle('open');
+            document.getElementById('hamburger').classList.toggle('active');
+        }
+    </script>
+
+    <!-- 1. Hero -->
+    <section class="hero">
+        <div class="hero-img-box">
+            <img src="圖片區/刷個存在感製作素材區/b7a4c7fd-8d18-4194-9b65-b88073b6e67d.png" alt="">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-tag">LUNARA · RED ANT TILES</div>
+            <h1>品味選擇 · 質感代表</h1>
+            <p>紅螞蟻磁磚 2026<br>昇銓建材有限公司</p>
+            <a href="產品目錄/index.html" class="hero-cta">探索全系列產品</a>
+        </div>
     </section>
 
-    <!-- 3. AI 虛擬代言人詳細區 -->
-    <section id="ai-section" class="ai-section">
-        <div class="ai-text">
-            <h2>我是 Lunara</h2>
-            <div class="tagline">DEFINE YOUR ESSENCE</div>
-            <p>紅螞蟻磁磚 AI 質感代言人，以科技詮釋美學，讓每一片磁磚，成為空間中最動人的存在。</p>
-            <p>透過先進的 AI 虛擬代言人系統，讓選磚過程變得更直觀、更智慧。這不僅是科技的應用，更是紅螞蟻對創新的堅持。</p>
-            <p>每一個細節，都經過精心設計，為你打造專屬的質感空間。</p>
-        </div>
-        <div class="ai-image">
-            <img src="圖片區/刷個存在感製作素材區/虛擬代言人.png" alt="AI 虛擬代言人 Lunara">
+    <!-- 2. 快速導覽 -->
+    <section class="section-box">
+        <div class="section-title">快速導覽</div>
+        <div class="section-subtitle">QUICK NAV</div>
+        <div class="nav-grid">
+            <a href="全系列產品/AI圖形製作(3).html" class="nav-card">
+                <div class="nav-card-icon">🏠</div>
+                <h3>風格總覽</h3>
+                <p>AI 虛擬場景</p>
+            </a>
+            <a href="產品目錄/index.html" class="nav-card">
+                <div class="nav-card-icon">🧱</div>
+                <h3>產品目錄</h3>
+                <p>全系列款式</p>
+            </a>
+            <a href="官方影片/index.html" class="nav-card">
+                <div class="nav-card-icon">🎬</div>
+                <h3>官方影片</h3>
+                <p>品牌宣傳</p>
+            </a>
+            <a href="經銷商/index.html" class="nav-card">
+                <div class="nav-card-icon">📍</div>
+                <h3>經銷商</h3>
+                <p>全台門市</p>
+            </a>
         </div>
     </section>
 
-    <!-- 3. 品牌大使柯有倫區 -->
-    <section id="ambassador" class="ambassador-section">
-        <div class="ambassador-container">
-            <div class="ambassador-text">
-                <div class="role">BRAND AMBASSADOR · 品牌大使</div>
+    <!-- 3. 官方影片 -->
+    <section class="section-box">
+        <div class="section-title">官方影片</div>
+        <div class="section-subtitle">BRAND FILM</div>
+        <div class="video-box">
+            <video autoplay muted loop playsinline>
+                <source src="官方影片/昇銓建材有限公司官方宣傳影片.mp4" type="video/mp4">
+            </video>
+        </div>
+        <a href="官方影片/index.html" class="btn-outline">觀看完整影片</a>
+    </section>
+
+    <!-- 4. AI 虛擬代言人 -->
+    <section class="section-box">
+        <div class="section-title">AI 虛擬代言人</div>
+        <div class="section-subtitle">DEFINE YOUR ESSENCE</div>
+        <div class="ai-card">
+            <div class="img-box">
+                <img src="圖片區/刷個存在感製作素材區/虛擬代言人.png" alt="AI 虛擬代言人 Lunara">
+            </div>
+            <div class="ai-card-body">
+                <div class="ai-tag">DEFINE YOUR ESSENCE</div>
+                <h2>我是 Lunara</h2>
+                <p>紅螞蟻磁磚 AI 質感代言人，以科技詮釋美學，讓每一片磁磚成為空間中最動人的存在。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 品牌大使 -->
+    <section class="section-box">
+        <div class="section-title">品牌大使</div>
+        <div class="section-subtitle">BRAND AMBASSADOR</div>
+        <div class="amb-card">
+            <div class="img-box">
+                <img src="圖片區/刷個存在感製作素材區/柯有倫.PNG" alt="品牌大使 柯有倫">
+            </div>
+            <div class="amb-card-body">
+                <div class="amb-role">BRAND AMBASSADOR</div>
                 <h2>柯有倫</h2>
                 <p>以生活品味詮釋空間美學，讓設計更貼近真實生活。</p>
                 <p>紅螞蟻磁磚邀請你體驗不一樣的質感，一起定義屬於你的本質。</p>
-                <div class="ambassador-sign">Alan Ko</div>
-            </div>
-            <div class="ambassador-image">
-                <img src="圖片區/刷個存在感製作素材區/柯有倫.PNG" alt="品牌大使 柯有倫">
+                <div class="amb-sign">Alan Ko</div>
             </div>
         </div>
     </section>
 
-    <!-- 4. Lunara x 柯有倫 品牌結合區 -->
-    <section class="campaign-section">
-        <div class="campaign-container">
-            <div class="campaign-text">
-                <div class="campaign-tags">
-                    <span>Lunara</span>
-                    <span> x </span>
-                    <span>柯有倫</span>
-                </div>
-                <h2>AI 科技 x 生活品味</h2>
-                <div class="campaign-divider"></div>
-                <p>紅螞蟻磁磚 2026 品牌重塑計畫，以 AI 虛擬代言人 Lunara 結合品牌大使柯有倫，打造全新質感體驗。</p>
-                <p>科技定義未來空間美學，生活品味詮釋真實質感。讓每一片磁磚，成為生活的態度。</p>
-                <p>專業 · 品質 · 創新 · 服務 — 這是我們對品質的承諾，也是對美好生活的追求。</p>
-            </div>
-            <div class="campaign-image">
+    <!-- 6. 品牌結合 -->
+    <section class="section-box">
+        <div class="section-title">Lunara x 柯有倫</div>
+        <div class="section-subtitle">AI 科技 x 生活品味</div>
+        <div class="camp-card">
+            <div class="img-box">
                 <img src="圖片區/刷個存在感製作素材區/28669aab-bc0b-4dc2-8328-baa84ed6cd5e.png" alt="Lunara x 柯有倫">
             </div>
+            <div class="camp-card-body">
+                <div class="camp-tags">Lunara x 柯有倫</div>
+                <h2>AI 科技 x 生活品味</h2>
+                <div class="camp-line"></div>
+                <p>紅螞蟻磁磚 2026 品牌重塑計畫，以 AI 虛擬代言人 Lunara 結合品牌大使柯有倫，打造全新質感體驗。</p>
+                <p>科技定義未來空間美學，生活品味詮釋真實質感。讓每一片磁磚，成為生活的態度。</p>
+            </div>
         </div>
     </section>
 
-    <!-- 5. 電子書目錄 -->
-    <section id="ebook" class="ebook-section">
-        <div class="ebook-container">
-            <h2>產品型錄電子書</h2>
-            <div class="subtitle">CATALOGUE</div>
-            <p style="color: var(--text-sub); line-height: 1.8; margin-bottom: 40px;">
-                下載完整產品型錄，探索全系列紅螞蟻磁磚的豐富款式與應用靈感。<br>
-                從石材系列到木紋系列，從現代極簡到奢華大板，滿足各種空間需求。
-            </p>
-            <a href="電子書目錄/電子書目錄.pdf" class="ebook-download" target="_blank">下載電子書</a>
+    <!-- 7. 電子書 -->
+    <section class="section-box">
+        <div class="section-title">產品型錄電子書</div>
+        <div class="section-subtitle">CATALOGUE</div>
+        <div class="ebook-box">
+            <p>下載完整產品型錄，探索全系列紅螞蟻磁磚的豐富款式與應用靈感。</p>
+            <a href="電子書目錄/電子書目錄.pdf" class="ebook-btn" target="_blank">下載電子書</a>
         </div>
     </section>
 
-    <!-- 7. 頁尾 -->
-     <footer id="contacts">
-         <img src="logos/logo.png" alt="紅螞蟻 Logo" style="height: 30px; opacity: 0.5;">
-         <div class="footer-links">
-             <a href="#">Facebook</a>
-             <a href="#">Instagram</a>
-             <a href="#">TikTok</a>
-         </div>
-     </footer>
-
-     <!-- 網站設計 -->
-     <div class="designer-footer">
-         <p>本網站由 <a href="https://www.tiktok.com/@zz489320" target="_blank">刷個存在感</a> 設計製作</p>
-         <p>TikTok：@zz489320｜電話：0968 527 968</p>
-     </div>
+    <!-- 頁尾 -->
+    <div class="footer-bar">
+        <img src="logos/logo.png" alt="">
+        <div class="footer-icons">
+            <img src="logos/icon-fb.png" alt="Facebook">
+            <img src="logos/icon-ig.png" alt="Instagram">
+            <img src="logos/icon-yt.png" alt="YouTube">
+        </div>
+    </div>
+    <div class="designer-box">
+        <p>本網站由 <a href="https://www.tiktok.com/@zz489320" target="_blank">刷個存在感</a> 設計製作</p>
+        <p>TikTok：@zz489320｜電話：0968 527 968</p>
+    </div>
 
 </body>
 </html>
