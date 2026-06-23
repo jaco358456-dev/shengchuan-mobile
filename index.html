@@ -48,7 +48,7 @@
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        .nav-logo { height: 32px; width: auto; }
+        .nav-logo { height: 24px; width: auto; }
         .nav-links { display: flex; align-items: center; }
         .nav-links a {
             margin-left: 16px;
@@ -147,7 +147,7 @@
             font-size: 0.9rem;
         }
 
-        /* Hero 區 - 全屏背景用 cover 是正常的 */
+        /* Hero 區 - 左右滑輪播 */
         .hero {
             min-height: 100vh;
             position: relative;
@@ -155,26 +155,54 @@
             flex-direction: column;
             justify-content: flex-end;
             padding-bottom: 40px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
         }
         .hero-img-box {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            scroll-snap-align: start;
+            flex-shrink: 0;
+            width: 100%;
         }
         .hero-img-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            flex-shrink: 0;
         }
-        .hero-overlay {
+        .hero-img-box .hero-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.1) 100%);
         }
         .hero-content {
-            position: relative;
-            z-index: 1;
+            position: absolute;
+            bottom: 0; left: 0; width: 100%;
+            z-index: 2;
             padding: 0 20px;
+        }
+        /* 輪播指示點 */
+        .hero-dots {
+            position: absolute;
+            bottom: 60px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            z-index: 3;
+        }
+        .hero-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+        }
+        .hero-dots span.active {
+            background: #fff;
         }
         .hero-tag {
             font-size: 0.65rem;
@@ -479,17 +507,35 @@
         }
     </script>
 
-    <!-- 1. Hero -->
-    <section class="hero">
+    <!-- 1. Hero 輪播 -->
+    <section class="hero" id="heroCarousel">
         <div class="hero-img-box">
-            <img src="圖片區/刷個存在感製作素材區/b7a4c7fd-8d18-4194-9b65-b88073b6e67d.png" alt="">
+            <img src="刷個存在感製作素材區/b7a4c7fd-8d18-4194-9b65-b88073b6e67d.png" alt="Lunara 2026 紅螞蟻磁磚">
+            <div class="hero-overlay"></div>
         </div>
-        <div class="hero-overlay"></div>
+        <div class="hero-img-box">
+            <img src="圖片區/hero/slider-hero-3.jpg" alt="">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-img-box">
+            <img src="圖片區/hero/slider-hero-4.jpg" alt="">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-img-box">
+            <img src="圖片區/hero/slider-hero-5.jpg" alt="">
+            <div class="hero-overlay"></div>
+        </div>
         <div class="hero-content">
             <div class="hero-tag">LUNARA · RED ANT TILES</div>
             <h1>品味選擇 · 質感代表</h1>
             <p>紅螞蟻磁磚 2026<br>昇銓建材有限公司</p>
             <a href="產品目錄/index.html" class="hero-cta">探索全系列產品</a>
+        </div>
+        <div class="hero-dots" id="heroDots">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </section>
 
