@@ -1,15 +1,9 @@
-import os, re
-
-product_dirs = sorted([
-    d for d in os.listdir('.') if os.path.isdir(d) and d.isdigit()
-], key=int)
-
-base_template = '''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>產品 {num} | 紅螞蟻磁磚</title>
+    <title>產品 12 | 紅螞蟻磁磚</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -92,17 +86,17 @@ base_template = '''<!DOCTYPE html>
 
     <div class="page-header">
         <a href="../產品目錄/index.html" class="back-btn">← 返回產品目錄</a>
-        <h1>產品 {num}</h1>
+        <h1>產品 12</h1>
     </div>
 
     <div class="section-box">
         <div class="product-img">
-            <img src="{num}/product0{num}.jpg" alt="產品 {num}">
+            <img src="12/product012.jpg" alt="產品 12">
         </div>
 
         <div class="product-info">
             <div class="product-info-body">
-                <h2>紅螞蟻磁磚 款式 {num}</h2>
+                <h2>紅螞蟻磁磚 款式 12</h2>
                 <p>點擊下方查看多張產品圖片與應用場景。</p>
             </div>
         </div>
@@ -113,8 +107,16 @@ base_template = '''<!DOCTYPE html>
         <div class="product-info">
             <div class="product-info-body">
                 <h2>更多產品圖片</h2>
-                <p style="margin-bottom:12px;">以下為款式 {num} 的產品圖、滑面圖及使用場景圖。</p>
-                {image_slides}
+                <p style="margin-bottom:12px;">以下為款式 12 的產品圖、滑面圖及使用場景圖。</p>
+                <img src="12/slider_no0131.jpg" alt="產品 12 滑面圖" style="width:100%;height:auto;margin-bottom:12px;border-radius:var(--radius);background:var(--card-bg);box-shadow:var(--shadow-sm);"><br>
+<img src="12/slider_no0132.jpg" alt="產品 12 滑面圖" style="width:100%;height:auto;margin-bottom:12px;border-radius:var(--radius);background:var(--card-bg);box-shadow:var(--shadow-sm);"><br>
+<img src="12/slider_no0133.jpg" alt="產品 12 滑面圖" style="width:100%;height:auto;margin-bottom:12px;border-radius:var(--radius);background:var(--card-bg);box-shadow:var(--shadow-sm);"><br>
+<img src="12/slider_no0134.jpg" alt="產品 12 滑面圖" style="width:100%;height:auto;margin-bottom:12px;border-radius:var(--radius);background:var(--card-bg);box-shadow:var(--shadow-sm);"><br>
+<img src="12/slider_no0135.jpg" alt="產品 12 滑面圖" style="width:100%;height:auto;margin-bottom:12px;border-radius:var(--radius);background:var(--card-bg);box-shadow:var(--shadow-sm);"><br>
+<img src="12/slider_no0136.jpg" alt="產品 12 滑面圖" style="width:100%;height:auto;margin-bottom:12px;border-radius:var(--radius);background:var(--card-bg);box-shadow:var(--shadow-sm);"><br>
+<img src="12/slider_no0137.jpg" alt="產品 12 滑面圖" style="width:100%;height:auto;margin-bottom:12px;border-radius:var(--radius);background:var(--card-bg);box-shadow:var(--shadow-sm);"><br>
+<img src="12/slider_no0186.jpg" alt="產品 12 滑面圖" style="width:100%;height:auto;margin-bottom:12px;border-radius:var(--radius);background:var(--card-bg);box-shadow:var(--shadow-sm);"><br>
+
             </div>
         </div>
     </div>
@@ -132,28 +134,4 @@ base_template = '''<!DOCTYPE html>
         <p>TikTok：@zz489320｜電話：0968 527 968</p>
     </div>
 </body>
-</html>'''
-
-for num in product_dirs:
-    num_padded = num.zfill(4) if len(num) < 4 else num
-    img_path = f"{num}/product0{num_padded}.jpg"
-    
-    # Gather all slider and use_place images for this product
-    image_slides_html = ""
-    for f in sorted(os.listdir(num)):
-        if f.startswith(f"slider_no") and f.endswith(('.jpg', '.png')):
-            image_slides_html += f'<img src="{num}/{f}" alt="產品 {num} 滑面圖" style="width:100%;height:auto;margin-bottom:12px;border-radius:var(--radius);background:var(--card-bg);box-shadow:var(--shadow-sm);"><br>\n'
-        elif f.startswith("use_place") and f.endswith(('.jpg', '.png')):
-            image_slides_html += f'<img src="{num}/{f}" alt="產品 {num} 使用場景" style="width:100%;height:auto;margin-bottom:12px;border-radius:var(--radius);background:var(--card-bg);box-shadow:var(--shadow-sm);"><br>\n'
-
-    if not image_slides_html:
-        image_slides_html = '<p style="color:var(--text-sub);font-size:0.85rem;">（無更多圖片）</p>'
-
-    html = base_template.replace("{num}", num).replace("{image_slides}", image_slides_html)
-    
-    os.makedirs(num, exist_ok=True)
-    with open(f"{num}/index.html", "w", encoding="utf-8") as f:
-        f.write(html)
-    print(f"Created {num}/index.html")
-
-print(f"\nDone! Generated {len(product_dirs)} product pages.")
+</html>

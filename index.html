@@ -7,7 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
     <style>
         :root {
             --bg-color: #F8F6F2;
@@ -17,24 +16,15 @@
             --border-color: #E0E0E0;
             --card-bg: #FFFFFF;
             --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
-            --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
             --radius: 12px;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        /* 全域圖片：100% 寬度自然撐開，手機可捲動 */
+
+        /* 所有圖片：100% 寬度自然撐開，不裁切、不變形 */
         img {
             width: 100%;
             height: auto;
             display: block;
-        }
-        .img-box {
-            width: 100%;
-        }
-        .img-box img {
-            width: 100%;
-            height: auto;
         }
 
         body {
@@ -42,13 +32,10 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             overflow-x: hidden;
-            -webkit-tap-highlight-color: transparent;
         }
         a { text-decoration: none; color: inherit; }
 
-        /* =========================================
-           導覽列
-           ========================================= */
+        /* 導覽列 */
         header {
             position: fixed;
             top: 0; left: 0; width: 100%;
@@ -80,7 +67,7 @@
             font-size: 0.65rem;
         }
 
-        /* 漢堡選單按鈕 */
+        /* 漢堡選單 */
         .hamburger {
             display: flex;
             flex-direction: column;
@@ -99,7 +86,7 @@
         .hamburger.active span:nth-child(2) { opacity: 0; }
         .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-        /* 手機導覽列覆蓋層 */
+        /* 導覽覆蓋層 */
         .mobile-nav-overlay {
             position: fixed;
             top: 0; left: 0;
@@ -160,9 +147,7 @@
             font-size: 0.9rem;
         }
 
-        /* =========================================
-           Hero 區
-           ========================================= */
+        /* Hero 區 - 全屏背景用 cover 是正常的 */
         .hero {
             min-height: 100vh;
             position: relative;
@@ -171,7 +156,7 @@
             justify-content: flex-end;
             padding-bottom: 40px;
         }
-         .hero-img-box {
+        .hero-img-box {
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
@@ -220,9 +205,7 @@
             letter-spacing: 2px;
         }
 
-        /* =========================================
-           快速導覽卡片
-           ========================================= */
+        /* 區塊 */
         .section-box {
             padding: 30px 20px;
         }
@@ -240,6 +223,8 @@
             margin-bottom: 16px;
             text-transform: uppercase;
         }
+
+        /* 快速導覽卡片 */
         .nav-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -263,25 +248,22 @@
             color: var(--text-sub);
         }
 
-        /* =========================================
-           官方影片
-           ========================================= */
+        /* 官方影片 - 不裁切、自然撐開 */
         .video-box {
             width: 100%;
-            aspect-ratio: 16/9;
             background: #000;
             border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 16px;
         }
         .video-box video {
-            width: 100%; height: 100%;
-            object-fit: cover;
+            width: 100%;
+            height: auto;
         }
         .btn-outline {
             display: block;
             text-align: center;
-            margin-top: 16px;
             padding: 12px 24px;
             border: 1px solid var(--text-main);
             border-radius: 25px;
@@ -289,16 +271,15 @@
             letter-spacing: 1px;
         }
 
-        /* =========================================
-           AI 虛擬代言人
-           ========================================= */
+        /* AI 虛擬代言人 - 圖片不裁切 */
         .ai-card {
             background: var(--card-bg);
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow-sm);
+            margin-bottom: 30px;
         }
-           .ai-card .img-box { width: 100%; }
+        .ai-card img { width: 100%; height: auto; }
         .ai-card-body { padding: 20px; }
         .ai-tag {
             font-size: 0.65rem;
@@ -319,16 +300,15 @@
             margin-bottom: 8px;
         }
 
-        /* =========================================
-           品牌大使
-           ========================================= */
+        /* 品牌大使 - 圖片不裁切 */
         .amb-card {
             background: var(--card-bg);
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow-sm);
+            margin-bottom: 30px;
         }
-            .amb-card .img-box { width: 100%; }
+        .amb-card img { width: 100%; height: auto; }
         .amb-card-body { padding: 20px; }
         .amb-role {
             font-size: 0.6rem;
@@ -355,16 +335,15 @@
             margin-top: 16px;
         }
 
-        /* =========================================
-           品牌結合
-           ========================================= */
+        /* 品牌結合 - 圖片不裁切 */
         .camp-card {
             background: var(--card-bg);
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow-sm);
+            margin-bottom: 30px;
         }
-            .camp-card .img-box { width: 100%; }
+        .camp-card img { width: 100%; height: auto; }
         .camp-card-body { padding: 20px; }
         .camp-tags {
             font-size: 0.8rem;
@@ -388,9 +367,7 @@
             margin-bottom: 8px;
         }
 
-        /* =========================================
-           電子書
-           ========================================= */
+        /* 電子書 - 沒有圖片，不會擋版面 */
         .ebook-box {
             background: var(--card-bg);
             border-radius: var(--radius);
@@ -414,10 +391,8 @@
             letter-spacing: 2px;
         }
 
-        /* =========================================
-           頁尾
-           ========================================= */
-         .footer-bar {
+        /* 頁尾 - logo 有 width: auto 不變形 */
+        .footer-bar {
             padding: 30px 20px;
             border-top: 1px solid var(--border-color);
             display: flex;
@@ -425,12 +400,12 @@
             align-items: center;
             background: var(--card-bg);
         }
-        .footer-bar img {
+        .footer-bar img:first-child {
             height: 24px;
             width: auto;
             opacity: 0.4;
         }
-         .footer-icons { display: flex; gap: 12px; align-items: center; }
+        .footer-icons { display: flex; gap: 12px; align-items: center; }
         .footer-icons img { height: 24px; width: auto; opacity: 0.6; }
 
         .designer-box {
@@ -509,7 +484,7 @@
         <div class="section-title">快速導覽</div>
         <div class="section-subtitle">QUICK NAV</div>
         <div class="nav-grid">
-            <a href="全系列產品/AI圖形製作(3).html" class="nav-card">
+            <a href="全系列產品/index.html" class="nav-card">
                 <div class="nav-card-icon">🏠</div>
                 <h3>風格總覽</h3>
                 <p>AI 虛擬場景</p>
@@ -532,26 +507,24 @@
         </div>
     </section>
 
-    <!-- 3. 官方影片 -->
+    <!-- 3. 官方影片 - 自然撐開不裁切 -->
     <section class="section-box">
         <div class="section-title">官方影片</div>
         <div class="section-subtitle">BRAND FILM</div>
         <div class="video-box">
-            <video autoplay muted loop playsinline>
+            <video controls playsinline>
                 <source src="官方影片/昇銓建材有限公司官方宣傳影片.mp4" type="video/mp4">
             </video>
         </div>
         <a href="官方影片/index.html" class="btn-outline">觀看完整影片</a>
     </section>
 
-    <!-- 4. AI 虛擬代言人 -->
+    <!-- 4. AI 虛擬代言人 - 圖片自然撐開 -->
     <section class="section-box">
         <div class="section-title">AI 虛擬代言人</div>
         <div class="section-subtitle">DEFINE YOUR ESSENCE</div>
         <div class="ai-card">
-            <div class="img-box">
-                <img src="圖片區/刷個存在感製作素材區/虛擬代言人.png" alt="AI 虛擬代言人 Lunara">
-            </div>
+            <img src="圖片區/刷個存在感製作素材區/虛擬代言人.png" alt="AI 虛擬代言人 Lunara">
             <div class="ai-card-body">
                 <div class="ai-tag">DEFINE YOUR ESSENCE</div>
                 <h2>我是 Lunara</h2>
@@ -560,14 +533,12 @@
         </div>
     </section>
 
-    <!-- 5. 品牌大使 -->
+    <!-- 5. 品牌大使 - 圖片自然撐開 -->
     <section class="section-box">
         <div class="section-title">品牌大使</div>
         <div class="section-subtitle">BRAND AMBASSADOR</div>
         <div class="amb-card">
-            <div class="img-box">
-                <img src="圖片區/刷個存在感製作素材區/柯有倫.PNG" alt="品牌大使 柯有倫">
-            </div>
+            <img src="圖片區/刷個存在感製作素材區/柯有倫.PNG" alt="品牌大使 柯有倫">
             <div class="amb-card-body">
                 <div class="amb-role">BRAND AMBASSADOR</div>
                 <h2>柯有倫</h2>
@@ -578,14 +549,12 @@
         </div>
     </section>
 
-    <!-- 6. 品牌結合 -->
+    <!-- 6. 品牌結合 - 圖片自然撐開 -->
     <section class="section-box">
         <div class="section-title">Lunara x 柯有倫</div>
         <div class="section-subtitle">AI 科技 x 生活品味</div>
         <div class="camp-card">
-            <div class="img-box">
-                <img src="圖片區/刷個存在感製作素材區/28669aab-bc0b-4dc2-8328-baa84ed6cd5e.png" alt="Lunara x 柯有倫">
-            </div>
+            <img src="圖片區/刷個存在感製作素材區/28669aab-bc0b-4dc2-8328-baa84ed6cd5e.png" alt="Lunara x 柯有倫">
             <div class="camp-card-body">
                 <div class="camp-tags">Lunara x 柯有倫</div>
                 <h2>AI 科技 x 生活品味</h2>
@@ -596,7 +565,7 @@
         </div>
     </section>
 
-    <!-- 7. 電子書 -->
+    <!-- 7. 電子書 - 無圖片，不會擋版面 -->
     <section class="section-box">
         <div class="section-title">產品型錄電子書</div>
         <div class="section-subtitle">CATALOGUE</div>
@@ -608,7 +577,7 @@
 
     <!-- 頁尾 -->
     <div class="footer-bar">
-        <img src="logos/logo.png" alt="">
+        <img src="logos/logo.png" alt="紅螞蟻磁磚 Logo">
         <div class="footer-icons">
             <img src="logos/icon-fb.png" alt="Facebook">
             <img src="logos/icon-ig.png" alt="Instagram">
