@@ -237,7 +237,18 @@
             text-align: center;
             box-shadow: var(--shadow-sm);
         }
-        .nav-card-icon { font-size: 1.8rem; margin-bottom: 8px; }
+        .nav-card-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .nav-card-icon svg {
+            width: 48px;
+            height: 48px;
+        }
         .nav-card h3 {
             font-size: 0.8rem;
             font-weight: 500;
@@ -433,7 +444,7 @@
             <a href="官方影片/index.html">官方影片</a>
             <a href="產品目錄/index.html">產品目錄</a>
             <a href="經銷商/index.html">經銷商</a>
-            <a href="電子書目錄/電子書目錄.pdf" class="pdf-link">型錄</a>
+            <a href="聯絡我們/index.html" class="pdf-link">聯絡我們</a>
         </nav>
     </header>
 
@@ -454,7 +465,7 @@
             </div>
         </div>
         <div class="mobile-nav-footer">
-            <a href="電子書目錄/電子書目錄.pdf" class="mobile-nav-pdf-link" onclick="toggleNav()">下載型錄</a>
+            <a href="聯絡我們/index.html" class="mobile-nav-pdf-link" onclick="toggleNav()">聯絡我們</a>
         </div>
     </div>
 
@@ -485,22 +496,44 @@
         <div class="section-subtitle">QUICK NAV</div>
         <div class="nav-grid">
             <a href="全系列產品/index.html" class="nav-card">
-                <div class="nav-card-icon">🏠</div>
+                <div class="nav-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                </div>
                 <h3>風格總覽</h3>
                 <p>AI 虛擬場景</p>
             </a>
             <a href="產品目錄/index.html" class="nav-card">
-                <div class="nav-card-icon">🧱</div>
+                <div class="nav-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                    </svg>
+                </div>
                 <h3>產品目錄</h3>
                 <p>全系列款式</p>
             </a>
             <a href="官方影片/index.html" class="nav-card">
-                <div class="nav-card-icon">🎬</div>
+                <div class="nav-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="23 7 16 12 23 17 23 7"/>
+                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                    </svg>
+                </div>
                 <h3>官方影片</h3>
                 <p>品牌宣傳</p>
             </a>
             <a href="經銷商/index.html" class="nav-card">
-                <div class="nav-card-icon">📍</div>
+                <div class="nav-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                </div>
                 <h3>經銷商</h3>
                 <p>全台門市</p>
             </a>
