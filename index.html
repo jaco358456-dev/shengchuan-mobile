@@ -230,37 +230,41 @@
         .ai-desc p { margin-bottom: 12px; }
         .ai-desc br { display: block; content: ""; margin: 8px 0; }
 
-        /* 產品入口 */
+       /* 產品入口 */
         .product-entrance { padding: 28px 20px; }
         .product-grid {
             display: grid; grid-template-columns: repeat(2, 1fr);
             gap: 12px;
         }
         .product-card {
-            background: var(--bg-card);
-            border-radius: var(--radius);
+            position: relative;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            text-align: center;
-            padding: 24px 12px 18px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            aspect-ratio: 3/4;
+            display: flex;
+            align-items: flex-end;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
         }
-        .product-card:active {
-            transform: scale(0.97);
-            box-shadow: none;
+        .product-card img.cover {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
         }
-          .product-card-icon {
-            width: 100%; height: auto;
-            margin-bottom: 12px;
+        .product-card .card-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 20px 14px 16px;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
         }
-        .product-card-icon img {
-            width: 100%; height: auto; display: block;
+        .product-card .card-title {
+            font-size: 1rem; font-weight: 700; color: #fff;
+            margin-bottom: 4px;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.5);
         }
-        .product-card-title {
-            font-size: 0.9rem; font-weight: 500; margin-bottom: 4px;
-        }
-        .product-card-desc {
-            font-size: 0.7rem; color: var(--text-secondary); line-height: 1.5;
+        .product-card .card-desc {
+            font-size: 0.7rem; color: rgba(255,255,255,0.85);
+            line-height: 1.4;
         }
 
         /* 頁尾 */
