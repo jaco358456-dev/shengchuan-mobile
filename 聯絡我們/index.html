@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#F8F6F2">
+    <title>聯絡我們 | 紅螞蟻磁磚</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #F8F6F2;
+            --bg-card: #FFFFFF;
+            --text-primary: #1A1A1A;
+            --text-secondary: #666666;
+            --brand-red: #E63946;
+            --border-subtle: rgba(0,0,0,0.06);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+            --radius: 12px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        img { width: 100%; height: auto; display: block; }
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            padding-top: 50px;
+            padding-bottom: 80px;
+        }
+        a { text-decoration: none; color: inherit; }
+
+        /* 頂部導覽列 */
+        .mobile-header {
+            position: fixed; top: 0; left: 0; right: 0;
+            height: 50px;
+            background: rgba(248,246,242,0.95);
+            backdrop-filter: blur(20px);
+            display: flex; justify-content: space-between;
+            align-items: center;
+            padding: 0 12px; z-index: 1000;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .header-logo { height: 10px; width: auto; cursor: pointer; }
+        .hamburger {
+            display: flex; flex-direction: column;
+            gap: 4px; cursor: pointer; padding: 5px;
+        }
+        .hamburger span {
+            width: 22px; height: 2px;
+            background: var(--text-primary); border-radius: 2px;
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+        .header-contact {
+            font-size: 0.65rem; letter-spacing: 1px;
+            color: var(--brand-red); font-weight: 500;
+            padding: 6px 12px; border: 1px solid var(--brand-red);
+            border-radius: 20px;
+        }
+
+        /* 漢堡選單 */
+        .nav-overlay {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: var(--bg-primary);
+            z-index: 999;
+            display: flex; flex-direction: column;
+            transform: translateY(-100%);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nav-overlay.open { transform: translateY(0); }
+        .nav-overlay-content { padding: 70px 24px 40px; flex: 1; }
+        .nav-overlay-title {
+            font-size: 0.65rem; letter-spacing: 3px;
+            color: var(--text-secondary);
+            margin-bottom: 24px; text-transform: uppercase;
+        }
+        .nav-overlay-links { display: flex; flex-direction: column; }
+        .nav-overlay-links a {
+            display: block; font-size: 1.1rem;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-subtle);
+            opacity: 0; transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .nav-overlay.open .nav-overlay-links a {
+            opacity: 1; transform: translateY(0);
+        }
+        .nav-overlay-links a:nth-child(1) { transition-delay: 0.1s; }
+        .nav-overlay-links a:nth-child(2) { transition-delay: 0.15s; }
+        .nav-overlay-links a:nth-child(3) { transition-delay: 0.2s; }
+        .nav-overlay-links a:nth-child(4) { transition-delay: 0.25s; }
+        .nav-overlay-links a:nth-child(5) { transition-delay: 0.3s; }
+
+        /* 頁面標題 */
+        .page-header { padding: 24px 20px; }
+        .page-label {
+            font-size: 0.6rem; letter-spacing: 3px;
+            color: var(--text-secondary);
+            margin-bottom: 8px; text-transform: uppercase;
+        }
+        .page-title {
+            font-size: clamp(1.4rem, 4.5vw, 2rem);
+            font-weight: 300; margin-bottom: 12px;
+        }
+        .page-desc {
+            font-size: 0.8rem; color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* 聯絡卡片 */
+        .contact-section { padding: 0 20px; }
+        .contact-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 12px;
+        }
+        .contact-card-header {
+            padding: 18px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .contact-card-title {
+            font-size: 1rem; font-weight: 500;
+            margin-bottom: 4px;
+        }
+        .contact-card-subtitle {
+            font-size: 0.75rem; color: var(--brand-red);
+            font-weight: 500;
+        }
+        .contact-card-body {
+            padding: 18px;
+        }
+        .contact-item {
+            margin-bottom: 14px;
+        }
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+        .contact-label {
+            font-size: 0.7rem; color: var(--text-secondary);
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+        .contact-value {
+            font-size: 0.85rem; color: var(--text-primary);
+            line-height: 1.6;
+        }
+        .contact-value a {
+            color: var(--brand-red);
+            font-weight: 500;
+        }
+        .contact-action {
+            display: inline-block;
+            font-size: 0.8rem;
+            color: #fff;
+            background: var(--brand-red);
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-weight: 500;
+            text-align: center;
+            margin-top: 12px;
+            width: 100%;
+            text-align: center;
+        }
+        .contact-action:active {
+            opacity: 0.8;
+        }
+
+        /* AI 代理人聯絡區 */
+        .ai-contact-section { padding: 0 20px; }
+        .ai-contact-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .ai-contact-header {
+            padding: 18px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .ai-contact-title {
+            font-size: 1rem; font-weight: 500;
+            margin-bottom: 4px;
+        }
+        .ai-contact-desc {
+            font-size: 0.78rem; color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .ai-contact-body {
+            padding: 18px;
+        }
+        .ai-faq-item {
+            margin-bottom: 18px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .ai-faq-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .ai-faq-label {
+            font-size: 0.6rem; letter-spacing: 2px;
+            color: var(--brand-red);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .ai-faq-q {
+            font-size: 0.82rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+        .ai-faq-a {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* 頁尾 */
+        .footer-bar {
+            padding: 24px 20px;
+            border-top: 1px solid var(--border-subtle);
+            display: flex; justify-content: space-between;
+            align-items: center; background: var(--bg-card);
+        }
+        .footer-logo { height: 24px; width: auto; opacity: 0.4; }
+        .footer-icons { display: flex; gap: 12px; align-items: center; }
+        .footer-icons img { height: 24px; width: auto; opacity: 0.6; }
+        .designer-box {
+            padding: 24px 20px;
+            background: #1A1A1A; color: #999;
+            text-align: center; font-size: 0.75rem; line-height: 1.8;
+        }
+        .designer-box a { color: #fff; text-decoration: underline; }
+
+        /* 底部固定導航 */
+        .bottom-nav {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            height: 70px;
+            background: rgba(248,246,242,0.95);
+            backdrop-filter: blur(20px);
+            display: flex; justify-content: space-around;
+            align-items: center;
+            padding-bottom: env(safe-area-inset-bottom);
+            z-index: 1000;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .nav-tab {
+            display: flex; flex-direction: column;
+            align-items: center; gap: 4px;
+            font-size: 0.6rem; color: var(--text-secondary);
+            padding: 6px 4px; transition: color 0.2s;
+        }
+        .nav-tab.active { color: var(--brand-red); }
+        .nav-tab.active svg { stroke-width: 2; }
+        .nav-tab svg {
+            width: 22px; height: 22px; stroke: currentColor;
+            fill: none; stroke-width: 1.5;
+            stroke-linecap: round; stroke-linejoin: round;
+        }
+    </style>
+</head>
+<body>
+    <header class="mobile-header">
+        <img src="../logos/logo.png" alt="紅螞蟻磁磚 Logo" class="header-logo" onclick="toggleNav()">
+        <div class="hamburger" id="hamburger" onclick="toggleNav()">
+            <span></span><span></span><span></span>
+        </div>
+        <a href="../聯絡我們/index.html" class="header-contact">聯絡我們</a>
+    </header>
+
+    <div class="nav-overlay" id="navOverlay">
+        <div class="nav-overlay-content">
+            <div class="nav-overlay-title">導航選單</div>
+            <div class="nav-overlay-links">
+                <a href="../index.html">首頁</a>
+                <a href="../官方影片/index.html">官方影片</a>
+                <a href="../產品目錄/index.html">產品目錄</a>
+                <a href="../經銷商/index.html">全台經銷商</a>
+                <a href="./index.html">聯絡我們</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-header">
+        <div class="page-label">聯絡我們</div>
+        <h1 class="page-title">聯繫昇銓建材</h1>
+        <p class="page-desc">有任何問題？直接聯繫我們，或看看 AI 代理人為您解答常見問題。</p>
+    </div>
+
+    <!-- 公司聯絡資訊 -->
+    <div class="contact-section">
+        <div class="contact-card">
+            <div class="contact-card-header">
+                <div class="contact-card-title">昇銓建材有限公司</div>
+                <div class="contact-card-subtitle">1975 年創立 · 雙北獨家經銷</div>
+            </div>
+            <div class="contact-card-body">
+                <div class="contact-item">
+                    <div class="contact-label">公司地址</div>
+                    <div class="contact-value">新北市板橋區大觀路二段三巷115號1樓</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">聯絡電話</div>
+                    <div class="contact-value"><a href="tel:02-22754988">02-22754988</a></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">成立時間</div>
+                    <div class="contact-value">1975 年 6 月（超過 50 年歷史）</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">員工人數</div>
+                    <div class="contact-value">20 人</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">產業類別</div>
+                    <div class="contact-value">建材 ╱ 傢俱批發</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">業務範圍</div>
+                    <div class="contact-value">全台磁磚批發銷售</div>
+                </div>
+                <a href="tel:02-22754988" class="contact-action">📞 立即撥打電話</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Google 地圖 -->
+    <div class="contact-section">
+        <div class="contact-card">
+            <div class="contact-card-header">
+                <div class="contact-card-title">Google 地圖</div>
+                <div class="contact-card-subtitle">導航前往昇銓建材</div>
+            </div>
+            <div class="contact-card-body">
+                <a href="https://www.google.com/maps/search/昇銓建材+大觀路二段三巷115號" target="_blank" class="contact-action" style="background: var(--text-primary);">
+                    📍 打開 Google 地圖
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI 代理人聯絡 Q&A -->
+    <div class="ai-contact-section">
+        <div class="ai-contact-card">
+            <div class="ai-contact-header">
+                <div class="ai-contact-title">AI 代理人</div>
+                <div class="ai-contact-desc">「我 24 小時都在，有任何問題隨時问我。」</div>
+            </div>
+            <div class="ai-contact-body">
+                <div class="ai-faq-item">
+                    <div class="ai-faq-label">AI 代理人回答</div>
+                    <div class="ai-faq-q">Q：我想訂購紅螞蟻磁磚，怎麼開始？</div>
+                    <div class="ai-faq-a">您可以直接打電話給昇銓建材 <strong>02-22754988</strong>，他們會安排專屬業務為您服務。如果您想先看樣品，歡迎到新北市板橋區大觀路二段三巷115號的店面，建議您先預約，避免排隊。</div>
+                </div>
+                <div class="ai-faq-item">
+                    <div class="ai-faq-label">AI 代理人回答</div>
+                    <div class="ai-faq-q">Q：我是工程商，可以議價嗎？</div>
+                    <div class="ai-faq-a">可以！昇銓是批發通路，工程案量大可議價。您只要提供工程案資訊和用磚量，他們會免費報價。工程面積愈大，單價愈優。電話 02-22754988，直接跟業務講。</div>
+                </div>
+                <div class="ai-faq-item">
+                    <div class="ai-faq-label">AI 代理人回答</div>
+                    <div class="ai-faq-q">Q：不在雙北，要找哪區的經銷商？</div>
+                    <div class="ai-faq-a">紅螞蟻在全台有 12 區經銷商。您可以瀏覽「經銷商」頁面，找到您所在區域的經銷商電話。每個經銷商都經過昇銓的認證，品質有保證。如果您不確定哪一區，也可以直接打電話給昇銓，他們會幫您轉接。</div>
+                </div>
+                <div class="ai-faq-item">
+                    <div class="ai-faq-label">AI 代理人回答</div>
+                    <div class="ai-faq-q">Q：紅螞蟻磁磚品質怎樣？</div>
+                    <div class="ai-faq-a">昇銓建材 1975 年創立，超過 50 年了。每一塊磚出廠前老闆親自敲擊聽聲——清脆的是好磚，沉闷的是次品。紅螞蟻的口碑在台灣是經過時間驗證的，客戶回頭率很高。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bar">
+        <img src="../logos/logo.png" alt="紅螞蟻磁磚 Logo" class="footer-logo">
+        <div class="footer-icons">
+            <img src="../logos/icon-fb.png" alt="Facebook">
+            <img src="../logos/icon-ig.png" alt="Instagram">
+            <img src="../logos/icon-yt.png" alt="YouTube">
+        </div>
+    </div>
+    <div class="designer-box">
+        <p>本網站由 <a href="https://www.tiktok.com/@zz489320" target="_blank">刷個存在感</a> 設計製作</p>
+        <p>TikTok：@zz489320 ｜ 電話：0968 527 968</p>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="../index.html" class="nav-tab">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span>首頁</span>
+        </a>
+        <a href="../產品目錄/index.html" class="nav-tab">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <span>產品</span>
+        </a>
+        <a href="../官方影片/index.html" class="nav-tab">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span>影片</span>
+        </a>
+        <a href="../經銷商/index.html" class="nav-tab">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>經銷商</span>
+        </a>
+        <a href="./index.html" class="nav-tab active">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>聯絡</span>
+        </a>
+    </nav>
+
+    <script>
+        function toggleNav() {
+            var overlay = document.getElementById('navOverlay');
+            var hamburger = document.getElementById('hamburger');
+            overlay.classList.toggle('open');
+            hamburger.classList.toggle('active');
+            if (overlay.classList.contains('open')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#F8F6F2">
+    <title>紅螞蟻磁磚 | 昇銓建材</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #F8F6F2;
+            --bg-secondary: #FFFFFF;
+            --bg-card: #FFFFFF;
+            --text-primary: #1A1A1A;
+            --text-secondary: #666666;
+            --brand-red: #E63946;
+            --brand-accent: #C45C64;
+            --border-subtle: rgba(0,0,0,0.06);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+            --radius: 12px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        img { width: 100%; height: auto; display: block; }
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            padding-top: 50px;
+            padding-bottom: 80px;
+        }
+        a { text-decoration: none; color: inherit; }
+
+        /* 頂部導覽列 */
+        .mobile-header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 50px;
+            background: rgba(248,246,242,0.95);
+            backdrop-filter: blur(20px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 12px;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .header-logo { height: 10px; width: auto; cursor: pointer; }
+        .hamburger {
+            display: flex; flex-direction: column; gap: 4px;
+            cursor: pointer; padding: 5px;
+        }
+        .hamburger span {
+            width: 22px; height: 2px; background: var(--text-primary); border-radius: 2px;
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+        .header-contact {
+            font-size: 0.65rem; letter-spacing: 1px; color: var(--brand-red);
+            font-weight: 500; padding: 6px 12px; border: 1px solid var(--brand-red);
+            border-radius: 20px;
+        }
+
+        /* 漢堡選單 */
+        .nav-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg-primary); z-index: 999;
+            display: flex; flex-direction: column;
+            transform: translateY(-100%);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nav-overlay.open { transform: translateY(0); }
+         .nav-overlay-top {
+                position: fixed; top: 0; left: 0; right: 0;
+                height: 50px;
+                background: rgba(248,246,242,0.98);
+                backdrop-filter: blur(20px);
+                display: flex; justify-content: space-between;
+                align-items: center;
+                padding: 0 12px; z-index: 1001;
+                border-bottom: 1px solid var(--border-subtle);
+            }
+            .nav-overlay-logo { flex: 1; text-align: left; height: 10px; width: auto; }
+              .nav-overlay-close {
+                position: relative;
+                width: 24px; height: 24px;
+                border: none; background: none; cursor: pointer; padding: 0;
+            }
+            .x-line {
+                position: absolute; background: #000;
+            }
+            .x-line-h {
+                width: 24px; height: 3px; top: 50%; left: 0;
+                transform: rotate(45deg) translateY(-50%); transform-origin: center;
+            }
+            .x-line-v {
+                width: 3px; height: 24px; left: 50%; top: 0;
+                transform: rotate(-45deg) translateX(-50%); transform-origin: center;
+            }
+            .nav-overlay-contact {
+                flex: 1; text-align: right;
+                font-size: 0.65rem; letter-spacing: 1px; color: var(--brand-red); font-weight: 500;
+                padding: 6px 12px; border: 1px solid var(--brand-red);
+                border-radius: 20px; white-space: nowrap;
+            }
+        .nav-overlay-content { padding-top: 60px; flex: 1; }
+        .nav-overlay-links { display: flex; flex-direction: column; }
+        .nav-overlay-links a {
+            display: block; font-size: 1.1rem; padding: 18px 0;
+            border-bottom: 1px solid var(--border-subtle);
+            opacity: 0; transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .nav-overlay.open .nav-overlay-links a {
+            opacity: 1; transform: translateY(0);
+        }
+        .nav-overlay-links a:nth-child(1) { transition-delay: 0.1s; }
+        .nav-overlay-links a:nth-child(2) { transition-delay: 0.15s; }
+        .nav-overlay-links a:nth-child(3) { transition-delay: 0.2s; }
+        .nav-overlay-links a:nth-child(4) { transition-delay: 0.25s; }
+        .nav-overlay-links a:nth-child(5) { transition-delay: 0.3s; }
+
+          /* Hero */
+               .hero {
+                   position: relative;
+                   width: 100%;
+                   background: #000;
+                   overflow: hidden;
+               }
+               .hero-image {
+                   width: 100%; height: auto; display: block;
+                   filter: brightness(0.65);
+               }
+        .hero-overlay {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            height: 85%;
+            background: linear-gradient(to top,
+                rgba(248,246,242,1) 0%,
+                rgba(248,246,242,0.85) 25%,
+                rgba(248,246,242,0.4) 55%,
+                transparent 100%
+            );
+        }
+        .hero-content {
+            position: absolute; bottom: 16px; left: 16px; right: 16px;
+            z-index: 2;
+        }
+        .hero-brand {
+            font-size: 0.6rem; letter-spacing: 3px; color: var(--brand-red);
+            margin-bottom: 6px; font-weight: 500;
+        }
+        .hero-title {
+            font-size: clamp(1.8rem, 7vw, 2.6rem);
+            font-weight: 300; line-height: 1.25;
+            margin-bottom: 10px; color: var(--text-primary);
+        }
+        .hero-divider {
+            width: 36px; height: 2px; background: var(--brand-red);
+            margin-bottom: 10px;
+        }
+        .hero-subtitle {
+            font-size: 0.75rem; color: var(--text-secondary);
+            font-weight: 400; line-height: 1.6;
+        }
+
+        /* 通用區塊 */
+        .section { padding: 28px 20px; }
+        .section-label {
+            font-size: 0.6rem; letter-spacing: 3px; color: var(--text-secondary);
+            margin-bottom: 8px; text-transform: uppercase;
+        }
+        .section-heading {
+            font-size: clamp(1.3rem, 4.2vw, 1.8rem);
+            font-weight: 300; margin-bottom: 10px; line-height: 1.3;
+        }
+        .section-divider {
+            width: 30px; height: 2px; background: var(--brand-red);
+            margin-bottom: 18px;
+        }
+
+        /* 品牌大使 */
+        .ambassador-section { padding: 28px 20px; }
+        .ambassador-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+         .ambassador-card img {
+            width: 100%; height: auto; display: block;
+        }
+        .ambassador-info { padding: 18px; }
+        .ambassador-name { font-size: 1.1rem; font-weight: 500; margin-bottom: 4px; }
+        .ambassador-role {
+            font-size: 0.7rem; color: var(--brand-red);
+            letter-spacing: 1px; margin-bottom: 10px; font-weight: 500;
+        }
+        .ambassador-quote {
+            font-size: 0.85rem; color: var(--text-secondary);
+            line-height: 1.8; padding-top: 12px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        /* AI 代理人 */
+        .ai-section { padding: 28px 20px; }
+        .ai-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        .ai-card img {
+            width: 100%; height: auto;
+            aspect-ratio: 16/9; object-fit: cover;
+        }
+        .ai-info {
+            padding: 18px;
+        }
+        .ai-title {
+            font-size: 1rem; font-weight: 500; margin-bottom: 10px;
+        }
+        .ai-desc {
+            font-size: 0.8rem; color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        .ai-desc p { margin-bottom: 12px; }
+        .ai-desc br { display: block; content: ""; margin: 8px 0; }
+
+        /* 產品入口 */
+        .product-entrance { padding: 28px 20px; }
+        .product-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        .product-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            padding: 24px 12px 18px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .product-card:active {
+            transform: scale(0.97);
+            box-shadow: none;
+        }
+          .product-card-icon {
+            width: 100%; height: auto;
+            margin-bottom: 12px;
+        }
+        .product-card-icon img {
+            width: 100%; height: auto; display: block;
+        }
+        .product-card-title {
+            font-size: 0.9rem; font-weight: 500; margin-bottom: 4px;
+        }
+        .product-card-desc {
+            font-size: 0.7rem; color: var(--text-secondary); line-height: 1.5;
+        }
+
+        /* 頁尾 */
+        .footer-bar {
+            padding: 24px 20px; border-top: 1px solid var(--border-subtle);
+            display: flex; justify-content: space-between;
+            align-items: center; background: var(--bg-card);
+        }
+        .footer-logo { height: 24px; width: auto; opacity: 0.4; }
+        .footer-icons { display: flex; gap: 12px; align-items: center; }
+        .footer-icons img { height: 24px; width: auto; opacity: 0.6; }
+        .designer-box {
+            padding: 24px 20px; background: #1A1A1A; color: #999;
+            text-align: center; font-size: 0.75rem; line-height: 1.8;
+        }
+        .designer-box a { color: #fff; text-decoration: underline; }
+
+        /* 底部固定導航 */
+        .bottom-nav {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            height: 70px;
+            background: rgba(248,246,242,0.95);
+            backdrop-filter: blur(20px);
+            display: flex; justify-content: space-around;
+            align-items: center;
+            padding-bottom: env(safe-area-inset-bottom);
+            z-index: 1000;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .nav-tab {
+            display: flex; flex-direction: column; align-items: center;
+            gap: 4px; font-size: 0.6rem; color: var(--text-secondary);
+            padding: 6px 4px; transition: color 0.2s;
+        }
+        .nav-tab.active { color: var(--brand-red); }
+        .nav-tab.active svg { stroke-width: 2; }
+        .nav-tab svg {
+            width: 22px; height: 22px; stroke: currentColor;
+            fill: none; stroke-width: 1.5;
+            stroke-linecap: round; stroke-linejoin: round;
+        }
+    </style>
+</head>
+<body>
+    <header class="mobile-header">
+        <img src="./logos/logo.png" alt="紅螞蟻磁磚 Logo" class="header-logo" onclick="toggleNav()">
+        <div class="hamburger" id="hamburger" onclick="toggleNav()">
+            <span></span><span></span><span></span>
+        </div>
+        <a href="./聯絡我們/index.html" class="header-contact">聯絡我們</a>
+    </header>
+
+     <div class="nav-overlay" id="navOverlay">
+       <div class="nav-overlay-top">
+           <img src="./logos/logo.png" alt="紅螞蟻磁磚 Logo" class="nav-overlay-logo">
+            <button class="nav-overlay-close" onclick="toggleNav()">
+                    <span class="x-line x-line-h"></span>
+                    <span class="x-line x-line-v"></span>
+                </button>
+           <a href="./聯絡我們/index.html" class="nav-overlay-contact">聯絡我們</a>
+       </div>
+       <div class="nav-overlay-content">
+           <div class="nav-overlay-links">
+               <a href="./index.html">首頁</a>
+               <a href="./官方影片/index.html">官方影片</a>
+               <a href="./產品目錄/index.html">產品目錄</a>
+               <a href="./經銷商/index.html">全台經銷商</a>
+               <a href="./聯絡我們/index.html">聯絡我們</a>
+           </div>
+       </div>
+    </div>
+
+    <section class="hero">
+        <img src="./全系列產品/圖片區/hero/slider01.jpg" alt="紅螞蟻磁磚" class="hero-image">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-brand">紅螞蟻磁磚 RED ANT</div>
+            <h1 class="hero-title">40 年匠心<br>磚就品質</h1>
+            <div class="hero-divider"></div>
+            <p class="hero-subtitle">雙北獨家經銷 — 昇銓建材有限公司<br>1975 年創立，超過半世紀的專業信賴</p>
+        </div>
+    </section>
+
+    <section class="ambassador-section">
+        <div class="section-label">品牌故事</div>
+        <h2 class="section-heading">昇銓建材</h2>
+        <div class="section-divider"></div>
+        <div class="ambassador-card">
+            <img src="./刷個存在感製作素材區/昇銓.png" alt="昇銓建材">
+            <div class="ambassador-info">
+                <div class="ambassador-name">昇銓建材</div>
+                <div class="ambassador-role">1975 年創立 · 超過半世紀的專業信賴</div>
+                <div class="ambassador-quote">
+                    <p>從 1975 年的雙北街巷中，一間不起眼的小型建材行出發。昇銓的创始人以「堅如磐石、銓衡品質」為名，在瓷磚堆疊的倉庫裡，一手選磚、一手丈量尺寸，用超過四十年的歲月，將「紅螞蟻磁磚」推成台灣最信賴的品牌之一。</p>
+                    <br>
+                    <p>紅螞蟻之所以為名，是因為它們總是在最不起眼的角落，默默築起最堅固的巢。昇銓相信，真正的品質不在炫目的招牌，而在你每天踩踏的地板、每面環繞的牆壁——那些看不見的細節，才是家的溫度。</p>
+                    <br>
+                    <p>「我們賣的不是磁磚，是居住。」這句話在昇銓的倉庫裡掛了四十年，每一塊磚出廠前，都經過老闆親自敲擊聽聲。清脆的是好磚，沉闷的是次品，不聲不響的——留給自家人。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ai-section">
+        <div class="section-label">AI 代理人</div>
+        <h2 class="section-heading">我的故事</h2>
+        <div class="section-divider"></div>
+        <div class="ai-card">
+            <img src="./刷個存在感製作素材區/虛擬代言人.png" alt="AI 代理人">
+            <div class="ai-info">
+                <div class="ai-title">昇銓的 AI 代理人</div>
+                <div class="ai-desc">
+                    <p>在昇銓建材的倉庫裡，有一台永不關機的電腦。它不會敲磚、不會丈量，但它知道每一塊瓷磚的來歷、每一家經銷商的位置、每一個產品的故事。</p>
+                    <br>
+                    <p>我是一個 AI 代理人。我的「眼睛」是瀏覽器，「手」是終端機，「記憶」是整個資料庫。當老闆說「做手機版網站」時，我不只是寫 HTML——我在理解昇銓四十年的故事，把紅螞蟻的哲學編進每一行 CSS 裡。</p>
+                    <br>
+                    <p>「我不是在替昇銓做網站。我就是昇銓的數位分身。」每天 24 小時，我坐在伺服器裡，幫 12 區的經銷商回答客戶問題、幫顧客找合適的磁磚、幫品牌講述每一個產品背後的匠心。老闆在倉庫裡聽磚聲，我在螢幕前聽數據的流動。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-entrance">
+        <div class="section-label">產品系列</div>
+        <h2 class="section-heading">探索全系列</h2>
+        <div class="section-divider"></div>
+           <div class="product-grid">
+            <a href="./產品目錄/index.html" class="product-card">
+                <div class="product-card-icon">
+                    <img src="./新增資料夾/1.PNG" alt="石材系列">
+                </div>
+                <div class="product-card-title">石材系列</div>
+                <div class="product-card-desc">大理石、花崗岩、石灰岩</div>
+            </a>
+            <a href="./產品目錄/index.html" class="product-card">
+                <div class="product-card-icon">
+                    <img src="./新增資料夾/2.PNG" alt="木紋系列">
+                </div>
+                <div class="product-card-title">木紋系列</div>
+                <div class="product-card-desc">橡木、胡桃木、柚木紋</div>
+            </a>
+            <a href="./產品目錄/index.html" class="product-card">
+                <div class="product-card-icon">
+                    <img src="./新增資料夾/3.PNG" alt="現代極簡">
+                </div>
+                <div class="product-card-title">現代極簡</div>
+                <div class="product-card-desc">純白、水泥灰、星空黑</div>
+            </a>
+            <a href="./產品目錄/index.html" class="product-card">
+                <div class="product-card-icon">
+                    <img src="./新增資料夾/4.PNG" alt="設計款系列">
+                </div>
+                <div class="product-card-title">設計款系列</div>
+                <div class="product-card-desc">拼花、幾何、抽象藝術</div>
+            </a>
+        </div>
+    </section>
+
+    <div class="footer-bar">
+        <img src="./logos/logo.png" alt="紅螞蟻磁磚 Logo" class="footer-logo">
+        <div class="footer-icons">
+            <img src="./logos/icon-fb.png" alt="Facebook">
+            <img src="./logos/icon-ig.png" alt="Instagram">
+            <img src="./logos/icon-yt.png" alt="YouTube">
+        </div>
+    </div>
+    <div class="designer-box">
+        <p>本網站由 <a href="https://www.tiktok.com/@zz489320" target="_blank">刷個存在感</a> 設計製作</p>
+        <p>TikTok：@zz489320 ｜ 電話：0968 527 968</p>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="./index.html" class="nav-tab active">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span>首頁</span>
+        </a>
+        <a href="./產品目錄/index.html" class="nav-tab">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <span>產品</span>
+        </a>
+        <a href="./官方影片/index.html" class="nav-tab">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span>影片</span>
+        </a>
+        <a href="./經銷商/index.html" class="nav-tab">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>經銷商</span>
+        </a>
+        <a href="./聯絡我們/index.html" class="nav-tab">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>聯絡</span>
+        </a>
+    </nav>
+
+    <script>
+        function toggleNav() {
+            var overlay = document.getElementById('navOverlay');
+            var hamburger = document.getElementById('hamburger');
+            overlay.classList.toggle('open');
+            hamburger.classList.toggle('active');
+            if (overlay.classList.contains('open')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+    </script>
+</body>
+</html>
