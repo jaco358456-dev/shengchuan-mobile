@@ -153,44 +153,45 @@
             gap: 12px;
         }
         .product-card {
-            background: var(--bg-card);
-            border-radius: var(--radius);
+            position: relative;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            aspect-ratio: 3/4;
+            display: flex;
+            align-items: flex-end;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
         }
-        .product-card:active {
-            transform: scale(0.97);
-            box-shadow: none;
-        }
-        .product-card-thumb {
-            width: 100%;
-            aspect-ratio: 4/3;
+        .product-card img.thumb {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             object-fit: cover;
-            background: #eee;
         }
-        .product-card-body {
-            padding: 12px;
+        .product-card .card-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 20px 14px 16px;
+            background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
         }
-        .product-card-name {
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: 4px;
-        }
-        .product-card-cat {
+        .product-card .card-cat {
             font-size: 0.65rem;
-            color: var(--brand-red);
+            color: #fff;
             letter-spacing: 1px;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
         }
-        .product-card-desc {
+        .product-card .card-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+        }
+        .product-card .card-desc {
             font-size: 0.7rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.4;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
         }
 
         /* 頁尾 */
@@ -372,11 +373,11 @@
                 card.href = p.path + '/index.html';
                 card.className = 'product-card';
                 card.innerHTML =
-                    '<img src="' + p.thumb + '" class="product-card-thumb" alt="' + p.name + '">' +
-                    '<div class="product-card-body">' +
-                        '<div class="product-card-cat">' + p.catName + '</div>' +
-                        '<div class="product-card-name">' + p.name + '</div>' +
-                        '<div class="product-card-desc">' + p.desc + '</div>' +
+                    '<img src="' + p.thumb + '" class="thumb" alt="' + p.name + '">' +
+                    '<div class="card-overlay">' +
+                        '<div class="card-cat">' + p.catName + '</div>' +
+                        '<div class="card-name">' + p.name + '</div>' +
+                        '<div class="card-desc">' + p.desc + '</div>' +
                     '</div>';
                 grid.appendChild(card);
             });
