@@ -1,0 +1,10 @@
+# Python scripts
+*.py
+__pycache__/
+
+# Deep analysis markdown files
+*/深度分析.md
+
+# Product category index pages
+products/*/index.html
+products/紅螞蟻產品目錄/*/index.html
