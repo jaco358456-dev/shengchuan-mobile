@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分類 4 — 白色啞光系列 × 紅螞蟻 × 昇銓建材</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .product-showcase {{
+            margin-bottom: 20px;
+        }}
+        .product-main {{
+            width: 100%;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }}
+        .slider-row {{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 12px;
+        }}
+        .slider-row img {{
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }}
+        .section-label {{
+            font-family: var(--font-heading);
+            color: var(--pink-dark);
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin: 16px 0 8px;
+            padding-left: 12px;
+            border-left: 3px solid var(--pink-deep);
+        }}
+    </style>
+</head>
+<body>
+    <header>
+        <span class="brand-text">昇銓建材</span>
+        <button class="hamburger" onclick="openMenu()">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <nav class="side-menu" id="sideMenu">
+        <button class="close-btn" onclick="closeMenu()">&times;</button>
+        <a href="../../index.html">首頁</a>
+        <a href="../../about.html">關於昇銓</a>
+        <a href="../../videos/index.html">官方宣傳影片</a>
+        <a href="../../lunara.html">Lunara 品牌大使</a>
+        <a href="../products/index.html">產品中心</a>
+        <a href="../../contact.html">聯絡我們</a>
+        <a href="tel:02-22754988">02-22754988</a>
+    </nav>
+
+    <div class="section-title">
+        <h2>分類 4 — 白色啞光系列</h2>
+    </div>
+
+    <div class="card product-showcase">
+        <img src="product0788.jpg" alt="產品樣品" class="product-main">
+        <div class="slider-row">
+            <img src="product0842.jpg" alt="product0842.jpg">
+            <img src="product0843.jpg" alt="product0843.jpg">
+            <img src="product0844.jpg" alt="product0844.jpg">
+        </div>
+        <div class="section-label">應用場景</div>
+        <div class="slider-row">
+            <img src="slider_no0164.jpg" alt="slider_no0164.jpg">
+            <img src="slider_no0166.jpg" alt="slider_no0166.jpg">
+            <img src="use_place0059.jpg" alt="use_place0059.jpg">
+            <img src="use_place0060.jpg" alt="use_place0060.jpg">
+            <img src="use_place0061.jpg" alt="use_place0061.jpg">
+            <img src="use_place0062.jpg" alt="use_place0062.jpg">
+        </div>
+        </div>
+    </div>
+
+    <div class="card" style="text-align: center; margin-top: 16px;">
+        <a href="../3/index.html" class="btn" style="margin-right: 8px; margin-bottom: 8px;">← 上一分類</a>
+        <a href="../5/index.html" class="btn">下一分類 →</a>
+    </div>
+
+    <a href="../products/index.html" class="back-link" style="margin: 20px; display: block;">返回產品中心</a>
+
+    <footer>
+        <p>&copy; 2026 昇銓建材有限公司 所有權利reserved</p>
+        <p style="margin-top: 12px;">
+            網頁設計 by <a href="https://www.tiktok.com/@zz489320" target="_blank">刷個存在感</a>
+        </p>
+    </footer>
+
+    <script>
+        function openMenu() {{
+            document.getElementById('sideMenu').style.display = 'flex';
+            setTimeout(() => {{
+                document.getElementById('sideMenu').classList.add('open');
+            }}, 10);
+        }}
+        function closeMenu() {{
+            document.getElementById('sideMenu').classList.remove('open');
+            setTimeout(() => {{
+                document.getElementById('sideMenu').style.display = 'none';
+            }}, 400);
+        }}
+    </script>
+</body>
+</html>

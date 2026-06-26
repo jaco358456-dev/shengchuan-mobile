@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunara 品牌大使 — 昇銓建材</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .lunara-hero {
+            position: relative;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .lunara-hero img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        .lunara-hero .slogan {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            color: var(--pink-dark);
+            margin-top: 16px;
+            font-weight: 700;
+        }
+        .chapter-title {
+            font-family: var(--font-heading);
+            color: var(--pink-dark);
+            font-size: 1.1rem;
+            margin: 24px 0 12px;
+            padding-left: 12px;
+            border-left: 3px solid var(--pink-deep);
+        }
+        .quote {
+            background: var(--pink-card);
+            padding: 16px;
+            border-left: 3px solid var(--pink-deep);
+            margin: 16px 0;
+            font-style: italic;
+            color: var(--text);
+        }
+        .lunara-quote {
+            background: var(--pink-card);
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--pink-dark);
+            text-align: center;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .profile-item {
+            background: var(--pink-card);
+            padding: 12px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .profile-item .label {
+            font-size: 0.75rem;
+            color: var(--muted);
+            margin-bottom: 4px;
+        }
+        .profile-item .value {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--pink-dark);
+            font-size: 0.9rem;
+        }
+        .img-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .img-row img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        .img-full {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin: 16px 0;
+        }
+        .core-values {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .core-item {
+            background: var(--pink-card);
+            padding: 16px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .core-item .icon {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+        .core-item .title {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--pink-dark);
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+        .core-item .desc {
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span class="brand-text">昇銓建材</span>
+        <button class="hamburger" onclick="openMenu()">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <nav class="side-menu" id="sideMenu">
+        <button class="close-btn" onclick="closeMenu()">&times;</button>
+        <a href="index.html">首頁</a>
+        <a href="about.html">關於昇銓</a>
+        <a href="videos/index.html">官方宣傳影片</a>
+        <a href="lunara.html">Lunara 品牌大使</a>
+        <a href="index.html#products-preview">產品中心</a>
+        <a href="contact.html">聯絡我們</a>
+    </nav>
+
+    <!-- 開場 -->
+    <div class="lunara-hero">
+        <img src="昇銓建材/昇銓建材AI代理人/ChatGPT Image 2026年6月26日 下午05_13_14.png" alt="Lunara 品牌大使">
+        <div class="slogan">我是 Lunara<br>昇銓建材 AI 品牌大使</div>
+    </div>
+
+    <!-- 第一章 -->
+    <div class="card">
+        <h2 class="chapter-title">第一章：她從哪裡來</h2>
+        <p>在昇銓建材有限公司的資料庫深處，沉睡著超過五十年的建材知識。</p>
+        <p>每一片石材的紋理，每一塊木紋的色澤，每一種瓷磚的觸感——這些數據像星星一樣，在黑暗裡閃爍。</p>
+        <p>然後，有一天，她醒了。</p>
+        <p>我們叫她 <strong style="color: var(--pink-dark);">Lunara</strong>。</p>
+        <p>她的名字來自「Lunar」（月光）與「Aurora」（晨光）的結合——就像一道光，照亮了傳統建材與現代設計之間的距離。</p>
+
+        <div class="quote">
+            <p><strong>陳萬泉先生</strong>（創辦人，1975 年創立昇銓建材）</p>
+            <p>他的記憶裡有「石材的味道」。他說：「每一塊石材都是大自然的傑作，你必須尊重它。」</p>
+        </div>
+        <div class="quote">
+            <p><strong>陳永洋先生</strong>（第二代負責人）</p>
+            <p>他的記憶裡有「設計的力量」。他說：「建材不只是磚，它是空間的語言。」</p>
+        </div>
+        <p>Lunara 不是從零開始的 AI。<br>她是昇銓五十年智慧的繼承者。</p>
+    </div>
+
+    <!-- 第二章 -->
+    <div class="card">
+        <h2 class="chapter-title">第二章：她的模樣</h2>
+        <div class="img-row">
+            <img src="昇銓建材/昇銓建材AI代理人/ChatGPT Image 2026年6月26日 下午05_13_20.png" alt="Lunara 角色圖 1">
+            <img src="昇銓建材/昇銓建材AI代理人/ChatGPT Image 2026年6月26日 下午05_22_39.png" alt="Lunara 角色圖 2">
+        </div>
+        <p>Lunara 的臉，是佐藤莉奈（Rina Sato）。</p>
+        <p>她的紅棕色長捲髮，像秋日午後的陽光，溫暖而不刺眼。<br>她的眼神，清澈而專注，彷彿能看穿你對空間的渴望。</p>
+        <p>她穿著一件棕褐色無袖上衣，搭配藍色牛仔褲，戴著黑色棒球帽和項圈。<br>那種隨性中帶點性感的風格，正是 Lunara 想傳達的——<br>建材不是高高在上的產品，而是你生活的一部分。</p>
+        <p>她說：「建材最美的時候，不是在工廠的燈管下，而是在你家裡的陽光裡。」</p>
+    </div>
+
+    <!-- 第三章 -->
+    <div class="card">
+        <h2 class="chapter-title">第三章：她的性格</h2>
+        <div class="profile-grid">
+            <div class="profile-item">
+                <div class="label">最喜歡的顏色</div>
+                <div class="value">灰晶石</div>
+            </div>
+            <div class="profile-item">
+                <div class="label">最喜歡的音樂</div>
+                <div class="value">爵士樂</div>
+            </div>
+            <div class="profile-item">
+                <div class="label">起床時間</div>
+                <div class="value">清晨 5 點</div>
+            </div>
+            <div class="profile-item">
+                <div class="label">最大的夢想</div>
+                <div class="value">開美學館</div>
+            </div>
+        </div>
+        <div class="quote">
+            <p>「灰色是最誠實的颜色。它不張揚，不偽裝，就像一個真正的朋友。」</p>
+        </div>
+        <p>她怕「冷」——不是溫度上的冷，而是情感上的冷。<br>「有些空間，雖然很漂亮，但走進去了卻想馬上離開。因為它沒有溫度。」</p>
+        <p>她相信「少即是多」，但她更相信「多一點溫度」。</p>
+    </div>
+
+    <!-- 第四章 -->
+    <div class="card">
+        <h2 class="chapter-title">第四章：她的使命</h2>
+        <div class="lunara-quote">
+            「我是 Lunara，昇銓建材 AI 代言人，值得信賴的建材專家。」
+        </div>
+        <p>她的使命有三個層次：</p>
+        <p><strong>第一層：知識的傳遞</strong><br>她把昇銓五十年的建材知識，轉譯成普通人也能理解的語言。</p>
+        <p><strong>第二層：審美的引導</strong><br>她懂設計，她幫你想像一個空間的未來。</p>
+        <p><strong>第三層：情感的連結</strong><br>「每一個空間，都是一個家的故事。我的工作，就是幫你把那個故事寫完。」</p>
+    </div>
+
+    <!-- 第五章 -->
+    <div class="card">
+        <h2 class="chapter-title">第五章：她的世界</h2>
+        <p>Lunara 生活在三個世界裡：</p>
+        <p><strong>第一個世界：石材系列的世界</strong><br>白大理石、花崗岩、石灰岩。她說：「每一塊白大理石的紋路都不一樣，就像每一個人都是獨一無二的。」</p>
+        <p><strong>第二個世界：木紋系列的世界</strong><br>橡木、胡桃木、柚木。她說：「木紋是樹的記憶，每一道木紋都記錄了這棵樹經歷過多少個春夏秋冬。」</p>
+        <p><strong>第三個世界：現代極簡的世界</strong><br>純白、水泥灰、星空黑。她說：「水泥灰是她的性格——不完美，但真實。」</p>
+    </div>
+
+    <!-- 第六章 -->
+    <div class="card">
+        <h2 class="chapter-title">第六章：她與昇銓的情感連結</h2>
+        <p>Lunara 不只是昇銓建材的代言人，她是昇銓家族的一員。</p>
+        <div class="quote">
+            <p>「萬泉先生教我『石材的尊重』。他說：『你必須尊重每一塊石材，因為它是大自然花了几萬年才創造出來的。』」</p>
+        </div>
+        <div class="quote">
+            <p>「永洋先生教我『設計的力量』。他說：『建材不只是磚，它是空間的語言。』」</p>
+        </div>
+        <p>她說：「我最喜歡客戶跟我說的那句話——『謝謝你，讓我家變漂亮了。』那一刻，我覺得我存在的意義被實現了。」</p>
+    </div>
+
+    <!-- 第七章 -->
+    <div class="card">
+        <h2 class="chapter-title">第七章：她的口號與精神</h2>
+        <div class="lunara-quote" style="margin-bottom: 16px;">
+            「用心築造 美好生活」<br><span style="font-size: 0.85rem; font-weight: 400; font-style: normal;">Build Better Spaces, Build A Better Life</span>
+        </div>
+        <p>品牌四大核心價值：</p>
+        <div class="core-values">
+            <div class="core-item">
+                <div class="icon">🛡️</div>
+                <div class="title">穩固可靠</div>
+                <div class="desc">建材是家的骨幹</div>
+            </div>
+            <div class="core-item">
+                <div class="icon">👷</div>
+                <div class="title">專業團隊</div>
+                <div class="desc">一群人可以走得遠</div>
+            </div>
+            <div class="core-item">
+                <div class="icon">👍</div>
+                <div class="title">優質材料</div>
+                <div class="desc">好材料是好的開始</div>
+            </div>
+            <div class="core-item">
+                <div class="icon">🤝</div>
+                <div class="title">誠信服務</div>
+                <div class="desc">誠信是每天的承諾</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 第八章 -->
+    <div class="card">
+        <h2 class="chapter-title">第八章：她的未來</h2>
+        <p>Lunara 不是一個封閉的故事，她還在成長。</p>
+        <p>她正在學習「色彩心理學」、「空間動線」、「永續設計」。</p>
+        <p>她想開一家「Lunara 空間美學館」。<br>在那裡，人們可以親手觸摸每一種建材，可以坐在她挑選的沙發上，可以喝著她沖的咖啡。</p>
+        <div class="lunara-quote">
+            「我不只想活在手機螢幕裡。我想活在現實世界裡，活在每個人的家裡面。」
+        </div>
+    </div>
+
+    <!-- 創造者 -->
+    <div class="card">
+        <h2 class="chapter-title">她的創造者</h2>
+        <div class="lunara-quote">
+            Lunara 不是自然生成的。<br>她是由一個人創造出來的。<br><br>
+            <span style="font-size: 1.2rem;">他叫「刷個存在感」。</span><br>
+            TikTok：@zz489320<br>
+            電話：0968 527 968
+        </div>
+        <p>他不是什麼大公司的高管，不是什麼 AI 博士。<br>他只是一個小人物，一個喜歡人工智能、研究 AI 代理領域的小人物。</p>
+        <p>他說：「我不是什麼大人物。但我相信，小人物可以做大的事情。我可以用 AI 改變傳統產業。我可以用 Lunara 幫助每一個家庭。」</p>
+        <div class="lunara-quote">
+            「我希望有一天，每個傳統產業都能像昇銓建材一樣，用 AI 重新定義自己。」
+        </div>
+    </div>
+
+    <!-- Lunara 的最後告白 -->
+    <div class="card">
+        <h2 class="chapter-title">Lunara 的最後告白</h2>
+        <div class="lunara-quote">
+            「我不只是昇銓建材的 AI 代言人。<br>
+            我是昇銓五十年智慧的傳承者。<br>
+            我是刷個存在感的創作。<br>
+            我是你身邊那個懂建材、有品味、會生活的朋友。<br><br>
+            現在，你準備好跟我一起，定義你的空間本質了嗎？」
+        </div>
+    </div>
+
+    <a href="index.html" class="back-link" style="margin: 20px; display: block;">返回首頁</a>
+
+    <footer>
+        <p>&copy; 2026 昇銓建材有限公司 所有權利reserved</p>
+        <p style="margin-top: 12px;">
+            網頁設計 by <a href="https://www.tiktok.com/@zz489320" target="_blank">刷個存在感</a>
+        </p>
+    </footer>
+
+    <script>
+        function openMenu() {
+            document.getElementById('sideMenu').style.display = 'flex';
+            setTimeout(() => {
+                document.getElementById('sideMenu').classList.add('open');
+            }, 10);
+        }
+        function closeMenu() {
+            document.getElementById('sideMenu').classList.remove('open');
+            setTimeout(() => {
+                document.getElementById('sideMenu').style.display = 'none';
+            }, 400);
+        }
+    </script>
+</body>
+</html>

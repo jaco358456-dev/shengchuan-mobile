@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>官方宣傳影片 — 昇銓建材</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .video-wrapper {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .video-wrapper video {
+            width: 100%;
+            max-height: 70vh;
+            background: #000;
+            border-radius: 4px;
+        }
+        .video-info {
+            margin-top: 16px;
+            padding: 16px;
+            background: var(--pink-card);
+            border-radius: 4px;
+        }
+        .video-info h3 {
+            font-family: var(--font-heading);
+            color: var(--pink-dark);
+            margin-bottom: 8px;
+        }
+        .video-info p {
+            color: var(--muted);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span class="brand-text">昇銓建材</span>
+        <button class="hamburger" onclick="openMenu()">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <nav class="side-menu" id="sideMenu">
+        <button class="close-btn" onclick="closeMenu()">&times;</button>
+        <a href="../index.html">首頁</a>
+        <a href="../about.html">關於昇銓</a>
+        <a href="index.html">官方宣傳影片</a>
+        <a href="../lunara.html">Lunara 品牌大使</a>
+        <a href="../index.html#products-preview">產品中心</a>
+        <a href="../contact.html">聯絡我們</a>
+    </nav>
+
+    <div class="section-title">
+        <h2>官方宣傳影片</h2>
+    </div>
+
+    <div class="video-wrapper">
+        <video controls preload="metadata" poster="../昇銓建材/昇銓建材圖檔製作素材區/8fa8543c-7cfe-4816-8dc4-9803f67958a3.png">
+            <source src="昇銓建材有限公司官方宣傳影片.mp4" type="video/mp4">
+            您的瀏覽器不支援 HTML5 影片播放，請點擊下方連結下載。
+        </video>
+    </div>
+
+    <div class="video-info" style="margin-top: 20px; text-align: center;">
+        <a href="昇銓建材有限公司官方宣傳影片.mp4" download style="color: var(--pink-dark); font-weight: 700; text-decoration: none;">
+            ⬇ 下載官方宣傳影片
+        </a>
+    </div>
+
+    <div class="video-info" style="margin-top: 20px; text-align: left;">
+        <h3>影片內容</h3>
+        <p>
+            昇銓建材官方宣傳影片，為您介紹：<br>
+            • 公司歷史 — 1975 年創辦人陳永洋先生的初心<br>
+            • 團隊風貌 — 第二代經營理念，20 人專業團隊<br>
+            • 紅螞蟻品牌 — 全系列磁磚產品展示<br>
+            • 客戶實績 — 居家與商業空間實際應用案例<br>
+            • 品牌承諾 — 用心築造 美好生活
+        </p>
+    </div>
+
+    <a href="../index.html" class="back-link" style="margin: 20px; display: block;">返回首頁</a>
+
+    <footer>
+        <p>&copy; 2026 昇銓建材有限公司 所有權利reserved</p>
+        <p style="margin-top: 12px;">
+            網頁設計 by <a href="https://www.tiktok.com/@zz489320" target="_blank">刷個存在感</a>
+        </p>
+    </footer>
+
+    <script>
+        function openMenu() {
+            document.getElementById('sideMenu').style.display = 'flex';
+            setTimeout(() => {
+                document.getElementById('sideMenu').classList.add('open');
+            }, 10);
+        }
+        function closeMenu() {
+            document.getElementById('sideMenu').classList.remove('open');
+            setTimeout(() => {
+                document.getElementById('sideMenu').style.display = 'none';
+            }, 400);
+        }
+    </script>
+</body>
+</html>
