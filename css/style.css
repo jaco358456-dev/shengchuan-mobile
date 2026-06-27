@@ -648,3 +648,8 @@ table td:last-child {
     margin: 0;
     line-height: 1.6;
 }
+
+.highlight {
+    color: var(--pink-dark);
+    font-weight: 700;
+}
