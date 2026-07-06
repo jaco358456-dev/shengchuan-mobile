@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <div class="brand"><img src="star-cera-logo.png" alt="STAR CERA 昇銓建材"></div>
+        <div class="brand"><img src="../昇銓建材/昇銓建材宣傳影片/logo.png" alt="STAR CERA 昇銓建材"></div>
         <button class="hamburger" onclick="openMenu()">
             <span></span><span></span><span></span>
         </button>
@@ -24,15 +24,61 @@
         <a href="../contact.html">聯絡我們</a>
     </nav>
 
+    <!-- 密碼鎖 -->
+    <div id="product-lock" style="position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9999; display:flex; align-items:center; justify-content:center;">
+        <div style="background:#fff; border-radius:8px; padding:40px; text-align:center; max-width:320px; width:90%;">
+            <img src="../logos/logo.png" alt="紅螞蟻" style="max-width:120px; margin-bottom:16px;">
+            <h2 style="margin:0 0 10px; color:#333;">請輸入密碼</h2>
+            <p style="color:#666; margin-bottom:20px;">紅螞蟻品牌產品目錄</p>
+            <input type="password" id="lock-pass" placeholder="密碼" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:4px; font-size:16px; text-align:center; letter-spacing:4px;">
+            <button onclick="checkPass()" style="margin-top:16px; width:100%; padding:12px; background:#1a73e8; color:#fff; border:none; border-radius:4px; font-size:16px; cursor:pointer;">確認</button>
+            <p id="lock-error" style="color:red; margin-top:12px; display:none;">密碼錯誤</p>
+        </div>
+    </div>
+
+    <script>
+        function checkPass() {
+            if (document.getElementById('lock-pass').value === '1234') {
+                document.getElementById('product-lock').style.display = 'none';
+                document.getElementById('cover-section').style.display = 'block';
+                document.getElementById('ebook-card').style.display = 'block';
+                document.getElementById('category-section').style.display = 'block';
+                document.getElementById('category-grid').style.display = 'block';
+                sessionStorage.setItem('sanchen_unlocked', '1');
+            } else {
+                document.getElementById('lock-error').style.display = 'block';
+                document.getElementById('lock-pass').value = '';
+            }
+        }
+        document.getElementById('lock-pass').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') checkPass();
+        });
+
+        // 初始狀態
+        if (sessionStorage.getItem('sanchen_unlocked') === '1') {
+            document.getElementById('product-lock').style.display = 'none';
+            document.getElementById('cover-section').style.display = 'block';
+            document.getElementById('ebook-card').style.display = 'block';
+            document.getElementById('category-section').style.display = 'block';
+            document.getElementById('category-grid').style.display = 'block';
+        } else {
+            document.getElementById('product-lock').style.display = 'flex';
+            document.getElementById('cover-section').style.display = 'none';
+            document.getElementById('ebook-card').style.display = 'none';
+            document.getElementById('category-section').style.display = 'none';
+            document.getElementById('category-grid').style.display = 'none';
+        }
+    </script>
+
     <!-- 封面 -->
-    <div class="cover-section">
+    <div class="cover-section" id="cover-section" style="display:none;">
         <img src="../logos/logo.png" alt="紅螞蟻品牌" class="cover-logo">
         <h1 class="cover-title">紅螞蟻品牌產品目錄</h1>
         <p class="cover-subtitle">35 大產品分類 · 300+ 款瓷磚產品 · 全品類磁磚解決方案</p>
     </div>
 
     <!-- 電子書目錄 -->
-    <div class="card ebook-card">
+    <div class="card ebook-card" id="ebook-card">
         <h3>📖 電子書目錄</h3>
         <p>完整產品型號、規格與價格一覽表</p>
         <a href="電子書目錄.pdf" class="btn-ebook" download>
@@ -41,11 +87,10 @@
         </a>
     </div>
 
-    <!-- 分類入口 -->
-    <section class="section-title">
+   <section class="section-title" id="category-section">
         <h2>產品分類</h2>
     </section>
-    <div class="card">
+    <div class="card" id="category-grid" style="display:none;">
         <div class="grid-3">
             <a href="../1/index.html" class="grid-item">
                  <img src="../1/product0832.jpg" alt="仿洞石系列" loading="lazy">
