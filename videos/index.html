@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>官方宣傳影片 — 昇銓建材</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <div class="brand"><img src="../star-cera-logo.png" alt="STAR CERA 昇銓建材"></div>
+        <button class="hamburger" onclick="openMenu()"><span></span><span></span><span></span></button>
+    </header>
+
+    <nav class="side-menu" id="sideMenu">
+        <button class="close-btn" onclick="closeMenu()">&times;</button>
+        <a href="../index.html">首頁</a>
+        <a href="../about.html">關於昇銓</a>
+        <a href="../videos/index.html">官方宣傳影片</a>
+        <a href="../lunara.html">Lunara 品牌大使</a>
+        <a href="../products/index.html">產品中心</a>
+        <a href="../contact.html">聯絡我們</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" style="height: 50vh; min-height: 300px;">
+        <div class="hero-bg">
+            <img src="../hero/slider04.jpg" alt="昇銓建材影片">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-year">VIDEO</div>
+            <h1 class="hero-title">官方宣傳<br>影片</h1>
+        </div>
+        <a href="../index.html" class="hero-scroll" style="position: absolute; top: 16px; left: 16px; z-index: 2; color: white; font-size: 1.2rem; text-decoration: none;">←</a>
+    </section>
+
+    <!-- 影片 -->
+    <section class="spacer-lg"></section>
+    <div class="section-tag">
+        <div class="section-tag-line"></div>
+        <div class="section-tag-text">OFFICIAL VIDEO</div>
+    </div>
+    <section class="spacer-md"></section>
+
+    <div class="story-block">
+        <div class="story-number">▶</div>
+        <h2 class="story-headline">昇銓建材 Official</h2>
+        <video controls preload="metadata" style="width: 100%; border-radius: var(--radius); margin-top: 16px;">
+            <source src="../昇銓建材/昇銓建材宣傳影片/官方宣傳影片.mp4" type="video/mp4">
+            您的瀏覽器不支援 HTML5 影片播放
+        </video>
+    </div>
+
+    <!-- 影片內容 -->
+    <section class="spacer-lg"></section>
+    <div class="section-tag">
+        <div class="section-tag-line"></div>
+        <div class="section-tag-text">CONTENTS</div>
+    </div>
+    <section class="spacer-md"></section>
+
+    <div class="story-block">
+        <div class="section-label">影片內容</div>
+        <p class="story-body">
+            <strong>1. 公司歷史</strong><br>
+            1975 年創辦人陳萬泉先生的初心與信念
+        </p>
+        <p class="story-body" style="margin-top: 12px;">
+            <strong>2. 團隊風貌</strong><br>
+            第二代經營理念，20 人專業團隊
+        </p>
+        <p class="story-body" style="margin-top: 12px;">
+            <strong>3. 紅螞蟻品牌</strong><br>
+            全系列磁磚產品展示
+        </p>
+        <p class="story-body" style="margin-top: 12px;">
+            <strong>4. 客戶實績</strong><br>
+            居家與商業空間實際應用案例
+        </p>
+        <p class="story-body" style="margin-top: 12px;">
+            <strong>5. 品牌承諾</strong><br>
+            用心築造 美好生活
+        </p>
+    </div>
+
+    <a href="../index.html" class="back-link">← 返回首頁</a>
+
+    <footer>
+        <p>&copy; 2026 昇銓建材有限公司 所有權利 reserved</p>
+        <p style="margin-top: 10px;">
+            網頁設計 by <a href="https://www.tiktok.com/@zz489320" target="_blank">刷個存在感</a>
+        </p>
+    </footer>
+
+    <script>
+    function openMenu() {
+        document.getElementById('sideMenu').style.display = 'flex';
+        requestAnimationFrame(() => {
+            document.getElementById('sideMenu').classList.add('open');
+        });
+    }
+    function closeMenu() {
+        document.getElementById('sideMenu').classList.remove('open');
+        setTimeout(() => {
+            document.getElementById('sideMenu').style.display = 'none';
+        }, 400);
+    }
+    </script>
+</body>
+</html>

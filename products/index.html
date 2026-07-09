@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>產品中心 — 紅螞蟻品牌 × 昇銓建材</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <div class="brand"><img src="../star-cera-logo.png" alt="STAR CERA 昇銓建材"></div>
+        <button class="hamburger" onclick="openMenu()"><span></span><span></span><span></span></button>
+    </header>
+
+    <nav class="side-menu" id="sideMenu">
+        <button class="close-btn" onclick="closeMenu()">&times;</button>
+        <a href="../index.html">首頁</a>
+        <a href="../about.html">關於昇銓</a>
+        <a href="../videos/index.html">官方宣傳影片</a>
+        <a href="../lunara.html">Lunara 品牌大使</a>
+        <a href="../products/index.html">產品中心</a>
+        <a href="../contact.html">聯絡我們</a>
+    </nav>
+
+    <!-- 密碼鎖 -->
+    <div id="product-lock">
+        <div>
+            <h2>🐜 紅螞蟻品牌</h2>
+            <p>產品目錄入口</p>
+            <input type="password" id="lock-pass" placeholder="輸入密碼" maxlength="4">
+            <button onclick="checkPass()">確認進入</button>
+            <p id="lock-error">密碼錯誤</p>
+        </div>
+    </div>
+
+    <script>
+    function checkPass() {
+        if (document.getElementById('lock-pass').value === '1234') {
+            document.getElementById('product-lock').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+            sessionStorage.setItem('sanchen_unlocked', '1');
+        } else {
+            document.getElementById('lock-error').style.display = 'block';
+            document.getElementById('lock-pass').value = '';
+        }
+    }
+    document.getElementById('lock-pass').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') checkPass();
+    });
+    if (sessionStorage.getItem('sanchen_unlocked') === '1') {
+        document.getElementById('product-lock').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+    }
+    </script>
+
+    <!-- 內容 -->
+    <div id="content" style="display:none;">
+        <!-- 封面 -->
+        <section class="hero">
+            <div class="hero-bg">
+                <img src="../hero/slider03.jpg" alt="紅螞蟻品牌">
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-year">35 大分類 · 300+ 產品</div>
+                <h1 class="hero-title">紅螞蟻品牌<br>產品目錄</h1>
+                <p class="hero-sub">全品類磁磚解決方案</p>
+            </div>
+            <a href="../index.html" class="hero-scroll" style="position:absolute;top:16px;left:16px;z-index:2;color:white;font-size:1.2rem;text-decoration:none;">←</a>
+        </section>
+
+        <!-- 電子書 -->
+        <section class="spacer-md"></section>
+        <div class="section-tag">
+            <div class="section-tag-line"></div>
+            <div class="section-tag-text">CATALOG</div>
+        </div>
+        <section class="spacer-sm"></section>
+
+        <div style="padding: 0 24px;">
+            <div class="value-card value-card--accent" style="padding: 24px; text-align: center;">
+                <div class="value-icon" style="font-size: 1.5rem; background: var(--white); color: var(--navy);">📄</div>
+                <div class="value-title" style="color: var(--white); margin-top: 8px;">電子書目錄</div>
+                <div class="value-desc" style="color: rgba(255,255,255,0.7); margin-top: 8px;">完整產品型號、規格與價格一覽表</div>
+                <a href="電子書目錄.pdf" class="btn btn--gold" style="margin-top: 16px; display: inline-block;">下載 PDF 目錄</a>
+            </div>
+        </div>
+
+        <!-- 產品分類 -->
+        <section class="spacer-lg"></section>
+        <div class="products-header">
+            <div class="products-header-text">
+                <h2>全部 35 分類</h2>
+                <p>點擊查看產品詳情</p>
+            </div>
+        </div>
+        <section class="spacer-sm"></section>
+
+        <div class="products-grid">
+            <div class="product-tile">
+                <img src="../1/product0832.jpg" alt="仿洞石系列" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">仿洞石系列</div>
+                    <div class="product-tile-desc">自然質感 · 戶外鋪面</div>
+                </div>
+                <a href="../1/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../2/product0720.jpg" alt="仿木紋系列" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">仿木紋系列</div>
+                    <div class="product-tile-desc">溫暖木感 · 室內地坪</div>
+                </div>
+                <a href="../2/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../3/product0685.jpg" alt="仿大理系列" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">仿大理系列</div>
+                    <div class="product-tile-desc">大理石紋 · 奢華質感</div>
+                </div>
+                <a href="../3/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../4/product0788.jpg" alt="仿水泥系列" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">仿水泥系列</div>
+                    <div class="product-tile-desc">工業風 · 簡約質感</div>
+                </div>
+                <a href="../4/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../5/product0833.jpg" alt="幾何拼花系列" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">幾何拼花系列</div>
+                    <div class="product-tile-desc">藝術拼花 · 裝飾效果</div>
+                </div>
+                <a href="../5/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../6/product0727.jpg" alt="大地石紋系列" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">大地石紋系列</div>
+                    <div class="product-tile-desc">天然石紋 · 質感空間</div>
+                </div>
+                <a href="../6/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../7/product0847.jpg" alt="大板磚系列" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">大板磚系列</div>
+                    <div class="product-tile-desc">大尺寸 · 商業空間</div>
+                </div>
+                <a href="../7/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../8/product0647.jpg" alt="仿古系列" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">仿古系列</div>
+                    <div class="product-tile-desc">復古風格 · 歷史感</div>
+                </div>
+                <a href="../8/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../9/product0688.jpg" alt="馬賽克系列" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">馬賽克系列</div>
+                    <div class="product-tile-desc">細密拼貼 · 藝術感</div>
+                </div>
+                <a href="../9/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../10/product0649.jpg" alt="戶外系列" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">戶外系列</div>
+                    <div class="product-tile-desc">耐風耐候 · 庭院露台</div>
+                </div>
+                <a href="../10/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+
+            <div class="product-tile">
+                <img src="../11/product0772.jpg" alt="系列 11" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 11</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../11/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../12/product0676.jpg" alt="系列 12" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 12</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../12/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../13/product0736.jpg" alt="系列 13" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 13</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../13/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../14/product0828.jpg" alt="系列 14" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 14</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../14/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../15/product0694.jpg" alt="系列 15" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 15</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../15/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../16/product0746.jpg" alt="系列 16" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 16</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../16/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../17/product0666.jpg" alt="系列 17" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 17</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../17/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../18/product0748.jpg" alt="系列 18" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 18</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../18/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../19/product0831.jpg" alt="系列 19" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 19</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../19/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../20/product0512.jpg" alt="系列 20" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 20</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../20/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../21/product0754.jpg" alt="系列 21" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 21</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../21/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../22/product0704.jpg" alt="系列 22" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 22</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../22/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../23/product0709.jpg" alt="系列 23" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 23</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../23/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../24/product0638.jpg" alt="系列 24" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 24</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../24/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../25/product0738.jpg" alt="系列 25" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 25</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../25/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../26/product0641.jpg" alt="系列 26" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 26</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../26/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../27/product0716.jpg" alt="系列 27" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 27</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../27/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../28/product0830.jpg" alt="系列 28" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 28</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../28/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../29/product0826.jpg" alt="系列 29" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 29</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../29/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../30/product0841.jpg" alt="系列 30" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 30</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../30/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../31/product0851.jpg" alt="系列 31" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 31</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../31/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../32/product0858.jpg" alt="系列 32" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 32</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../32/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../33/product0855.jpg" alt="系列 33" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 33</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../33/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../34/product0860.jpg" alt="系列 34" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 34</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../34/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+            <div class="product-tile">
+                <img src="../35/product0871.jpg" alt="系列 35" loading="lazy">
+                <div class="product-tile-info">
+                    <div class="product-tile-name">系列 35</div>
+                    <div class="product-tile-desc">查看更多</div>
+                </div>
+                <a href="../35/index.html" style="position:absolute;inset:0;"></a>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 昇銓建材有限公司 所有權利 reserved</p>
+            <p style="margin-top: 10px;">
+                網頁設計 by <a href="https://www.tiktok.com/@zz489320" target="_blank">刷個存在感</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+    function openMenu() {
+        document.getElementById('sideMenu').style.display = 'flex';
+        requestAnimationFrame(() => {
+            document.getElementById('sideMenu').classList.add('open');
+        });
+    }
+    function closeMenu() {
+        document.getElementById('sideMenu').classList.remove('open');
+        setTimeout(() => {
+            document.getElementById('sideMenu').style.display = 'none';
+        }, 400);
+    }
+    </script>
+</body>
+</html>
