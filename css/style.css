@@ -403,7 +403,7 @@ header {
     opacity: 0.9;
 }
 
-.ambassador-video-wrap {
+.ambassador-poster {
     margin: 24px auto;
     max-width: 320px;
     border-radius: 8px;
@@ -411,7 +411,7 @@ header {
     box-shadow: 0 4px 20px rgba(0,0,0,0.12);
 }
 
-.ambassador-video {
+.ambassador-poster img {
     width: 100%;
     height: auto;
     display: block;
@@ -432,6 +432,24 @@ header {
     line-height: 1.8;
     max-width: 300px;
     margin: 0 auto;
+}
+
+.ambassador-btn {
+    display: inline-block;
+    background: var(--pink-deep);
+    color: var(--white);
+    padding: 14px 32px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    text-align: center;
+    transition: background 0.3s;
+}
+
+.ambassador-btn:hover {
+    background: var(--pink-dark);
 }
 
 /* Contact */

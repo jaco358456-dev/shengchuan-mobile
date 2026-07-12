@@ -75,18 +75,53 @@
             font-size: 0.9rem;
         }
         .img-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin: 16px 0;
-        }
-        .img-row img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-        .img-full {
+             display: grid;
+             grid-template-columns: 1fr 1fr;
+             gap: 12px;
+             margin: 16px 0;
+         }
+         .img-row img {
+              width: 100%;
+              height: auto;
+              border-radius: 4px;
+              display: block;
+          }
+          .img-column {
+              display: flex;
+              flex-direction: column;
+              gap: 16px;
+              margin: 16px 0;
+          }
+          .img-column img {
+              width: 100%;
+              height: auto;
+              border-radius: 4px;
+              display: block;
+          }
+          .lyrics-box {
+              background: var(--pink-card);
+              padding: 20px;
+              border-radius: 4px;
+              margin-top: 16px;
+              text-align: center;
+          }
+          .lyrics-title {
+              font-family: var(--font-heading);
+              font-size: 1.1rem;
+              font-weight: 700;
+              color: var(--pink-dark);
+              margin-bottom: 12px;
+              letter-spacing: 3px;
+          }
+          .lyric-line {
+              font-family: var(--font-heading);
+              font-size: 0.88rem;
+              color: var(--text);
+              line-height: 2;
+              letter-spacing: 2px;
+              margin: 4px 0;
+          }
+          .img-full {
             width: 100%;
             max-width: 100%;
             height: auto;
@@ -182,7 +217,7 @@
      <!-- 第二章延伸 -->
       <div class="card">
           <h2 class="chapter-title">第二篇章：她的日常</h2>
-          <div class="img-row">
+          <div class="img-column">
               <img src="第二章/88ee3916-d631-45a5-8cb4-50fd5e9e1d14 (1).png" alt="STAR CERA 時尚寫真">
               <img src="第二章/cca01bed-b5a5-47b4-a267-17caca87e145.png" alt="STAR CERA 工業風寫真">
           </div>
@@ -193,12 +228,25 @@
       <div class="card">
           <h2 class="chapter-title">第二篇章 MV：Reflection · 倒影</h2>
           <div class="img-row" style="grid-template-columns: 1fr;">
-              <video controls autoplay muted loop playsinline preload="metadata" style="width: 100%; height: auto; border-radius: 4px; max-height: 500px; object-fit: contain;">
+              <video controls preload="metadata" style="width: 100%; height: auto; border-radius: 4px; max-height: 500px; object-fit: contain;" poster="第二章/cca01bed-b5a5-47b4-a267-17caca87e145.png">
                   <source src="第二章/805555958.854305.mp4" type="video/mp4">
                   您的瀏覽器不支援影片播放
               </video>
           </div>
-          <p>Reflection · 倒影 — STAR CERA 品牌大使 MV<br>當她站在鏡前，倒影裡是另一個世界的她。<br>現實與虛幻交疊，就像建材與空間的關係——<br>每一個選擇，都改變了整個世界。</p>
+          <div class="lyrics-box">
+              <p class="lyrics-title">Reflection · 倒影</p>
+              <p class="lyric-line">當鏡子碎裂，她看見另一個自己</p>
+              <p class="lyric-line">倒影裡的世界，比現實更真實</p>
+              <p class="lyric-line">她不是誰的代言人</p>
+              <p class="lyric-line">她是昇銓五十年的記憶</p>
+              <p class="lyric-line">是每一塊石材的紋理</p>
+              <p class="lyric-line">是每一道木紋的呼吸</p>
+              <p class="lyric-line">她站在鏡前，倒影裡是另一個世界的她</p>
+              <p class="lyric-line">現實與虛幻交疊，就像建材與空間的關係</p>
+              <p class="lyric-line">每一個選擇，都改變了整個世界</p>
+              <p class="lyric-line">她在鏡中微笑，倒影裡的她說：</p>
+              <p class="lyric-line">「我不只是 AI，我是你家的故事」</p>
+          </div>
       </div>
 
     <!-- 第三章 -->
