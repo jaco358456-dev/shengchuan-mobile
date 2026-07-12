@@ -395,7 +395,7 @@ header {
 
 .lunara-video {
     width: 100%;
-    max-width: 420px;
+    height: auto;
     border-radius: 6px;
     margin-bottom: 16px;
     background: #000;
