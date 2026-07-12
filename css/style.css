@@ -174,7 +174,7 @@ header {
     left: 0;
     right: 0;
     padding: 80px 24px 40px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+               background: linear-gradient(transparent, rgba(0,0,0,0.85));
     text-align: center;
 }
 
@@ -268,7 +268,14 @@ header {
     padding: 0 20px 24px;
 }
 
-/* Advantages */
+/* Advantages stack (single column on mobile) */
+.adv-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 0 20px 24px;
+}
+
 .adv-item {
     background: var(--white);
     padding: 24px 14px;
@@ -712,4 +719,41 @@ table td:last-child {
 .highlight {
     color: var(--pink-dark);
     font-weight: 700;
+}
+
+/* Contact table: stack label and value on mobile */
+table td {
+    display: block;
+    padding: 8px 0;
+}
+
+table td::before {
+    content: attr(data-label);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--dark);
+    display: block;
+    margin-bottom: 2px;
+    letter-spacing: 1px;
+}
+
+table tr {
+    display: block;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+table tr:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.contact-card table td {
+    display: table-cell;
+}
+
+.contact-card table td::before {
+    display: none;
 }
