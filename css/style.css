@@ -459,6 +459,42 @@ header {
     background: var(--pink-dark);
 }
 
+/* Ambassador video container */
+.ambassador-video-container {
+    position: relative;
+    margin: 24px auto;
+    max-width: 320px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    cursor: pointer;
+}
+
+.ambassador-video-container .ambassador-poster {
+    width: 100%;
+    display: block;
+}
+
+.ambassador-video-container video {
+    width: 100%;
+    display: block;
+    border-radius: 0;
+}
+
+.video-play-btn {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.3);
+    transition: background 0.3s;
+}
+
+.video-play-btn:hover {
+    background: rgba(0,0,0,0.15);
+}
+
 /* Contact */
 .contact-card {
     text-align: center;
