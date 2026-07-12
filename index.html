@@ -98,10 +98,13 @@
                     <p>公共空間的氣派選擇</p>
                 </div>
             </div>
-        </div>
-    </section>
+            </div>
 
-    <!-- 品牌故事 -->
+            <!-- Hero 輪播指示器 -->
+            <div class="hero-dots" id="heroDots"></div>
+            </section>
+
+            <!-- 品牌故事 -->
     <section class="section-title">
         <h2>品牌故事</h2>
     </section>
@@ -120,22 +123,29 @@
         </p>
     </div>
 
-    <!-- 官方宣傳影片 -->
-     <section class="section-title">
-         <h2>昇銓建材生活日常</h2>
-     </section>
-     <div class="promo-video-section">
-         <p class="promo-intro">
-             從 1975 年陳萬泉先生創立昇銓建材開始，<br>
-             兩代人、五十餘年的堅持。<br>
-             二十人的專業團隊、橫跨全台的服務網絡。<br>
-             每一片磁磚，都是昇銓的臉面。
-         </p>
-         <video controls preload="metadata" playsinline>
-             <source src="videos/官方宣傳影片.mp4" type="video/mp4">
-             Your browser does not support the video tag.
-         </video>
-     </div>
+    <!-- 昇銓建材生活日常 -->
+      <section class="section-title">
+          <h2>昇銓建材生活日常</h2>
+      </section>
+      <div class="promo-video-section">
+          <p class="promo-intro">
+              從 1975 年陳萬泉先生創立昇銓建材開始，<br>
+              兩代人、五十餘年的堅持。<br>
+              二十人的專業團隊、橫跨全台的服務網絡。<br>
+              每一片磁磚，都是昇銓的臉面。
+          </p>
+          <div class="video-cover" onclick="playVideo(this)">
+              <img src="hero/slider02.jpg" alt="昇銓建材生活日常預覽">
+              <div class="video-play-overlay">
+                  <span class="play-icon">▶</span>
+                  <span class="play-text">觀看昇銓生活日常</span>
+              </div>
+          </div>
+          <video controls preload="metadata" playsinline style="display:none;">
+              <source src="videos/官方宣傳影片.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+      </div>
 
     <!-- 品牌精神 -->
     <section class="section-title">
@@ -242,21 +252,56 @@
         }
 
         // Hero 輪播自動播放
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const totalSlides = slides.length;
+          let currentSlide = 0;
+          const slides = document.querySelectorAll('.slide');
+          const totalSlides = slides.length;
 
-        function showSlide(index) {
-            slides.forEach(s => s.classList.remove('active'));
-            slides[index].classList.add('active');
+          function updateDots() {
+              const dots = document.querySelectorAll('.hero-dots .dot');
+              dots.forEach((d, i) => {
+                  d.classList.toggle('active', i === currentSlide);
+              });
+          }
+
+          function showSlide(index) {
+              slides.forEach(s => s.classList.remove('active'));
+              slides[index].classList.add('active');
+              currentSlide = index;
+              updateDots();
+          }
+
+          function nextSlide() {
+              currentSlide = (currentSlide + 1) % totalSlides;
+              showSlide(currentSlide);
+          }
+
+          setInterval(nextSlide, 4000);
+
+          // Hero dots
+          const dotsContainer = document.getElementById('heroDots');
+          if (dotsContainer) {
+              for (let i = 0; i < totalSlides; i++) {
+                  const dot = document.createElement('div');
+                  dot.className = 'dot' + (i === 0 ? ' active' : '');
+                  dot.addEventListener('click', () => {
+                      currentSlide = i;
+                      showSlide(i);
+                  });
+                  dotsContainer.appendChild(dot);
+              }
+          }
+
+          // Initialize dots
+          updateDots();
+
+        // Promo video cover → play video
+        function playVideo(cover) {
+            const section = cover.closest('.promo-video-section');
+            const video = section.querySelector('video');
+            cover.style.display = 'none';
+            video.style.display = 'block';
+            video.play();
         }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showSlide(currentSlide);
-        }
-
-        setInterval(nextSlide, 4000);
 
          // Ambassador video play/pause
          function playAmbassadorVideo() {
