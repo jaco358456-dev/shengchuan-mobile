@@ -359,55 +359,79 @@ header {
     display: block;
 }
 
-/* Lunara Pink Section */
-.lunara-section {
-    background: var(--pink-bg);
+/* Brand Ambassador Section */
+.ambassador-section {
+    background: linear-gradient(180deg, var(--pink-bg) 0%, var(--pink-card) 100%);
     margin: 24px 0;
     padding: 48px 24px;
     text-align: center;
 }
 
-.lunara-section h2 {
+.ambassador-header h2 {
     font-family: var(--font-heading);
     color: var(--pink-dark);
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 700;
-    letter-spacing: 5px;
-    margin-bottom: 18px;
+    letter-spacing: 6px;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
 }
 
-.lunara-section p {
-    color: #7A6B66;
-    font-size: 0.85rem;
-    line-height: 1.9;
-    margin-bottom: 8px;
+.ambassador-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: var(--pink-deep);
 }
 
-.lunara-subtitle {
-    color: var(--pink-dark);
+.ambassador-badge {
+    display: inline-block;
+    background: var(--pink-dark);
+    color: var(--white);
     font-family: var(--font-heading);
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 3px;
-    margin-bottom: 16px;
-    opacity: 0.8;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-top: 14px;
+    opacity: 0.9;
 }
 
-.lunara-video {
+.ambassador-video-wrap {
+    margin: 24px auto;
+    max-width: 320px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+.ambassador-video {
     width: 100%;
     height: auto;
-    border-radius: 6px;
-    margin-bottom: 16px;
-    background: #000;
+    display: block;
 }
 
-.lunara-section .slogan {
-    color: var(--pink-dark);
+.ambassador-content .slogan {
     font-family: var(--font-heading);
-    font-size: 1.1rem;
+    color: var(--pink-dark);
+    font-size: 1.15rem;
     font-weight: 700;
-    letter-spacing: 4px;
-    margin: 20px 0;
+    letter-spacing: 5px;
+    margin: 24px 0 12px;
+}
+
+.ambassador-desc {
+    color: var(--muted);
+    font-size: 0.82rem;
+    line-height: 1.8;
+    max-width: 300px;
+    margin: 0 auto;
 }
 
 /* Contact */
