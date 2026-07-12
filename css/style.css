@@ -383,6 +383,24 @@ header {
     margin-bottom: 8px;
 }
 
+.lunara-subtitle {
+    color: var(--pink-dark);
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+    opacity: 0.8;
+}
+
+.lunara-video {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    background: #000;
+}
+
 .lunara-section .slogan {
     color: var(--pink-dark);
     font-family: var(--font-heading);
