@@ -415,6 +415,28 @@ header {
     line-height: 1.5;
 }
 
+/* Product Catalog Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    padding: 12px;
+}
+
+.product-grid img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.product-grid img:hover {
+    opacity: 0.85;
+}
+
 /* Showroom Gallery */
 .showroom-gallery {
     display: grid;

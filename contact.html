@@ -5,6 +5,266 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>聯絡我們 — 昇銓建材</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Contact page hero */
+        .contact-hero {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+            margin: 0;
+        }
+        .contact-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .contact-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent 30%, rgba(0,0,0,0.85));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 48px 24px 40px;
+            align-items: center;
+        }
+        .contact-hero-overlay h1 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: #fff;
+            font-weight: 700;
+            letter-spacing: 6px;
+            margin-bottom: 6px;
+        }
+        .contact-hero-overlay p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+        }
+
+        /* 4 contact cards */
+        .contact-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            padding: 0 20px 28px;
+        }
+        .contact-card-item {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 24px 14px;
+            text-align: center;
+        }
+        .contact-card-item .c-icon {
+            width: 52px;
+            height: 52px;
+            margin: 0 auto 14px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .contact-card-item .c-icon svg {
+            width: 22px;
+            height: 22px;
+            fill: var(--pink-deep);
+        }
+        .contact-card-item h4 {
+            font-size: 0.75rem;
+            color: var(--muted);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        .contact-card-item p,
+        .contact-card-item a {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            line-height: 1.8;
+        }
+        .contact-card-item a {
+            color: var(--pink-dark);
+        }
+
+        /* Form + Map section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            padding: 0;
+        }
+        .contact-form-block,
+        .map-block {
+            background: var(--white);
+            padding: 28px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        .contact-form-block h3,
+        .map-block h3 {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            color: var(--pink-dark);
+            font-weight: 700;
+            margin-bottom: 6px;
+            letter-spacing: 2px;
+        }
+        .contact-form-block > p {
+            font-size: 0.82rem;
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+        .form-field label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text);
+            margin-bottom: 4px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .form-field input,
+        .form-field textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            font-size: 0.9rem;
+            font-family: var(--font-body);
+            background: #FAFAFA;
+            transition: border-color 0.3s, background 0.3s;
+        }
+        .form-field input:focus,
+        .form-field textarea:focus {
+            outline: none;
+            border-color: var(--pink-deep);
+            background: #fff;
+        }
+        .form-field textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .form-submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--pink-deep);
+            color: #fff;
+            border: none;
+            border-radius: 2px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family: var(--font-body);
+            margin-top: 8px;
+        }
+        .form-submit-btn:hover {
+            background: var(--pink-dark);
+        }
+        .required-note {
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-top: 8px;
+        }
+
+        /* Map block */
+        .map-block iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: 4px;
+        }
+        .map-address {
+            margin-top: 16px;
+            font-size: 0.85rem;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+        .map-address strong {
+            color: var(--text);
+        }
+        .map-nav-btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 10px 20px;
+            background: var(--pink-deep);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 2px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: background 0.3s;
+        }
+        .map-nav-btn:hover {
+            background: var(--pink-dark);
+        }
+
+        /* Social */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 0 20px 28px;
+        }
+        .social-item {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 20px 10px;
+            text-align: center;
+            text-decoration: none;
+        }
+        .social-item img {
+            width: 36px;
+            height: 36px;
+            margin: 0 auto 8px;
+            display: block;
+        }
+        .social-item span {
+            font-size: 0.78rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (min-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 0;
+            }
+            .contact-form-block,
+            .map-block {
+                border-bottom: none;
+                border-right: 1px solid var(--border);
+            }
+            .form-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .social-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,125 +278,165 @@
             <button class="close-btn" onclick="closeMenu()">&times;</button>
             <a href="index.html">首頁</a>
             <a href="about.html">關於昇銓</a>
-            <a href="lunara.html">STAR CERA 品牌大使</a>
-            <a href="index.html#products-preview">產品中心</a>
-            <a href="contact.html">聯絡我們</a>
+            <a href="products.html">產品中心</a>
+             <a href="careers.html">徵才專區</a>
+             <a href="contact.html">聯絡我們</a>
         </nav>
 
-    <div class="section-title">
-        <h2>聯絡我們</h2>
+    <!-- Hero: slider18.jpg 品牌海報 -->
+    <div class="contact-hero">
+        <img src="hero/slider18.jpg" alt="昇銓建材 品牌海報">
+        <div class="contact-hero-overlay">
+            <h1>聯絡我們</h1>
+            <p>用心築造 · 美好生活</p>
+        </div>
     </div>
 
-    <!-- 公司資訊 -->
-    <div class="card contact-card">
-        <h3>昇銓建材有限公司</h3>
-        <div class="contact-info">
-             <table>
-                 <tr><td data-label="公司名稱">昇銓建材有限公司</td></tr>
-                 <tr><td data-label="負責人">陳永洋</td></tr>
-                 <tr><td data-label="成立">1975 年 6 月</td></tr>
-                 <tr><td data-label="地址">新北市板橋區大觀路二段三巷115號1樓</td></tr>
-                 <tr><td data-label="電話">02-22754988</td></tr>
-                 <tr><td data-label="傳真">02-22755697</td></tr>
-                 <tr><td data-label="1111 企業頁"><a href="https://www.1111.com.tw" target="_blank">查看企業頁</a></td></tr>
-             </table>
-         </div>
+    <!-- 聯絡資訊 4 欄 -->
+    <div class="contact-cards">
+        <div class="contact-card-item reveal">
+            <div class="c-icon" style="background: var(--pink-bg);">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+            </div>
+            <h4>TEL</h4>
+            <p>02-22754988</p>
+        </div>
+        <div class="contact-card-item reveal">
+            <div class="c-icon" style="background: var(--pink-bg);">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 4H5a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zM7 18h10v2H7v-2zm10-4H7V8h10v6z"/></svg>
+            </div>
+            <h4>FAX</h4>
+            <p>02-22755697</p>
+        </div>
+        <div class="contact-card-item reveal">
+            <div class="c-icon" style="background: var(--pink-bg);">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>
+            </div>
+            <h4>地址</h4>
+            <p>新北市板橋區大觀路二段<br>三巷115號1樓</p>
+        </div>
+        <div class="contact-card-item reveal">
+            <div class="c-icon" style="background: var(--pink-bg);">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12a5 5 0 100 10 5 5 0 000-10zm0-2a3 3 0 110 6 3 3 0 010-6zm0-3a1 1 0 100 2 1 1 0 000-2zm-7 12a7 7 0 0114 0h2a2 2 0 01-2 2H5a2 2 0 01-2-2h2z"/></svg>
+            </div>
+            <h4>負責人</h4>
+            <p>陳永洋 總經理</p>
+        </div>
     </div>
 
-    <!-- 位置地圖 -->
-    <section class="section-title">
-        <h2>位置地圖</h2>
-    </section>
-    <div class="card" style="text-align: center;">
-        <div style="padding: 40px 20px; border: 1px solid var(--border); border-radius: 4px; background: var(--pink-card);">
-            <p style="font-size: 2rem; margin-bottom: 12px;">📍</p>
-            <p style="font-family: var(--font-heading); font-weight: 700; color: var(--pink-dark); font-size: 1rem; margin-bottom: 8px;">
-                昇銓建材有限公司
-            </p>
-            <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 16px;">
+    <!-- 留言表單 + 地圖 -->
+    <div class="contact-content">
+        <!-- 留言表單 -->
+        <div class="contact-form-block">
+            <h3>留下訊息</h3>
+            <p>請填妥詳細資料，我們將儘快與您聯絡，謝謝！</p>
+            <form id="contact-form" onsubmit="return submitForm(event)">
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label>姓名 *</label>
+                        <input type="text" name="name" required placeholder="您的姓名">
+                    </div>
+                    <div class="form-field">
+                        <label>Email *</label>
+                        <input type="email" name="email" required placeholder="your@email.com">
+                    </div>
+                    <div class="form-field">
+                        <label>手機 *</label>
+                        <input type="tel" name="cellphone" required placeholder="09xx-xxx-xxx">
+                    </div>
+                    <div class="form-field">
+                        <label>地址</label>
+                        <input type="text" name="address" placeholder="您的地址">
+                    </div>
+                </div>
+                <div class="form-grid" style="margin-top: 14px;">
+                    <div class="form-field" style="grid-column: 1 / -1;">
+                        <label>您的訊息 *</label>
+                        <textarea name="remark" required placeholder="請輸入您想諮詢的內容..."></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="form-submit-btn">送出</button>
+                <p class="required-note">* 必填項目</p>
+            </form>
+        </div>
+
+        <!-- 位置地圖 -->
+        <div class="map-block">
+            <h3>位置地圖</h3>
+            <iframe src="https://www.google.com/maps?q=昇銓建材+大觀路二段三巷115號+新北市+板橋區&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="map-address">
+                <strong>昇銓建材有限公司</strong><br>
                 新北市板橋區大觀路二段三巷115號1樓
-            </p>
-            <a href="https://www.google.com/maps/search/昇銓建材＋大觀路二段三巷115號" target="_blank" class="btn" style="display: inline-block;">
+            </div>
+            <a href="https://www.google.com/maps/search/昇銓建材+大觀路二段三巷115號" target="_blank" class="map-nav-btn">
                 在 Google 地圖開啟導航 →
             </a>
         </div>
     </div>
 
     <!-- 社群媒體 -->
-    <section class="section-title">
+    <div class="section-title">
         <h2>社群媒體</h2>
-    </section>
-    <div class="card" style="text-align: center;">
-        <p style="margin-bottom: 20px; color: var(--muted); font-size: 0.85rem;">
-            追蹤昇銓建材，掌握最新產品與優惠資訊
-        </p>
-        <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;">
-            <a href="https://www.facebook.com/" target="_blank" style="display: block; text-decoration: none;">
-                <img src="logos/icon-fb.png" alt="Facebook" style="width: 48px; height: 48px;">
-                <p style="margin-top: 8px; font-size: 0.85rem; color: var(--text);">Facebook</p>
-            </a>
-            <a href="https://www.instagram.com/" target="_blank" style="display: block; text-decoration: none;">
-                <img src="logos/icon-ig.png" alt="Instagram" style="width: 48px; height: 48px;">
-                <p style="margin-top: 8px; font-size: 0.85rem; color: var(--text);">Instagram</p>
-            </a>
-            <a href="https://www.tiktok.com/@zz489320" target="_blank" style="display: block; text-decoration: none;">
-                <img src="logos/icon-yt.png" alt="TikTok" style="width: 48px; height: 48px;">
-                <p style="margin-top: 8px; font-size: 0.85rem; color: var(--text);">TikTok</p>
-            </a>
-            <a href="https://www.youtube.com/" target="_blank" style="display: block; text-decoration: none;">
-                <img src="logos/icon-yt.png" alt="YouTube" style="width: 48px; height: 48px;">
-                <p style="margin-top: 8px; font-size: 0.85rem; color: var(--text);">YouTube</p>
-            </a>
-        </div>
+    </div>
+    <div class="social-grid">
+        <a href="https://www.facebook.com/" target="_blank" class="social-item reveal">
+            <img src="logos/icon-fb.png" alt="Facebook">
+            <span>Facebook</span>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" class="social-item reveal">
+            <img src="logos/icon-ig.png" alt="Instagram">
+            <span>Instagram</span>
+        </a>
+
+        <a href="https://www.youtube.com/" target="_blank" class="social-item reveal">
+            <img src="logos/icon-yt.png" alt="YouTube">
+            <span>YouTube</span>
+        </a>
     </div>
 
-    <!-- 品牌海報 -->
-    <section class="section-title">
-        <h2>品牌承諾</h2>
-    </section>
-    <div class="card" style="text-align: center;">
-        <img src="昇銓建材/昇銓建材圖檔製作素材區/品牌海報-承諾.png" alt="昇銓建材品牌海報" style="max-width: 100%; height: auto; border-radius: 4px;">
-        <p style="margin-top: 16px; font-size: 0.85rem; color: var(--muted);">
-            用心築造 · 美好生活
-        </p>
-    </div>
-
-    <a href="index.html" class="back-link" style="margin: 20px; display: block;">返回首頁</a>
+    <a href="index.html" class="back-link" style="margin: 24px 20px; display: block;">返回首頁</a>
 
     <footer>
         <p>&copy; 2026 昇銓建材有限公司 所有權利reserved</p>
         <p style="margin-top: 12px;">
-            網頁設計 by <a href="https://www.tiktok.com/@zz489320" target="_blank">刷個存在感</a>
+            網頁設計 by 刷個存在感
         </p>
     </footer>
 
     <script>
-          // Scroll reveal
-          const observer = new IntersectionObserver((entries) => {
-              entries.forEach(entry => {
-                  if (entry.isIntersecting) {
-                      entry.target.classList.add('visible');
-                  }
-              });
-          }, { threshold: 0.1 });
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
 
-          document.querySelectorAll('.card, .section-title, .ambassador-section').forEach(el => {
-              el.classList.add('reveal');
-              observer.observe(el);
-          });
+        document.querySelectorAll('.reveal, .card, .section-title').forEach(el => {
+            el.classList.add('reveal');
+            observer.observe(el);
+        });
 
-          function openMenu() {
-              document.getElementById('sideMenu').style.display = 'flex';
-              setTimeout(() => {
-                  document.getElementById('sideMenu').classList.add('open');
-              }, 10);
-          }
-          function closeMenu() {
-              document.getElementById('sideMenu').classList.remove('open');
-              setTimeout(() => {
-                  document.getElementById('sideMenu').style.display = 'none';
-              }, 400);
-          }
-      </script>
+        function openMenu() {
+            document.getElementById('sideMenu').style.display = 'flex';
+            setTimeout(() => {
+                document.getElementById('sideMenu').classList.add('open');
+            }, 10);
+        }
+        function closeMenu() {
+            document.getElementById('sideMenu').classList.remove('open');
+            setTimeout(() => {
+                document.getElementById('sideMenu').style.display = 'none';
+            }, 400);
+        }
+
+        function submitForm(e) {
+            e.preventDefault();
+            alert('感謝您的留言！我們將盡快與您聯繫。');
+            e.target.reset();
+            return false;
+        }
+    </script>
     </body>
     </html>

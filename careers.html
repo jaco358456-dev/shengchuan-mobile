@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>徵才專區 — 昇銓建材</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <img src="star-cera-logo.png" alt="STAR CERA 昇銓建材">
+        </div>
+        <button class="hamburger" onclick="openMenu()">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <nav class="side-menu" id="sideMenu">
+        <button class="close-btn" onclick="closeMenu()">&times;</button>
+        <a href="index.html">首頁</a>
+        <a href="about.html">關於昇銓</a>
+        <a href="products.html">產品中心</a>
+        <a href="careers.html">徵才專區</a>
+        <a href="contact.html">聯絡我們</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="product-hero">
+        <img src="hero/slider18.jpg" alt="徵才專區">
+        <div class="overlay">
+            <h1>徵才專區</h1>
+            <p>
+                加入昇銓，與我們一起打造台灣最優秀的磁磚品牌。<br>
+                我們重視人才，提供完善的培訓與升遷制度。
+            </p>
+        </div>
+    </section>
+
+    <!-- 職缺資訊 -->
+    <section class="section-title">
+        <h2>開放職缺</h2>
+    </section>
+    <div class="card">
+        <p>職缺資訊更新中，敬請期待...</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 昇銓建材有限公司 所有權利reserved</p>
+        <p style="margin-top: 12px;">
+            網頁設計 by 刷個存在感
+        </p>
+    </footer>
+
+    <script>
+        function openMenu() {
+            document.getElementById('sideMenu').style.display = 'flex';
+            setTimeout(() => {
+                document.getElementById('sideMenu').classList.add('open');
+            }, 10);
+        }
+        function closeMenu() {
+            document.getElementById('sideMenu').classList.remove('open');
+            setTimeout(() => {
+                document.getElementById('sideMenu').style.display = 'none';
+            }, 400);
+        }
+    </script>
+</body>
+</html>
