@@ -17,13 +17,12 @@
     </header>
 
     <nav class="side-menu" id="sideMenu">
-        <button class="close-btn" onclick="closeMenu()">&times;</button>
-        <a href="index.html">首頁</a>
-        <a href="about.html">關於昇銓</a>
-         <a href="lunara.html">STAR CERA 品牌大使</a>
-        <a href="#products-preview">產品中心</a>
-        <a href="contact.html">聯絡我們</a>
-    </nav>
+            <button class="close-btn" onclick="closeMenu()">&times;</button>
+            <a href="index.html">首頁</a>
+            <a href="about.html">關於昇銓</a>
+             <a href="index.html#products-preview">產品中心</a>
+            <a href="contact.html">聯絡我們</a>
+        </nav>
 
     <!-- Hero 輪播 -->
     <section class="hero-section">
@@ -104,6 +103,9 @@
             <div class="hero-dots" id="heroDots"></div>
             </section>
 
+            <!-- 回到頂部按鈕 -->
+            <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">↑</button>
+
             <!-- 品牌故事 -->
     <section class="section-title">
         <h2>品牌故事</h2>
@@ -112,7 +114,7 @@
         <p>
             一九七五年，陳萬泉先生以匠人的執著，在新北板橋創立了「昇銓建材」。<br>
             從一個小小的建材行起步，第一代用雙手打下了昇銓的根基。<br><br>
-            如今，第二代<span class="highlight">陳永洋先生</span>接過這桿大旗，<br>
+            如今，陳永洋總經理接過這桿大旗，<br>
             將昇銓帶成擁有二十位專業團隊、橫跨全台的磁磚批發品牌。<br>
             <strong>五十餘年，兩代人的堅持。</strong><br><br>
             「昇」，是上升、是進步、是不停歇的創新。<br>
@@ -123,90 +125,36 @@
         </p>
     </div>
 
-    <!-- 昇銓建材生活日常 -->
-      <section class="section-title">
-          <h2>昇銓建材生活日常</h2>
-      </section>
-      <div class="promo-video-section">
-          <p class="promo-intro">
-              從 1975 年陳萬泉先生創立昇銓建材開始，<br>
-              兩代人、五十餘年的堅持。<br>
-              二十人的專業團隊、橫跨全台的服務網絡。<br>
-              每一片磁磚，都是昇銓的臉面。
-          </p>
-          <div class="video-cover" onclick="playVideo(this)">
-              <img src="hero/slider02.jpg" alt="昇銓建材生活日常預覽">
-              <div class="video-play-overlay">
-                  <span class="play-icon">▶</span>
-                  <span class="play-text">觀看昇銓生活日常</span>
-              </div>
-          </div>
-          <video controls preload="metadata" playsinline style="display:none;">
-              <source src="videos/官方宣傳影片.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-          </video>
-      </div>
-
-    <!-- 品牌精神 -->
-    <section class="section-title">
-       <h2>品牌精神</h2>
-    </section>
-    <div class="card">
-       <p>磁磚，不只是建材。<br>
-        它是一個家的底色。是廚房裡溫暖的料理時光，是孩子光腳奔跑的客廳，是浴室裡洗去一天疲憊的瞬間。</p>
-        <div class="adv-stack" style="margin-top: 20px;">
-             <div class="adv-item">
-                 <div class="adv-icon">嚴</div>
-                 <div class="adv-title">嚴選品質</div>
-                 <div class="adv-desc">每片磁磚入庫皆經嚴格把關</div>
-             </div>
-             <div class="adv-item">
-                 <div class="adv-icon">選</div>
-                 <div class="adv-title">多元選擇</div>
-                 <div class="adv-desc">全品類的磁磚解決方案</div>
-             </div>
-             <div class="adv-item">
-                 <div class="adv-icon">專</div>
-                 <div class="adv-title">專業服務</div>
-                 <div class="adv-desc">從選磚到施工規劃</div>
-             </div>
-             <div class="adv-item">
-                 <div class="adv-icon">台</div>
-                 <div class="adv-title">全台服務</div>
-                 <div class="adv-desc">北、中、南覆蓋台灣</div>
-             </div>
+    <!-- 門市實景 -->
+     <section class="section-title">
+         <h2>門市實景</h2>
+     </section>
+     <div class="card">
+         <p style="margin-bottom: 16px; color: var(--muted); font-size: 0.85rem; text-align: center;">
+             昇銓建材有限公司門市實景，提供完整的磁磚展示空間與專業諮詢服務。<br>
+             歡迎親臨門市體驗各系列磁磚的質感與色彩。
+         </p>
+         <div class="showroom-gallery">
+             <img src="showroom/showroom-01.png" alt="昇銓建材門市展示一">
+             <img src="showroom/showroom-02.png" alt="昇銓建材門市展示二">
+             <img src="showroom/showroom-03.png" alt="昇銓建材門市展示三">
+             <img src="showroom/showroom-04.png" alt="昇銓建材門市展示四">
+             <img src="showroom/showroom-05.png" alt="昇銓建材門市展示五">
+             <img src="showroom/showroom-06.png" alt="昇銓建材門市展示六">
          </div>
-    </div>
+     </div>
 
-    <!-- STAR CERA 品牌大使 -->
-      <section class="ambassador-section" id="ambassador">
-          <div class="ambassador-header">
-              <h2>STAR CERA 品牌大使</h2>
-              <div class="ambassador-badge">AI 品牌代言人</div>
-          </div>
-          <div class="ambassador-poster">
-              <img src="昇銓建材/昇銓建材AI代理人/ChatGPT Image 2026年6月26日 下午05_13_14.png" alt="STAR CERA 品牌大使">
-          </div>
-          <div class="ambassador-content">
-              <p class="slogan">用心築造 美好生活</p>
-              <p class="ambassador-desc">
-                  STAR CERA — 昇銓建材 AI 品牌大使
-              </p>
-              <a href="lunara.html" class="btn ambassador-btn" style="margin-top: 16px; display: inline-block;">認識 STAR CERA →</a>
-          </div>
-      </section>
-
-    <!-- 產品預覽 -->
-    <section class="section-title" id="products-preview">
-        <h2>產品分類</h2>
-    </section>
+     <!-- 產品預覽 -->
+     <section class="section-title" id="products-preview">
+         <h2>產品分類</h2>
+     </section>
     <div class="card">
         <p style="margin-bottom: 20px; color: var(--muted); font-size: 0.85rem;">
-            紅螞蟻品牌，涵蓋 35 個產品分類，300+ 款瓷磚產品。<br>
+            昇銓磁磚，涵蓋多個產品分類，300+ 款瓷磚產品。<br>
             從仿木紋、仿石紋、仿大理到幾何拼花，全品類磁磚解決方案。
         </p>
         <div style="text-align: center;">
-            <a href="products/index.html" class="btn">查看全部 35 分類 →</a>
+            <a href="products/index.html" class="btn">查看產品內容 →</a>
         </div>
     </div>
 
@@ -222,7 +170,7 @@
                 <tr><td>地址</td><td>新北市板橋區大觀路二段三巷115號1樓</td></tr>
                 <tr><td>電話</td><td>02-22754988</td></tr>
                 <tr><td>傳真</td><td>02-22755697</td></tr>
-                <tr><td>負責人</td><td>陳永洋</td></tr>
+                <tr><td>負責人</td><td>陳永洋 總經理</td></tr>
             </table>
         </div>
         <div style="margin-top: 16px;">
@@ -301,9 +249,33 @@
             cover.style.display = 'none';
             video.style.display = 'block';
             video.play();
-        }
+         }
 
-         // Ambassador video play/pause
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card, .section-title, .ambassador-section').forEach(el => {
+            el.classList.add('reveal');
+            observer.observe(el);
+        });
+
+        // Back to top button
+        const backBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backBtn.classList.add('show');
+            } else {
+                backBtn.classList.remove('show');
+            }
+        }, { passive: true });
+
+        // Ambassador video play/pause
          function playAmbassadorVideo() {
              var poster = document.querySelector('.ambassador-video-container .ambassador-poster');
              var playBtn = document.getElementById('playBtn');
