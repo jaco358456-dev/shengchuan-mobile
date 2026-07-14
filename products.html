@@ -3,45 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>產品分類 — 昇銓建材</title>
+    <title>產品中心 — 昇銓建材</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .product-hero {
+        .tile-card {
             position: relative;
-            width: 100%;
-            height: 70vh;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 4px;
             overflow: hidden;
+            text-decoration: none;
+            color: var(--text);
+            display: block;
+            transition: all 0.3s;
         }
-        .product-hero img {
+        .tile-card:hover {
+            border-color: var(--pink-deep);
+            box-shadow: 0 4px 12px rgba(193,124,116,0.15);
+        }
+        .tile-card img {
             width: 100%;
-            height: 100%;
+            height: 160px;
             object-fit: cover;
-            object-position: center;
+            display: block;
         }
-        .product-hero .overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.85) 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 80px 24px 60px;
-            text-align: center;
+        .tile-info {
+            padding: 10px 12px;
         }
-        .product-hero h1 {
+        .tile-model {
+            font-size: 0.75rem;
+            color: var(--pink-deep);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .tile-spec {
+            font-size: 0.7rem;
+            color: var(--muted);
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+        .tile-series {
+            font-size: 0.72rem;
+            color: var(--pink-dark);
+            font-weight: 600;
+            margin-top: 6px;
+            padding: 3px 8px;
+            background: var(--pink-bg);
+            border-radius: 2px;
+            display: inline-block;
+        }
+        .series-section {
+            background: var(--white);
+            margin: 20px;
+            padding: 24px;
+            border-radius: 2px;
+            border: 1px solid var(--border);
+        }
+        .series-section h3 {
             font-family: var(--font-heading);
-            font-size: 2rem;
-            font-weight: 700;
-            color: #FFFFFF;
-            letter-spacing: 10px;
-            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--pink-dark);
+            margin-bottom: 6px;
+            letter-spacing: 3px;
         }
-        .product-hero p {
-            color: rgba(255,255,255,0.85);
+        .sub-series-title {
             font-size: 0.9rem;
-            line-height: 2;
-            max-width: 500px;
-            margin: 0 auto;
+            font-weight: 700;
+            color: var(--text);
+            margin: 20px 0 12px;
+            padding-left: 12px;
+            border-left: 3px solid var(--pink-deep);
+        }
+        .products-hero {
+            background: linear-gradient(135deg, var(--pink-deep) 0%, var(--pink-dark) 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 24px;
+        }
+        .products-hero h1 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 6px;
+            margin-bottom: 8px;
+        }
+        .products-hero p {
+            font-size: 0.88rem;
+            opacity: 0.85;
+            letter-spacing: 2px;
+        }
+        .cat-card {
+            display: block;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 12px 16px;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s;
+            margin-bottom: 10px;
+        }
+        .cat-card:hover {
+            border-color: var(--pink-deep);
+            box-shadow: 0 2px 8px rgba(193,124,116,0.15);
+        }
+        .cat-name {
+            font-weight: 700;
+            color: var(--pink-dark);
+            font-size: 0.95rem;
+        }
+        .cat-desc, .cat-label {
+            font-size: 0.75rem;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+        .cat-label {
+            font-weight: 600;
+            color: var(--text);
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        @media (min-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr 1fr; }
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 12px;
         }
     </style>
 </head>
@@ -56,26 +148,1043 @@
     </header>
 
     <nav class="side-menu" id="sideMenu">
-        <button class="close-btn" onclick="closeMenu()">&times;</button>
-        <a href="index.html">首頁</a>
-        <a href="about.html">關於昇銓</a>
-        <a href="products.html">產品中心</a>
-         <a href="careers.html">徵才專區</a>
-         <a href="contact.html">聯絡我們</a>
-    </nav>
+            <button class="close-btn" onclick="closeMenu()">&times;</button>
+            <a href="index.html">首頁</a>
+            <a href="about.html">關於昇銓</a>
+            <a href="products.html">產品中心</a>
+             <a href="careers.html">徵才專區</a>
+             <a href="contact.html">聯絡我們</a>
+        </nav>
 
-    <!-- 產品分類 -->
-    <section class="product-hero">
-        <img src="hero/slider18.jpg" alt="產品分類總覽">
-        <div class="overlay">
-            <h1>產品分類</h1>
-            <p>
-                昇銓磁磚，涵蓋多個產品分類，300+ 款瓷磚產品。<br>
-                從仿木紋、仿石紋、仿大理到幾何拼花，全品類磁磚解決方案。
-            </p>
-        </div>
+    <!-- Hero -->
+    <section class="products-hero">
+        <h1>產品中心</h1>
+        <p>紅螞蟻磁磚 完整系列 | 昇銓建材嚴選</p>
     </section>
 
+    <!-- Series Navigation -->
+    <section class="section-title">
+        <h2>產品目錄選項</h2>
+    </section>
+    <div class="grid-2" style="padding: 16px 20px;"><a class="cat-card" href="#木紋磚系列-section">
+        <div class="cat-name">木紋磚系列</div>
+        <div class="cat-desc">7 系列</div>
+    </a><div class="cat-card">
+            <div class="cat-label">歐式原木III代</div>
+            <div class="cat-desc">2 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">森呼吸</div>
+            <div class="cat-desc">2 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">當代原木</div>
+            <div class="cat-desc">8 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">馬雅石</div>
+            <div class="cat-desc">2 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">起源石</div>
+            <div class="cat-desc">3 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">經典原木</div>
+            <div class="cat-desc">4 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">千峰</div>
+            <div class="cat-desc">4 款產品</div>
+        </div><a class="cat-card" href="#石英磚系列-section">
+        <div class="cat-name">石英磚系列</div>
+        <div class="cat-desc">14 系列</div>
+    </a><div class="cat-card">
+            <div class="cat-label">丹峰</div>
+            <div class="cat-desc">10 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">撒哈拉</div>
+            <div class="cat-desc">4 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">冰峰</div>
+            <div class="cat-desc">2 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">清水岩</div>
+            <div class="cat-desc">6 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">風禾</div>
+            <div class="cat-desc">2 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">羅曼石</div>
+            <div class="cat-desc">4 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">天崗石</div>
+            <div class="cat-desc">4 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">巴洛克崗石</div>
+            <div class="cat-desc">3 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">雲峰</div>
+            <div class="cat-desc">2 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">川崎岩</div>
+            <div class="cat-desc">3 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">雲硯</div>
+            <div class="cat-desc">2 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">米羅石</div>
+            <div class="cat-desc">5 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">巴洛克II代</div>
+            <div class="cat-desc">5 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">次世代</div>
+            <div class="cat-desc">5 款產品</div>
+        </div><a class="cat-card" href="#仿石紋系列-section">
+        <div class="cat-name">仿石紋系列</div>
+        <div class="cat-desc">9 系列</div>
+    </a><div class="cat-card">
+            <div class="cat-label">凱薩石</div>
+            <div class="cat-desc">1 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">法蘭克石</div>
+            <div class="cat-desc">3 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">灰晶石</div>
+            <div class="cat-desc">1 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">沙洲</div>
+            <div class="cat-desc">3 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">米亞石</div>
+            <div class="cat-desc">4 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">新美學</div>
+            <div class="cat-desc">2 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">大地</div>
+            <div class="cat-desc">2 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">京華</div>
+            <div class="cat-desc">4 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">天璽</div>
+            <div class="cat-desc">1 款產品</div>
+        </div><a class="cat-card" href="#全釉拋系列-section">
+        <div class="cat-name">全釉拋系列</div>
+        <div class="cat-desc">2 系列</div>
+    </a><div class="cat-card">
+            <div class="cat-label">全釉拋星曜石</div>
+            <div class="cat-desc">6 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">晶拋帝諾石</div>
+            <div class="cat-desc">1 款產品</div>
+        </div><a class="cat-card" href="#高亮釉壁磚系列-section">
+        <div class="cat-name">高亮釉壁磚系列</div>
+        <div class="cat-desc">1 系列</div>
+    </a><div class="cat-card">
+            <div class="cat-label">高亮釉</div>
+            <div class="cat-desc">8 款產品</div>
+        </div><a class="cat-card" href="#其他系列-section">
+        <div class="cat-name">其他系列</div>
+        <div class="cat-desc">2 系列</div>
+    </a><div class="cat-card">
+            <div class="cat-label">地磚</div>
+            <div class="cat-desc">5 款產品</div>
+        </div><div class="cat-card">
+            <div class="cat-label">超輕量</div>
+            <div class="cat-desc">4 款產品</div>
+        </div></div>
+
+    <!-- 產品列表 -->
+    <section class="section-title">
+        <h2>全部瓷磚樣本</h2>
+    </section>
+    <div class="card">    <section id="木紋磚系列-section" class="series-section">    <h3>木紋磚系列</h3>    <div class="sub-series-title">歐式原木III代（2 款）</div>    <div class="product-grid">    <a class="tile-card" href="products/item0034.jpg" target="_blank">
+                    <img src="products/item0034.jpg" alt="瓷磚 HD62RAM2102" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD62RAM2102</div>
+                        <div class="tile-spec">規格：600x1200mm．瓷質霧面．60x120cm</div>
+                        <div class="tile-series">60x120cm．600x1200mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD62RAM2112" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD62RAM2112</div>
+                        <div class="tile-spec">規格：600x1200mm．瓷質霧面．60x120cm</div>
+                        <div class="tile-series">60x120cm．600x1200mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">森呼吸（2 款）</div>    <div class="product-grid">    <a class="tile-card" href="products/item0041.jpg" target="_blank">
+                    <img src="products/item0041.jpg" alt="瓷磚 HD66RAU2702" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD66RAU2702</div>
+                        <div class="tile-spec">規格：600x600mm．瓷質霧面．60x60cm</div>
+                        <div class="tile-series">60x60cm．600x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD66RAU2712" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD66RAU2712</div>
+                        <div class="tile-spec">規格：600x600mm．瓷質霧面．60x60cm</div>
+                        <div class="tile-series">60x60cm．600x600mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">當代原木（8 款）</div>    <div class="product-grid">    <a class="tile-card" href="products/item0024.jpg" target="_blank">
+                    <img src="products/item0024.jpg" alt="瓷磚 HD17RAC1201特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD17RAC1201特</div>
+                        <div class="tile-spec">規格：150x750mm．瓷質霧面．15x75cm</div>
+                        <div class="tile-series">15x75cm．150x750mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD17RAC1202特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD17RAC1202特</div>
+                        <div class="tile-spec">規格：150x750mm．瓷質霧面．15x75cm</div>
+                        <div class="tile-series">15x75cm．150x750mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD17RAC1206特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD17RAC1206特</div>
+                        <div class="tile-spec">規格：150x750mm．瓷質霧面．15x75cm</div>
+                        <div class="tile-series">15x75cm．150x750mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD17RAC1207特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD17RAC1207特</div>
+                        <div class="tile-spec">規格：150x750mm．瓷質霧面．15x75cm</div>
+                        <div class="tile-series">15x75cm．150x750mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD17RAC1212特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD17RAC1212特</div>
+                        <div class="tile-spec">規格：150x750mm．瓷質霧面．15x75cm</div>
+                        <div class="tile-series">15x75cm．150x750mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD17RAC1213特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD17RAC1213特</div>
+                        <div class="tile-spec">規格：150x750mm．瓷質霧面．15x75cm</div>
+                        <div class="tile-series">15x75cm．150x750mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD17RAC1217特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD17RAC1217特</div>
+                        <div class="tile-spec">規格：150x750mm．瓷質霧面．15x75cm</div>
+                        <div class="tile-series">15x75cm．150x750mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD17RAC1222特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD17RAC1222特</div>
+                        <div class="tile-spec">規格：150x750mm．瓷質霧面．15x75cm</div>
+                        <div class="tile-series">15x75cm．150x750mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">馬雅石（2 款）</div>    <div class="product-grid">    <a class="tile-card" href="products/item0025.jpg" target="_blank">
+                    <img src="products/item0025.jpg" alt="瓷磚 HD17RAD1305" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD17RAD1305</div>
+                        <div class="tile-spec">規格：150x750mm．瓷質霧面．15x75cm</div>
+                        <div class="tile-series">15x75cm．150x750mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD17RAD1311" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD17RAD1311</div>
+                        <div class="tile-spec">規格：150x750mm．瓷質霧面．15x75cm</div>
+                        <div class="tile-series">15x75cm．150x750mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">起源石（3 款）</div>    <div class="product-grid">    <a class="tile-card" href="products/item0022.jpg" target="_blank">
+                    <img src="products/item0022.jpg" alt="瓷磚 HD14RM905特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD14RM905特</div>
+                        <div class="tile-spec">規格：148x450mm．瓷質霧面．15x45cm</div>
+                        <div class="tile-series">15x45cm．148x450mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD14RM911特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD14RM911特</div>
+                        <div class="tile-spec">規格：148x450mm．瓷質霧面．15x45cm</div>
+                        <div class="tile-series">15x45cm．148x450mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD14RM908特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD14RM908特</div>
+                        <div class="tile-spec">規格：148x450mm．瓷質霧面．15x45cm</div>
+                        <div class="tile-series">15x45cm．148x450mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">經典原木（4 款）</div>    <div class="product-grid">    <a class="tile-card" href="products/item0021.jpg" target="_blank">
+                    <img src="products/item0021.jpg" alt="瓷磚 HD14RQ402特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD14RQ402特</div>
+                        <div class="tile-spec">規格：148x450mm．瓷質霧面．15x45cm</div>
+                        <div class="tile-series">15x45cm．148x450mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD14RQ407特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD14RQ407特</div>
+                        <div class="tile-spec">規格：148x450mm．瓷質霧面．15x45cm</div>
+                        <div class="tile-series">15x45cm．148x450mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD14RQ406特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD14RQ406特</div>
+                        <div class="tile-spec">規格：148x450mm．瓷質霧面．15x45cm</div>
+                        <div class="tile-series">15x45cm．148x450mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD14RQ417特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD14RQ417特</div>
+                        <div class="tile-spec">規格：148x450mm．瓷質霧面．15x45cm</div>
+                        <div class="tile-series">15x45cm．148x450mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">千峰（4 款）</div>    <div class="product-grid">    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD14RAV2802特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD14RAV2802特</div>
+                        <div class="tile-spec">規格：148x450mm．瓷質霧面．15x45cm</div>
+                        <div class="tile-series">15x45cm．148x450mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="products/item0042.jpg" target="_blank">
+                    <img src="products/item0042.jpg" alt="瓷磚 HD14RAV2801特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD14RAV2801特</div>
+                        <div class="tile-spec">規格：148x450mm．瓷質霧面．15x45cm</div>
+                        <div class="tile-series">15x45cm．148x450mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD14RAV2805特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD14RAV2805特</div>
+                        <div class="tile-spec">規格：148x450mm．瓷質霧面．15x45cm</div>
+                        <div class="tile-series">15x45cm．148x450mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD14RAV2808特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD14RAV2808特</div>
+                        <div class="tile-spec">規格：148x450mm．瓷質霧面．15x45cm</div>
+                        <div class="tile-series">15x45cm．148x450mm</div>
+                    </div>
+                </a>    </div>    </section>    <section id="石英磚系列-section" class="series-section">    <h3>石英磚系列</h3>    <div class="sub-series-title">丹峰（10 款）</div>    <div class="product-grid">    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD62RAS2605" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD62RAS2605</div>
+                        <div class="tile-spec">規格：600x1200mm．瓷質霧面．60x120cm</div>
+                        <div class="tile-series">60x120cm．600x1200mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD36RAS2605" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RAS2605</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD36RAS2655特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RAS2655特</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD36RAS2611" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RAS2611</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD36RAS2661特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RAS2661特</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD36RAS2615" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RAS2615</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD36RAS2665特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RAS2665特</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="products/item0039.jpg" target="_blank">
+                    <img src="products/item0039.jpg" alt="瓷磚 HD30RAS2605" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD30RAS2605</div>
+                        <div class="tile-spec">規格：298x298mm．瓷質霧面．30x30cm</div>
+                        <div class="tile-series">30x30cm．298x298mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD30RAS2611" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD30RAS2611</div>
+                        <div class="tile-spec">規格：298x298mm．瓷質霧面．30x30cm</div>
+                        <div class="tile-series">30x30cm．298x298mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD30RAS2615" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD30RAS2615</div>
+                        <div class="tile-spec">規格：298x298mm．瓷質霧面．30x30cm</div>
+                        <div class="tile-series">30x30cm．298x298mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">撒哈拉（4 款）</div>    <div class="product-grid">    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD62RAB1105" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD62RAB1105</div>
+                        <div class="tile-spec">規格：600x1200mm．瓷質霧面．60x120cm</div>
+                        <div class="tile-series">60x120cm．600x1200mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD62RAB1101" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD62RAB1101</div>
+                        <div class="tile-spec">規格：600x1200mm．瓷質霧面．60x120cm</div>
+                        <div class="tile-series">60x120cm．600x1200mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD36RAB1105" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RAB1105</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="products/item0023.jpg" target="_blank">
+                    <img src="products/item0023.jpg" alt="瓷磚 HD36RAB1101" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RAB1101</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">冰峰（2 款）</div>    <div class="product-grid">    <a class="tile-card" href="products/item0035.jpg" target="_blank">
+                    <img src="products/item0035.jpg" alt="瓷磚 HD62RAN2205" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD62RAN2205</div>
+                        <div class="tile-spec">規格：600x1200mm．瓷質霧面．60x120cm</div>
+                        <div class="tile-series">60x120cm．600x1200mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="products/item0046.jpg" target="_blank">
+                    <img src="products/item0046.jpg" alt="瓷磚 HD30RAN2205" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD30RAN2205</div>
+                        <div class="tile-spec">規格：298x298mm．瓷質霧面．30x30cm</div>
+                        <div class="tile-series">30x30cm．298x298mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">清水岩（6 款）</div>    <div class="product-grid">    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD66RH501" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD66RH501</div>
+                        <div class="tile-spec">規格：600x600mm．瓷質霧面．60x60cm</div>
+                        <div class="tile-series">60x60cm．600x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="products/item0007.jpg" target="_blank">
+                    <img src="products/item0007.jpg" alt="瓷磚 HD36RH501" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RH501</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD66RH511" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD66RH511</div>
+                        <div class="tile-spec">規格：600x600mm．瓷質霧面．60x60cm</div>
+                        <div class="tile-series">60x60cm．600x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD66RH591特特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD66RH591特特</div>
+                        <div class="tile-spec">規格：600x600mm．瓷質霧面．60x60cm</div>
+                        <div class="tile-series">60x60cm．600x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD36RH511" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RH511</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD36RH591特特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RH591特特</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">風禾（2 款）</div>    <div class="product-grid">    <a class="tile-card" href="products/item0047.jpg" target="_blank">
+                    <img src="products/item0047.jpg" alt="瓷磚 HD36RBA3205特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RBA3205特</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD36RBA3201特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RBA3201特</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">羅曼石（4 款）</div>    <div class="product-grid">    <a class="tile-card" href="products/item0009.jpg" target="_blank">
+                    <img src="products/item0009.jpg" alt="瓷磚 36R031特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：36R031特</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 36R032特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：36R032特</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 36R033特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：36R033特</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 36R041特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：36R041特</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">天崗石（4 款）</div>    <div class="product-grid">    <a class="tile-card" href="products/item0015.jpg" target="_blank">
+                    <img src="products/item0015.jpg" alt="瓷磚 HD36RK701特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RK701特</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD36RK711特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RK711特</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD36RK702特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RK702特</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD36RK708特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RK708特</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">巴洛克崗石（3 款）</div>    <div class="product-grid">    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD36RAE1401特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RAE1401特</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD36RAE1402特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RAE1402特</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD36RAE1411特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RAE1411特</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">雲峰（2 款）</div>    <div class="product-grid">    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD36RAH1605" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RAH1605</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="products/item0031.jpg" target="_blank">
+                    <img src="products/item0031.jpg" alt="瓷磚 HD36RAH1601" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RAH1601</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">川崎岩（3 款）</div>    <div class="product-grid">    <a class="tile-card" href="products/item0043.jpg" target="_blank">
+                    <img src="products/item0043.jpg" alt="瓷磚 HD36RAW2902特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RAW2902特</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD36RAW2905特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RAW2905特</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD36RAW2911特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD36RAW2911特</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">雲硯（2 款）</div>    <div class="product-grid">    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD75RAK1905" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD75RAK1905</div>
+                        <div class="tile-spec">規格：299x745mm．瓷質霧面．30x75cm</div>
+                        <div class="tile-series">30x75cm．299x745mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="products/item0032.jpg" target="_blank">
+                    <img src="products/item0032.jpg" alt="瓷磚 HD75RAK1901" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD75RAK1901</div>
+                        <div class="tile-spec">規格：299x745mm．瓷質霧面．30x75cm</div>
+                        <div class="tile-series">30x75cm．299x745mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">米羅石（5 款）</div>    <div class="product-grid">    <a class="tile-card" href="products/item0033.jpg" target="_blank">
+                    <img src="products/item0033.jpg" alt="瓷磚 HD30RAL2001特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD30RAL2001特</div>
+                        <div class="tile-spec">規格：298x298mm．瓷質霧面．30x30cm</div>
+                        <div class="tile-series">30x30cm．298x298mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD30RAL2002特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD30RAL2002特</div>
+                        <div class="tile-spec">規格：298x298mm．瓷質霧面．30x30cm</div>
+                        <div class="tile-series">30x30cm．298x298mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD30RAL2008特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD30RAL2008特</div>
+                        <div class="tile-spec">規格：298x298mm．瓷質霧面．30x30cm</div>
+                        <div class="tile-series">30x30cm．298x298mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD30RAL2011特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD30RAL2011特</div>
+                        <div class="tile-spec">規格：298x298mm．瓷質霧面．30x30cm</div>
+                        <div class="tile-series">30x30cm．298x298mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 RAL3011F" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：RAL3011F</div>
+                        <div class="tile-spec">規格：298x298mm．瓷質霧面．30x30cm</div>
+                        <div class="tile-series">30x30cm．298x298mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">巴洛克II代（5 款）</div>    <div class="product-grid">    <a class="tile-card" href="products/item0026.jpg" target="_blank">
+                    <img src="products/item0026.jpg" alt="瓷磚 HD30RAO2301特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD30RAO2301特</div>
+                        <div class="tile-spec">規格：298x298mm．瓷質霧面．30x30cm</div>
+                        <div class="tile-series">30x30cm．298x298mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD30RAO2308特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD30RAO2308特</div>
+                        <div class="tile-spec">規格：298x298mm．瓷質霧面．30x30cm</div>
+                        <div class="tile-series">30x30cm．298x298mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD30RAO2302特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD30RAO2302特</div>
+                        <div class="tile-spec">規格：298x298mm．瓷質霧面．30x30cm</div>
+                        <div class="tile-series">30x30cm．298x298mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD30RAO2307特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD30RAO2307特</div>
+                        <div class="tile-spec">規格：298x298mm．瓷質霧面．30x30cm</div>
+                        <div class="tile-series">30x30cm．298x298mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD30RAO2311特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD30RAO2311特</div>
+                        <div class="tile-spec">規格：298x298mm．瓷質霧面．30x30cm</div>
+                        <div class="tile-series">30x30cm．298x298mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">次世代（5 款）</div>    <div class="product-grid">    <a class="tile-card" href="products/item0040.jpg" target="_blank">
+                    <img src="products/item0040.jpg" alt="瓷磚 RS53601" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：RS53601</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 RS53602" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：RS53602</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 RS53603" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：RS53603</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 RS53603F" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：RS53603F</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 RS53604" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：RS53604</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質霧面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    </div>    </section>    <section id="仿石紋系列-section" class="series-section">    <h3>仿石紋系列</h3>    <div class="sub-series-title">凱薩石（1 款）</div>    <div class="product-grid">    <a class="tile-card" href="products/item0050.jpg" target="_blank">
+                    <img src="products/item0050.jpg" alt="瓷磚 HD62RBE3501" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD62RBE3501</div>
+                        <div class="tile-spec">規格：600x1200mm．瓷質霧面．60x120cm</div>
+                        <div class="tile-series">60x120cm．600x1200mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">法蘭克石（3 款）</div>    <div class="product-grid">    <a class="tile-card" href="products/item0037.jpg" target="_blank">
+                    <img src="products/item0037.jpg" alt="瓷磚 HD62RAP2401" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD62RAP2401</div>
+                        <div class="tile-spec">規格：600x1200mm．瓷質霧面．60x120cm</div>
+                        <div class="tile-series">60x120cm．600x1200mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD62RAP2405" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD62RAP2405</div>
+                        <div class="tile-spec">規格：600x1200mm．瓷質霧面．60x120cm</div>
+                        <div class="tile-series">60x120cm．600x1200mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD62RAP2498特特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD62RAP2498特特</div>
+                        <div class="tile-spec">規格：600x1200mm．瓷質霧面．60x120cm</div>
+                        <div class="tile-series">60x120cm．600x1200mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">灰晶石（1 款）</div>    <div class="product-grid">    <a class="tile-card" href="products/item0044.jpg" target="_blank">
+                    <img src="products/item0044.jpg" alt="瓷磚 HD62RAY3001" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD62RAY3001</div>
+                        <div class="tile-spec">規格：600x1200mm．瓷質霧面．60x120cm</div>
+                        <div class="tile-series">60x120cm．600x1200mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">沙洲（3 款）</div>    <div class="product-grid">    <a class="tile-card" href="products/item0049.jpg" target="_blank">
+                    <img src="products/item0049.jpg" alt="瓷磚 HD66RBC3302" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD66RBC3302</div>
+                        <div class="tile-spec">規格：600x600mm．瓷質霧面．60x60cm</div>
+                        <div class="tile-series">60x60cm．600x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD66RBC3305" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD66RBC3305</div>
+                        <div class="tile-spec">規格：600x600mm．瓷質霧面．60x60cm</div>
+                        <div class="tile-series">60x60cm．600x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD66RBC3311" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD66RBC3311</div>
+                        <div class="tile-spec">規格：600x600mm．瓷質霧面．60x60cm</div>
+                        <div class="tile-series">60x60cm．600x600mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">米亞石（4 款）</div>    <div class="product-grid">    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD66RBD3405" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD66RBD3405</div>
+                        <div class="tile-spec">規格：600x600mm．瓷質霧面．60x60cm</div>
+                        <div class="tile-series">60x60cm．600x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD66RBD3401" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD66RBD3401</div>
+                        <div class="tile-spec">規格：600x600mm．瓷質霧面．60x60cm</div>
+                        <div class="tile-series">60x60cm．600x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD30RBD3405" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD30RBD3405</div>
+                        <div class="tile-spec">規格：298x298mm．瓷質霧面．30x30cm</div>
+                        <div class="tile-series">30x30cm．298x298mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="products/item0048.jpg" target="_blank">
+                    <img src="products/item0048.jpg" alt="瓷磚 HD30RBD3401" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD30RBD3401</div>
+                        <div class="tile-spec">規格：298x298mm．瓷質霧面．30x30cm</div>
+                        <div class="tile-series">30x30cm．298x298mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">新美學（2 款）</div>    <div class="product-grid">    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD66RAI1702" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD66RAI1702</div>
+                        <div class="tile-spec">規格：600x600mm．瓷質霧面．60x60cm</div>
+                        <div class="tile-series">60x60cm．600x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="products/item0030.jpg" target="_blank">
+                    <img src="products/item0030.jpg" alt="瓷磚 HD66RAI1701" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD66RAI1701</div>
+                        <div class="tile-spec">規格：600x600mm．瓷質霧面．60x60cm</div>
+                        <div class="tile-series">60x60cm．600x600mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">大地（2 款）</div>    <div class="product-grid">    <a class="tile-card" href="products/item0029.jpg" target="_blank">
+                    <img src="products/item0029.jpg" alt="瓷磚 HD66RAJ1806" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD66RAJ1806</div>
+                        <div class="tile-spec">規格：600x600mm．瓷質霧面．60x60cm</div>
+                        <div class="tile-series">60x60cm．600x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD66RAJ1811" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD66RAJ1811</div>
+                        <div class="tile-spec">規格：600x600mm．瓷質霧面．60x60cm</div>
+                        <div class="tile-series">60x60cm．600x600mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">京華（4 款）</div>    <div class="product-grid">    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD66RAQ2502" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD66RAQ2502</div>
+                        <div class="tile-spec">規格：600x600mm．瓷質霧面．60x60cm</div>
+                        <div class="tile-series">60x60cm．600x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD66RAQ2501" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD66RAQ2501</div>
+                        <div class="tile-spec">規格：600x600mm．瓷質霧面．60x60cm</div>
+                        <div class="tile-series">60x60cm．600x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="products/item0038.jpg" target="_blank">
+                    <img src="products/item0038.jpg" alt="瓷磚 HD66RAQ2505" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD66RAQ2505</div>
+                        <div class="tile-spec">規格：600x600mm．瓷質霧面．60x60cm</div>
+                        <div class="tile-series">60x60cm．600x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 HD66RAQ2598特特" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD66RAQ2598特特</div>
+                        <div class="tile-spec">規格：600x600mm．瓷質霧面．60x60cm</div>
+                        <div class="tile-series">60x60cm．600x600mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">天璽（1 款）</div>    <div class="product-grid">    <a class="tile-card" href="products/item0045.jpg" target="_blank">
+                    <img src="products/item0045.jpg" alt="瓷磚 HD66RAZ3105" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD66RAZ3105</div>
+                        <div class="tile-spec">規格：600x600mm．瓷質霧面．60x60cm</div>
+                        <div class="tile-series">60x60cm．600x600mm</div>
+                    </div>
+                </a>    </div>    </section>    <section id="全釉拋系列-section" class="series-section">    <h3>全釉拋系列</h3>    <div class="sub-series-title">全釉拋星曜石（6 款）</div>    <div class="product-grid">    <a class="tile-card" href="products/item0051.jpg" target="_blank">
+                    <img src="products/item0051.jpg" alt="瓷磚 36RH001" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：36RH001</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質亮面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 36RH002" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：36RH002</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質亮面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 36RH003" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：36RH003</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質亮面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 36RH004" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：36RH004</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質亮面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 36RH005" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：36RH005</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質亮面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 36RH006" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：36RH006</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質亮面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">晶拋帝諾石（1 款）</div>    <div class="product-grid">    <a class="tile-card" href="products/item0005.jpg" target="_blank">
+                    <img src="products/item0005.jpg" alt="瓷磚 HD62RO202P" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：HD62RO202P</div>
+                        <div class="tile-spec">規格：600x1200mm．瓷質半拋．60x120cm</div>
+                        <div class="tile-series">60x120cm．600x1200mm</div>
+                    </div>
+                </a>    </div>    </section>    <section id="高亮釉壁磚系列-section" class="series-section">    <h3>高亮釉壁磚系列</h3>    <div class="sub-series-title">高亮釉（8 款）</div>    <div class="product-grid">    <a class="tile-card" href="products/item0012.jpg" target="_blank">
+                    <img src="products/item0012.jpg" alt="瓷磚 SHD5001" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：SHD5001</div>
+                        <div class="tile-spec">規格：299x600mm．陶質亮面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 SHD5021" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：SHD5021</div>
+                        <div class="tile-spec">規格：299x600mm．陶質亮面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 SHD5022" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：SHD5022</div>
+                        <div class="tile-spec">規格：299x600mm．陶質亮面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 SHD5025" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：SHD5025</div>
+                        <div class="tile-spec">規格：299x600mm．陶質亮面．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="products/item0014.jpg" target="_blank">
+                    <img src="products/item0014.jpg" alt="瓷磚 RW42502" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：RW42502</div>
+                        <div class="tile-spec">規格：250x398mm．陶質亮面．25x40cm</div>
+                        <div class="tile-series">25x40cm．250x398mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 RW42531" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：RW42531</div>
+                        <div class="tile-spec">規格：250x398mm．陶質亮面．25x40cm</div>
+                        <div class="tile-series">25x40cm．250x398mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 RW42532" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：RW42532</div>
+                        <div class="tile-spec">規格：250x398mm．陶質亮面．25x40cm</div>
+                        <div class="tile-series">25x40cm．250x398mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 RW42533" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：RW42533</div>
+                        <div class="tile-spec">規格：250x398mm．陶質亮面．25x40cm</div>
+                        <div class="tile-series">25x40cm．250x398mm</div>
+                    </div>
+                </a>    </div>    </section>    <section id="其他系列-section" class="series-section">    <h3>其他系列</h3>    <div class="sub-series-title">地磚（5 款）</div>    <div class="product-grid">    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 F9N121" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：F9N121</div>
+                        <div class="tile-spec">規格：298x298mm．瓷質．30x30cm</div>
+                        <div class="tile-series">30x30cm．298x298mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 F9N662" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：F9N662</div>
+                        <div class="tile-spec">規格：298x298mm．瓷質．30x30cm</div>
+                        <div class="tile-series">30x30cm．298x298mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 F9N5022" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：F9N5022</div>
+                        <div class="tile-spec">規格：298x298mm．瓷質．30x30cm</div>
+                        <div class="tile-series">30x30cm．298x298mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 F9N5023" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：F9N5023</div>
+                        <div class="tile-spec">規格：298x298mm．瓷質．30x30cm</div>
+                        <div class="tile-series">30x30cm．298x298mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 F9N5031" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：F9N5031</div>
+                        <div class="tile-spec">規格：298x298mm．瓷質．30x30cm</div>
+                        <div class="tile-series">30x30cm．298x298mm</div>
+                    </div>
+                </a>    </div>    </section>    <div class="sub-series-title">超輕量（4 款）</div>    <div class="product-grid">    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 F9N6021" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：F9N6021</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 F9N8031" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：F9N8031</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 F9N9011" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：F9N9011</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    <a class="tile-card" href="hero/slider-hero-3.jpg" target="_blank">
+                    <img src="hero/slider-hero-3.jpg" alt="瓷磚 F9N9015" loading="lazy">
+                    <div class="tile-info">
+                        <div class="tile-model">型號：F9N9015</div>
+                        <div class="tile-spec">規格：299x600mm．瓷質．30x60cm</div>
+                        <div class="tile-series">30x60cm．299x600mm</div>
+                    </div>
+                </a>    </div>    </section>    </div>
     <footer>
         <p>&copy; 2026 昇銓建材有限公司 所有權利reserved</p>
         <p style="margin-top: 12px;">
@@ -91,10 +1200,7 @@
             }, 10);
         }
         function closeMenu() {
-            document.getElementById('sideMenu').classList.remove('open');
-            setTimeout(() => {
-                document.getElementById('sideMenu').style.display = 'none';
-            }, 400);
+            document.getElementById('sideMenu').style.display = 'none';
         }
     </script>
 </body>
