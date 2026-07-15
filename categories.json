@@ -1,0 +1,593 @@
+[
+  {
+    "num": 1,
+    "slider": [
+      "slider_no0058.jpg",
+      "slider_no0189.jpg"
+    ],
+    "products": [
+      "product0832.jpg"
+    ],
+    "use_place": [],
+    "name": "撒哈拉"
+  },
+  {
+    "num": 2,
+    "slider": [
+      "slider_no0047.jpg",
+      "slider_no0049.jpg",
+      "slider_no0051.jpg",
+      "slider_no0163.jpg"
+    ],
+    "products": [
+      "product0720.jpg",
+      "product0722.jpg",
+      "product0723.jpg",
+      "product0724.jpg",
+      "product0820.jpg",
+      "product0821.jpg",
+      "product0868.jpg",
+      "product0870.jpg"
+    ],
+    "use_place": [
+      "use_place0082.jpg"
+    ],
+    "name": "丹峰"
+  },
+  {
+    "num": 3,
+    "slider": [
+      "slider_no0023.jpg",
+      "slider_no0024.jpg",
+      "slider_no0066.jpg"
+    ],
+    "products": [
+      "product0685.jpg",
+      "product0813.jpg",
+      "product0814.jpg",
+      "product0815.jpg"
+    ],
+    "use_place": [],
+    "name": "新美學"
+  },
+  {
+    "num": 4,
+    "slider": [
+      "slider_no0164.jpg",
+      "slider_no0166.jpg"
+    ],
+    "products": [
+      "product0788.jpg",
+      "product0842.jpg",
+      "product0843.jpg",
+      "product0844.jpg"
+    ],
+    "use_place": [
+      "use_place0059.jpg",
+      "use_place0060.jpg",
+      "use_place0061.jpg",
+      "use_place0062.jpg"
+    ],
+    "name": "大地"
+  },
+  {
+    "num": 5,
+    "slider": [
+      "slider_no0112.jpg",
+      "slider_no0113.jpg",
+      "slider_no0114.jpg",
+      "slider_no0115.jpg"
+    ],
+    "products": [
+      "product0833.jpg",
+      "product0834.jpg",
+      "product0835.jpg",
+      "product0836.jpg"
+    ],
+    "use_place": [
+      "use_place0055.jpg",
+      "use_place0056.jpg",
+      "use_place0057.jpg",
+      "use_place0058.jpg"
+    ],
+    "name": "森呼吸"
+  },
+  {
+    "num": 6,
+    "slider": [
+      "slider_no0045.jpg",
+      "slider_no0046.jpg"
+    ],
+    "products": [
+      "product0727.jpg",
+      "product0731.jpg",
+      "product0811.jpg",
+      "product0812.jpg"
+    ],
+    "use_place": [
+      "use_place0054.jpg"
+    ],
+    "name": "京華"
+  },
+  {
+    "num": 7,
+    "slider": [
+      "slider_no0063.jpg",
+      "slider_no0118.jpg",
+      "slider_no0119.jpg"
+    ],
+    "products": [
+      "product0847.jpg",
+      "product0848.jpg",
+      "product0849.jpg",
+      "product0850.jpg"
+    ],
+    "use_place": [],
+    "name": "天璽"
+  },
+  {
+    "num": 8,
+    "slider": [
+      "slider_no0064.jpg"
+    ],
+    "products": [
+      "product0647.jpg",
+      "product0648.jpg",
+      "product0878.jpg"
+    ],
+    "use_place": [
+      "use_place0046.jpg"
+    ],
+    "name": "沙洲"
+  },
+  {
+    "num": 9,
+    "slider": [
+      "slider_no0065.jpg",
+      "slider_no0067.jpg",
+      "slider_no0197.jpg",
+      "slider_no0198.jpg"
+    ],
+    "products": [
+      "product0688.jpg",
+      "product0690.jpg",
+      "product0823.jpg",
+      "product0824.jpg"
+    ],
+    "use_place": [],
+    "name": "米亞石"
+  },
+  {
+    "num": 10,
+    "slider": [
+      "slider_no0070.jpg",
+      "slider_no0071.jpg",
+      "slider_no0072.jpg",
+      "slider_no0073.jpg"
+    ],
+    "products": [
+      "product0649.jpg",
+      "product0650.jpg",
+      "product0651.jpg",
+      "product0652.jpg",
+      "product0653.jpg",
+      "product0654.jpg",
+      "product0655.jpg",
+      "product0657.jpg"
+    ],
+    "use_place": [
+      "use_place0047.jpg",
+      "use_place0048.jpg",
+      "use_place0049.jpg"
+    ],
+    "name": "凱薩石"
+  },
+  {
+    "num": 11,
+    "slider": [
+      "slider_no0074.jpg",
+      "slider_no0187.jpg"
+    ],
+    "products": [
+      "product0772.jpg",
+      "product0773.jpg"
+    ],
+    "use_place": [],
+    "name": "冰峰"
+  },
+  {
+    "num": 12,
+    "slider": [
+      "slider_no0131.jpg",
+      "slider_no0132.jpg",
+      "slider_no0133.jpg",
+      "slider_no0134.jpg",
+      "slider_no0135.jpg",
+      "slider_no0136.jpg",
+      "slider_no0137.jpg",
+      "slider_no0186.jpg"
+    ],
+    "products": [
+      "product0676.jpg",
+      "product0677.jpg",
+      "product0678.jpg",
+      "product0680.jpg",
+      "product0681.jpg",
+      "product0682.jpg",
+      "product0683.jpg",
+      "product0767.jpg"
+    ],
+    "use_place": [],
+    "name": "歐式原木"
+  },
+  {
+    "num": 13,
+    "slider": [
+      "slider_no0087.jpg",
+      "slider_no0089.jpg"
+    ],
+    "products": [
+      "product0736.jpg",
+      "product0737.jpg"
+    ],
+    "use_place": [
+      "use_place0086.jpg"
+    ],
+    "name": "法蘭克石"
+  },
+  {
+    "num": 14,
+    "slider": [
+      "slider_no0088.jpg"
+    ],
+    "products": [
+      "product0828.jpg",
+      "product0829.jpg"
+    ],
+    "use_place": [],
+    "name": "灰晶石"
+  },
+  {
+    "num": 15,
+    "slider": [
+      "slider_no0093.jpg",
+      "slider_no0094.jpg",
+      "slider_no0095.jpg"
+    ],
+    "products": [
+      "product0694.jpg",
+      "product0809.jpg"
+    ],
+    "use_place": [],
+    "name": "星曜石"
+  },
+  {
+    "num": 16,
+    "slider": [
+      "slider_no0096.jpg",
+      "slider_no0097.jpg",
+      "slider_no0184.jpg"
+    ],
+    "products": [
+      "product0746.jpg",
+      "product0747.jpg"
+    ],
+    "use_place": [],
+    "name": "風禾"
+  },
+  {
+    "num": 17,
+    "slider": [
+      "slider_no0101.jpg",
+      "slider_no0102.jpg",
+      "slider_no0103.jpg"
+    ],
+    "products": [
+      "product0666.jpg",
+      "product0668.jpg",
+      "product0769.jpg",
+      "product0770.jpg",
+      "product0771.jpg"
+    ],
+    "use_place": [],
+    "name": "羅曼石"
+  },
+  {
+    "num": 18,
+    "slider": [
+      "slider_no0105.jpg",
+      "slider_no0106.jpg",
+      "slider_no0206.jpg",
+      "slider_no0207.jpg"
+    ],
+    "products": [
+      "product0748.jpg",
+      "product0750.jpg"
+    ],
+    "use_place": [],
+    "name": "天崗石"
+  },
+  {
+    "num": 19,
+    "slider": [
+      "slider_no0107.jpg",
+      "slider_no0190.jpg"
+    ],
+    "products": [
+      "product0831.jpg"
+    ],
+    "use_place": [
+      "use_place0085.jpg"
+    ],
+    "name": "巴洛克"
+  },
+  {
+    "num": 20,
+    "slider": [
+      "slider_no0116.jpg",
+      "slider_no0117.jpg"
+    ],
+    "products": [
+      "product0512.jpg",
+      "product0513.jpg",
+      "product0514.jpg",
+      "product0515.jpg",
+      "product0517.jpg",
+      "product0518.jpg",
+      "product0519.jpg",
+      "product0520.jpg",
+      "product0522.jpg",
+      "product0523.jpg",
+      "product0525.jpg",
+      "product0527.jpg"
+    ],
+    "use_place": [],
+    "name": "雲峰"
+  },
+  {
+    "num": 21,
+    "slider": [
+      "slider_no0120.jpg",
+      "slider_no0121.jpg",
+      "slider_no0202.jpg",
+      "slider_no0203.jpg",
+      "slider_no0204.jpg"
+    ],
+    "products": [
+      "product0754.jpg",
+      "product0755.jpg",
+      "product0756.jpg"
+    ],
+    "use_place": [],
+    "name": "川崎岩"
+  },
+  {
+    "num": 22,
+    "slider": [
+      "slider_no0138.jpg",
+      "slider_no0139.jpg",
+      "slider_no0140.jpg",
+      "slider_no0181.jpg",
+      "slider_no0182.jpg"
+    ],
+    "products": [
+      "product0704.jpg",
+      "product0705.jpg",
+      "product0819.jpg",
+      "product0877.jpg"
+    ],
+    "use_place": [],
+    "name": "雲硯"
+  },
+  {
+    "num": 23,
+    "slider": [
+      "slider_no0141.jpg",
+      "slider_no0142.jpg",
+      "slider_no0143.jpg",
+      "slider_no0167.jpg",
+      "slider_no0168.jpg",
+      "slider_no0177.jpg",
+      "slider_no0185.jpg",
+      "slider_no0205.jpg"
+    ],
+    "products": [
+      "product0709.jpg",
+      "product0711.jpg",
+      "product0807.jpg",
+      "product0838.jpg",
+      "product0839.jpg",
+      "product0840.jpg",
+      "product0861.jpg",
+      "product0864.jpg",
+      "product0865.jpg",
+      "product0866.jpg"
+    ],
+    "use_place": [
+      "use_place0074.jpg",
+      "use_place0075.jpg"
+    ],
+    "name": "當代原木"
+  },
+  {
+    "num": 24,
+    "slider": [
+      "slider_no0144.jpg",
+      "slider_no0145.jpg",
+      "slider_no0147.jpg",
+      "slider_no0151.jpg"
+    ],
+    "products": [
+      "product0638.jpg",
+      "product0768.jpg",
+      "product0801.jpg",
+      "product0802.jpg",
+      "product0803.jpg"
+    ],
+    "use_place": [],
+    "name": "馬雅石"
+  },
+  {
+    "num": 25,
+    "slider": [
+      "slider_no0148.jpg",
+      "slider_no0149.jpg",
+      "slider_no0150.jpg"
+    ],
+    "products": [
+      "product0738.jpg",
+      "product0739.jpg"
+    ],
+    "use_place": [],
+    "name": "起源石"
+  },
+  {
+    "num": 26,
+    "slider": [
+      "slider_no0152.jpg",
+      "slider_no0153.jpg",
+      "slider_no0154.jpg",
+      "slider_no0155.jpg",
+      "slider_no0188.jpg"
+    ],
+    "products": [
+      "product0641.jpg",
+      "product0642.jpg",
+      "product0643.jpg",
+      "product0644.jpg"
+    ],
+    "use_place": [],
+    "name": "經典原木"
+  },
+  {
+    "num": 27,
+    "slider": [
+      "slider_no0157.jpg",
+      "slider_no0158.jpg",
+      "slider_no0159.jpg"
+    ],
+    "products": [
+      "product0716.jpg",
+      "product0804.jpg",
+      "product0805.jpg"
+    ],
+    "use_place": [],
+    "name": "千峰"
+  },
+  {
+    "num": 28,
+    "slider": [
+      "slider_no0160.jpg",
+      "slider_no0195.jpg"
+    ],
+    "products": [
+      "product0830.jpg"
+    ],
+    "use_place": [],
+    "name": "米亞石"
+  },
+  {
+    "num": 29,
+    "slider": [
+      "slider_no0161.jpg"
+    ],
+    "products": [
+      "product0826.jpg",
+      "product0827.jpg"
+    ],
+    "use_place": [],
+    "name": "米羅石"
+  },
+  {
+    "num": 30,
+    "slider": [
+      "slider_no0169.jpg"
+    ],
+    "products": [
+      "product0841.jpg"
+    ],
+    "use_place": [],
+    "name": "巴洛克二代"
+  },
+  {
+    "num": 31,
+    "slider": [
+      "slider_no0170.jpg",
+      "slider_no0171.jpg"
+    ],
+    "products": [
+      "product0851.jpg",
+      "product0852.jpg"
+    ],
+    "use_place": [
+      "use_place0087.jpg"
+    ],
+    "name": "冰峰"
+  },
+  {
+    "num": 32,
+    "slider": [
+      "slider_no0172.jpg",
+      "slider_no0173.jpg",
+      "slider_no0179.jpg"
+    ],
+    "products": [
+      "product0858.jpg",
+      "product0859.jpg",
+      "product0862.jpg",
+      "product0863.jpg"
+    ],
+    "use_place": [],
+    "name": "次世代"
+  },
+  {
+    "num": 33,
+    "slider": [
+      "slider_no0174.jpg",
+      "slider_no0175.jpg",
+      "slider_no0176.jpg"
+    ],
+    "products": [
+      "product0855.jpg",
+      "product0856.jpg",
+      "product0857.jpg"
+    ],
+    "use_place": [],
+    "name": "高亮釉"
+  },
+  {
+    "num": 34,
+    "slider": [
+      "slider_no0178.jpg",
+      "slider_no0196.jpg"
+    ],
+    "products": [
+      "product0860.jpg"
+    ],
+    "use_place": [],
+    "name": "星曜石"
+  },
+  {
+    "num": 35,
+    "slider": [
+      "slider_no0180.jpg"
+    ],
+    "products": [
+      "product0871.jpg",
+      "product0872.jpg",
+      "product0873.jpg",
+      "product0874.jpg",
+      "product0875.jpg",
+      "product0876.jpg"
+    ],
+    "use_place": [
+      "use_place0088.jpg",
+      "use_place0089.jpg",
+      "use_place0090.jpg",
+      "use_place0091.jpg",
+      "use_place0092.jpg",
+      "use_place0093.jpg"
+    ],
+    "name": "撒哈拉"
+  }
+]

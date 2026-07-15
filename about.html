@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於昇銓 — 昇銓建材</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .showroom-gallery {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 10px;
+              margin-top: 20px;
+          }
+          .showroom-gallery img {
+                   width: 100%;
+                   border-radius: 4px;
+                   aspect-ratio: 3/4;
+               }
+        .showroom-caption {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 8px;
+            line-height: 1.6;
+        }
+        .showroom-section {
+            margin-top: 24px;
+            padding: 20px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 8px;
+            border-left: 3px solid var(--pink-deep);
+        }
+        .showroom-section h4 {
+            font-size: 1.1rem;
+            color: var(--pink-dark);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        .showroom-section p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+        .showroom-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        @media (min-width: 768px) {
+            .showroom-grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="brand"><img src="star-cera-logo.png" alt="STAR CERA 昇銓建材"></div>
+        <button class="hamburger" onclick="openMenu()">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <nav class="side-menu" id="sideMenu">
+            <button class="close-btn" onclick="closeMenu()">&times;</button>
+            <a href="index.html">首頁</a>
+            <a href="about.html">關於昇銓</a>
+            <a href="products.html">產品中心</a>
+             <a href="careers.html">徵才專區</a>
+             <a href="contact.html">聯絡我們</a>
+        </nav>
+
+    <!-- 品牌故事 -->
+    <section class="section-title">
+        <h2>品牌故事</h2>
+    </section>
+    <div class="card">
+        <h3>昇銓建材 — 時間淬鍊的磁磚美學</h3>
+         <p style="margin-top: 12px;">
+             一九七五年，陳萬泉先生以一位匠人的執著，在新北板橋創立了「昇銓建材」。從一個小小的建材行，到如今擁有二十位專業團隊、橫跨全台的磁磚批發品牌。
+        </p>
+        <p style="margin-top: 12px;">
+             五十一年，兩萬七千多個日夜。我們見證了台灣無數新屋的落成，也陪伴了無數家庭的幸福遷徙。
+        </p>
+        <p style="margin-top: 12px;">
+             「昇」，是上升、是進步、是不停歇的創新。<br>
+             「銓」，是銓選、是嚴謹、是對品質的堅持。<br><br>
+             昇銓，代表我們對每一片磁磚的嚴選態度。不隨波逐流，不輕言妥協。從產地到客戶手中，每一片磚都要經過我們的眼睛。
+        </p>
+        <p style="margin-top: 12px; font-weight: 600; color: var(--pink-dark);">
+             陳永洋總經理繼續秉持父親的經營哲學，將昇銓的品牌精神傳承下去。
+        </p>
+    </div>
+
+    <!-- 門市實景 -->
+     <section class="section-title">
+         <h2>門市實景</h2>
+     </section>
+     <div class="card">
+         <div class="showroom-caption" style="text-align: center; margin-bottom: 16px;">
+             昇銓建材旗下「紅螞蟻磁磚」品牌，以現代化展間設計呈現全品類磁磚解決方案。展間採用黑色金屬框架搭配暖色 LED 燈條，營造專業且高雅的購物環境。
+         </div>
+        
+         <div class="showroom-gallery">
+              <img src="showroom-images/img1.png" alt="門市實景展示1">
+              <img src="showroom-images/img2.png" alt="門市實景展示2">
+              <img src="showroom-images/img3.png" alt="門市實景展示3">
+              <img src="showroom-images/img4.png" alt="門市實景展示4">
+              <img src="showroom-images/img5.png" alt="門市實景展示5">
+              <img src="showroom-images/img6.png" alt="門市實景展示6">
+          </div>
+         </div>
+
+         <!-- 柯有倫生日照 -->
+         <section class="section-title">
+          <h2>品牌大使 柯有倫</h2>
+         </section>
+         <div class="card" style="padding: 0; overflow: hidden; border: none; position: relative;">
+           <img src="hero/slider18.jpg" alt="品牌大使 柯有倫" style="width: 100%; height: auto; display: block;">
+           <a href="products.html" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: inline-block; padding: 12px 32px; background: var(--pink-deep); color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.95rem; font-weight: 700; letter-spacing: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); transition: background 0.3s;">產品目錄</a>
+          </div>
+
+         <!-- 產品特色 -->
+    <section class="section-title">
+        <h2>產品特色</h2>
+    </section>
+    <div class="card">
+        <div class="showroom-section">
+            <h4>全品類磁磚解決方案</h4>
+            <p>從仿木紋、仿石紋、仿大理紋到幾何拼花，昇銓建材與國內外頂尖品牌合作，提供完整的磁磚產品線。展間內每款產品皆以實際鋪貼方式呈現，讓客戶直觀感受質感、色差與搭配效果。</p>
+        </div>
+        <div class="showroom-section" style="margin-top: 16px;">
+            <h4>專業顧問服務</h4>
+            <p>從選磚建議、用量估算到施工規劃，我們的團隊不只是業務，更是您的磁磚顧問。五十一年產業經驗，讓每一片推薦的磁磚都能符合您的需求。</p>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-link" style="margin: 20px; display: block;">返回首頁</a>
+
+    <footer>
+        <p>&copy; 2026 昇銓建材有限公司 所有權利reserved</p>
+        <p style="margin-top: 12px;">
+            網頁設計 by 刷個存在感
+        </p>
+    </footer>
+
+    <script>
+         // Scroll reveal
+         const observer = new IntersectionObserver((entries) => {
+             entries.forEach(entry => {
+                 if (entry.isIntersecting) {
+                     entry.target.classList.add('visible');
+                 }
+             });
+         }, { threshold: 0.1 });
+
+         document.querySelectorAll('.card, .section-title, .showroom-section').forEach(el => {
+             el.classList.add('reveal');
+             observer.observe(el);
+         });
+
+         function openMenu() {
+             document.getElementById('sideMenu').style.display = 'flex';
+             setTimeout(() => {
+                 document.getElementById('sideMenu').classList.add('open');
+             }, 10);
+         }
+         function closeMenu() {
+             document.getElementById('sideMenu').classList.remove('open');
+             setTimeout(() => {
+                 document.getElementById('sideMenu').style.display = 'none';
+             }, 400);
+         }
+     </script>
+    </body>
+    </html>
