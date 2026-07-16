@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>產品中心 — 昇銓建材</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Product Directory Cards */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            padding: 8px 20px 24px;
+        }
+        .category-card {
+            position: relative;
+            display: block;
+            border-radius: 8px;
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--white);
+            background: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+        .category-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(193,124,116,0.25);
+        }
+        .category-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            display: block;
+        }
+        .category-card .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.7) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 10px;
+        }
+        .category-card .cat-name {
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 2px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+        .category-card .cat-count {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.8);
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <img src="star-cera-logo.png" alt="STAR CERA 昇銓建材">
+        </div>
+        <button class="hamburger" onclick="openMenu()">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <nav class="side-menu" id="sideMenu">
+            <button class="close-btn" onclick="closeMenu()">&times;</button>
+            <a href="index.html">首頁</a>
+            <a href="about.html">關於昇銓</a>
+            <a href="products.html">產品中心</a>
+             <a href="careers.html">徵才專區</a>
+             <a href="contact.html">聯絡我們</a>
+        </nav>
+
+    <!-- Hero -->
+    <section class="products-hero">
+        <h1>產品中心</h1>
+        <p>紅螞蟻磁磚 完整系列 | 昇銓建材嚴選</p>
+    </section>
+
+    <!-- 產品目錄選項 -->
+    <section class="section-title">
+        <h2>產品目錄選項</h2>
+    </section>
+    <div class="category-grid">
+    <a class="category-card" href="cat-1.html">
+        <img src="products/slider_no0058.jpg" alt="撒哈拉">
+        <div class="overlay">
+            <span class="cat-name">撒哈拉</span>
+            <span class="cat-count">1 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-2.html">
+        <img src="products/slider_no0047.jpg" alt="丹峰">
+        <div class="overlay">
+            <span class="cat-name">丹峰</span>
+            <span class="cat-count">8 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-3.html">
+        <img src="products/slider_no0023.jpg" alt="新美學">
+        <div class="overlay">
+            <span class="cat-name">新美學</span>
+            <span class="cat-count">4 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-4.html">
+        <img src="products/slider_no0164.jpg" alt="大地">
+        <div class="overlay">
+            <span class="cat-name">大地</span>
+            <span class="cat-count">4 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-5.html">
+        <img src="products/slider_no0112.jpg" alt="森呼吸">
+        <div class="overlay">
+            <span class="cat-name">森呼吸</span>
+            <span class="cat-count">4 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-6.html">
+        <img src="products/slider_no0045.jpg" alt="京華">
+        <div class="overlay">
+            <span class="cat-name">京華</span>
+            <span class="cat-count">4 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-7.html">
+        <img src="products/slider_no0063.jpg" alt="天璽">
+        <div class="overlay">
+            <span class="cat-name">天璽</span>
+            <span class="cat-count">4 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-8.html">
+        <img src="products/slider_no0064.jpg" alt="沙洲">
+        <div class="overlay">
+            <span class="cat-name">沙洲</span>
+            <span class="cat-count">3 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-9.html">
+        <img src="products/slider_no0065.jpg" alt="米亞石">
+        <div class="overlay">
+            <span class="cat-name">米亞石</span>
+            <span class="cat-count">4 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-10.html">
+        <img src="products/slider_no0070.jpg" alt="凱薩石">
+        <div class="overlay">
+            <span class="cat-name">凱薩石</span>
+            <span class="cat-count">8 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-11.html">
+        <img src="products/slider_no0074.jpg" alt="冰峰">
+        <div class="overlay">
+            <span class="cat-name">冰峰</span>
+            <span class="cat-count">2 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-12.html">
+        <img src="products/slider_no0131.jpg" alt="歐式原木">
+        <div class="overlay">
+            <span class="cat-name">歐式原木</span>
+            <span class="cat-count">8 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-13.html">
+        <img src="products/slider_no0087.jpg" alt="法蘭克石">
+        <div class="overlay">
+            <span class="cat-name">法蘭克石</span>
+            <span class="cat-count">2 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-14.html">
+        <img src="products/slider_no0088.jpg" alt="灰晶石">
+        <div class="overlay">
+            <span class="cat-name">灰晶石</span>
+            <span class="cat-count">2 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-15.html">
+        <img src="products/slider_no0093.jpg" alt="星曜石">
+        <div class="overlay">
+            <span class="cat-name">星曜石</span>
+            <span class="cat-count">2 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-16.html">
+        <img src="products/slider_no0096.jpg" alt="風禾">
+        <div class="overlay">
+            <span class="cat-name">風禾</span>
+            <span class="cat-count">2 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-17.html">
+        <img src="products/slider_no0101.jpg" alt="羅曼石">
+        <div class="overlay">
+            <span class="cat-name">羅曼石</span>
+            <span class="cat-count">5 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-18.html">
+        <img src="products/slider_no0105.jpg" alt="天崗石">
+        <div class="overlay">
+            <span class="cat-name">天崗石</span>
+            <span class="cat-count">2 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-19.html">
+        <img src="products/slider_no0107.jpg" alt="巴洛克">
+        <div class="overlay">
+            <span class="cat-name">巴洛克</span>
+            <span class="cat-count">1 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-20.html">
+        <img src="products/slider_no0116.jpg" alt="雲峰">
+        <div class="overlay">
+            <span class="cat-name">雲峰</span>
+            <span class="cat-count">12 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-21.html">
+        <img src="products/slider_no0120.jpg" alt="川崎岩">
+        <div class="overlay">
+            <span class="cat-name">川崎岩</span>
+            <span class="cat-count">3 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-22.html">
+        <img src="products/slider_no0138.jpg" alt="雲硯">
+        <div class="overlay">
+            <span class="cat-name">雲硯</span>
+            <span class="cat-count">4 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-23.html">
+        <img src="products/slider_no0141.jpg" alt="當代原木">
+        <div class="overlay">
+            <span class="cat-name">當代原木</span>
+            <span class="cat-count">10 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-24.html">
+        <img src="products/slider_no0144.jpg" alt="馬雅石">
+        <div class="overlay">
+            <span class="cat-name">馬雅石</span>
+            <span class="cat-count">5 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-25.html">
+        <img src="products/slider_no0148.jpg" alt="起源石">
+        <div class="overlay">
+            <span class="cat-name">起源石</span>
+            <span class="cat-count">2 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-26.html">
+        <img src="products/slider_no0152.jpg" alt="經典原木">
+        <div class="overlay">
+            <span class="cat-name">經典原木</span>
+            <span class="cat-count">4 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-27.html">
+        <img src="products/slider_no0157.jpg" alt="千峰">
+        <div class="overlay">
+            <span class="cat-name">千峰</span>
+            <span class="cat-count">3 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-28.html">
+        <img src="products/slider_no0160.jpg" alt="米亞石">
+        <div class="overlay">
+            <span class="cat-name">米亞石</span>
+            <span class="cat-count">1 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-29.html">
+        <img src="products/slider_no0161.jpg" alt="米羅石">
+        <div class="overlay">
+            <span class="cat-name">米羅石</span>
+            <span class="cat-count">2 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-30.html">
+        <img src="products/slider_no0169.jpg" alt="巴洛克二代">
+        <div class="overlay">
+            <span class="cat-name">巴洛克二代</span>
+            <span class="cat-count">1 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-31.html">
+        <img src="products/slider_no0170.jpg" alt="冰峰">
+        <div class="overlay">
+            <span class="cat-name">冰峰</span>
+            <span class="cat-count">2 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-32.html">
+        <img src="products/slider_no0172.jpg" alt="次世代">
+        <div class="overlay">
+            <span class="cat-name">次世代</span>
+            <span class="cat-count">4 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-33.html">
+        <img src="products/slider_no0174.jpg" alt="高亮釉">
+        <div class="overlay">
+            <span class="cat-name">高亮釉</span>
+            <span class="cat-count">3 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-34.html">
+        <img src="products/slider_no0178.jpg" alt="星曜石">
+        <div class="overlay">
+            <span class="cat-name">星曜石</span>
+            <span class="cat-count">1 款產品</span>
+        </div>
+    </a>
+    <a class="category-card" href="cat-35.html">
+        <img src="products/slider_no0180.jpg" alt="撒哈拉">
+        <div class="overlay">
+            <span class="cat-name">撒哈拉</span>
+            <span class="cat-count">6 款產品</span>
+        </div>
+    </a>
+    </div>
+
+
+    <footer style="text-align:center;padding:12px 20px;color:var(--muted);font-size:0.75rem;background:var(--pink-bg);">
+        <p>雙北經銷商     昇銓建材有限公司</p>
+    </footer>
+
+    <script>
+         function openMenu() {
+             document.getElementById('sideMenu').classList.add('open');
+         }
+         function closeMenu() {
+             document.getElementById('sideMenu').classList.remove('open');
+         }
+    </script>
+</body>
+</html>
